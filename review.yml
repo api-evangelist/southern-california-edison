@@ -1,0 +1,392 @@
+aid: southern-california-edison
+name: Southern California Edison
+review:
+  question: Does Southern California Edison expose a public, documented API surface
+    for customer energy data or for grid/market data, and is the mandate that covers
+    it actually implemented?
+  answer: partial
+  date: '2026-07-27'
+  reviewer: API Evangelist
+  homeMarket: United States
+  tier: utility-retailer
+  summary: |
+    SCE is a California investor-owned utility with a two-speed API posture. The
+    consumer data side is regulated, real, and completely closed to the open web:
+    Green Button Connect My Data runs on SCE's Customer Data Access platform under
+    CPUC tariff Rule 26, with OAuth 2.0 and a bulk API named as technical
+    requirements, but with no published base URI, endpoint list, scope list,
+    OpenAPI, or sandbox. The grid data side is genuinely open: an anonymous,
+    key-free ArcGIS REST catalog at drpep.sce.com serves fifteen hosted
+    FeatureServers of Integration Capacity Analysis and distribution data. No
+    developer portal exists on any sce.com subdomain.
+
+mandate:
+  regime: other
+  regimeNote: |
+    Not CDR-energy (Australia only), not Ontario Green Button, not a UK-style smart
+    meter infrastructure mandate, and NOT the "voluntary US Green Button" case
+    either. SCE's obligation is a US STATE regulatory mandate: California Public
+    Utilities Commission tariff Rule 26, "Release of Customer Data or Energy Usage
+    Related Data to Third Parties", filed under Advice 3087-E on 2014-07-30,
+    effective 2014-08-29, implementing CPUC Decision 14-05-016. The tariff text was
+    harvested and read directly (see evidence below) and states that "Technical
+    eligibility criteria may change, from time to time, consistent with the NAESB
+    ESPI Standard" and that third parties "must demonstrate connectivity aptitude
+    through the machine-to-machine verification of the third parties' technical
+    feasibility to receive Customer Data securely from SCE, as described in more
+    detail at http://on.sce.com/3rdparty". So the mandate is real and it is a
+    compulsion, but it is a state tariff rather than any of the named regimes -
+    hence `other`.
+  status: live-claimed-unverified
+  statusNote: |
+    Ruthless reading. What was VERIFIED with live HTTP 200s: (a) the tariff exists
+    and is in force - Rule26.pdf fetched, 239,298 bytes, text extracted, NAESB ESPI
+    and CPUC D.14-05-016 references confirmed verbatim; (b) SCE publicly states the
+    program operates and names its technical requirements - "OAuth 2.0" and "bulk
+    API" and "consistent with the standard adopted by the North American Energy
+    Standards Board (NAESB) to support the Green Button Initiative"; (c) a live
+    third-party registration surface exists and returns 200. What was NOT verified:
+    no base URI, no ESPI resource endpoint, no ApplicationInformation document, no
+    OpenAPI, no scope list, no sandbox, and no Green Button Alliance certification
+    entry naming SCE. Probes of api.sce.com for ESPI-shaped paths
+    (/espi/1_1/resource/ApplicationInformation, /DataCustodian/espi/1_1/...,
+    /greenbutton/..., /oauth/token) all returned HTTP 500 from an IBM DataPower/API
+    Connect gateway with the body "Dynamic backend host not specified" - i.e. a real
+    API gateway is there, but nothing is routed to an anonymous caller. Because no
+    endpoint, register entry, or standards-conformant surface could be observed, the
+    honest status is live-claimed-unverified, NOT live-implemented. A tariff
+    obligation and a compliance page are not an implementation.
+  greenButtonDownloadMyData:
+    status: not-verified
+    note: |
+      SCE's Customer Data Access Terms & Conditions page references a "Green Button
+      Connect My Data Authorization" landing page inside My Account. Any Download My
+      Data (DMD) file export would sit behind that customer login, which was not
+      accessed. Not claimed as verified.
+  greenButtonAllianceCertification:
+    status: not-found
+    note: |
+      greenbuttonalliance.org was fetched (HTTP 200). SCE is not mentioned anywhere
+      on the Green Button Alliance homepage or in the sponsor/member listing shown
+      there. https://www.greenbuttonalliance.org/certified-products returned HTTP
+      404, so no certified-products register could be checked. No certification is
+      claimed.
+
+dataStandard:
+  name: NAESB ESPI / Green Button (Connect My Data)
+  version: not published by SCE
+  evidence: |
+    Named twice in first-party sources: SCE's public third-party page
+    ("consistent with the standard adopted by the North American Energy Standards
+    Board (NAESB) to support the Green Button Initiative") and the Rule 26 tariff
+    ("consistent with the NAESB ESPI Standard"). SCE never publishes an ESPI version
+    number, an XSD, an Atom feed shape, or a resource model. For grid data the de
+    facto standard is the Esri ArcGIS REST interface (server currentVersion 11.1) -
+    not an energy-sector standard. No IEEE 2030.5, IEC CIM 61968/61970, OpenADR,
+    OCPP, or OCPI reference was found on any SCE surface probed.
+
+consumerVsMarketDataSplit:
+  consumerDataAPI: true
+  consumerDataAPINote: |
+    A third party CAN obtain an individual customer's usage and billing data through
+    a documented program - Green Button Connect My Data on the Customer Data Access
+    platform - but "documented" here means a program page and a tariff, not an API
+    reference. Nothing about the interface is public. This is the sector's classic
+    shape: mandated, real, and invisible from the outside.
+  marketDataOpen: true
+  marketDataOpenNote: |
+    SCE's Distribution Resources Plan External Portal (DRPEP) is genuinely open. The
+    ArcGIS REST catalog at https://drpep.sce.com/arcgis_server/rest/services returns
+    JSON anonymously (HTTP 200) and the Hosted folder lists fifteen FeatureServers:
+    AVL_LOAD_CAP_TOGGLE, AVL_LOAD_HEAT_MAP_TOGGLE, DDOR_Layer,
+    Distribution_circuits, DRP_PSPS_Layer, DRP_ScreenL_08202021,
+    DRP_Transmission_Projects, Firemap, GNA_Layer, ICA_Layer, ICA_Tables,
+    LNBA_Layer, LOAD_GROWTH_PEN_HTMAP, MGEP_AVL_LOAD_HEAT_MAP, SUBTRANS_HEATMAP.
+    ICA_Layer alone exposes fourteen Integration Capacity Analysis feature layers
+    (circuit segments, generation/load thermal, steady-state voltage, voltage
+    variation, protection, op flex, solar PV static grid). A sibling ArcGIS Hub open
+    data site returns 200 at https://drpep-sce2.opendata.arcgis.com/. SCE also
+    publishes aggregated quarterly Electric Usage By ZIP spreadsheets (.xlsx) on its
+    regulatory compliance page - open, but files rather than an API.
+  theFinding: |
+    The split IS the finding. Anonymous grid data is wide open and machine-readable
+    today; the mandated consumer data API is bound by a state tariff and cannot be
+    seen, tried, or specified by anyone who has not first registered as a third
+    party with a Taxpayer Identification Number. Open where nobody is compelled,
+    closed where someone is.
+
+accessGate:
+  gate: application-approval
+  whatADeveloperMustDo: |
+    For consumer data (Green Button Connect My Data), four steps taken verbatim from
+    https://www.sce.com/partners/partnerships/thirdpartylandingpage (HTTP 200):
+      1. Create a Third Party User ID and password; the User ID must be an email
+         address not previously registered as an SCE.com user ID.
+      2. Supply the organization's Taxpayer Identification Number (TIN).
+      3. Agree to SCE's Third Party Registration Terms & Conditions for the use of
+         customer data.
+      4. Pass a connectivity test - "a connectivity test, which tests the connection
+         between your computer system and ours, must be performed. We'll contact a
+         designated person familiar with the computer systems in your organization."
+    Registration entry point: https://www.sce.com/user-registration?userType=4
+    (HTTP 200). Existing vendors manage their profile via a WebSphere portal URL on
+    wwwsysb1.sce.com. Customer authorization on top of that is per-customer via the
+    Green Button Connect My Data Authorization page inside My Account, or via a
+    Customer Information Service Request (CISR) form (ELECTRIC_FORMS_14-796.pdf,
+    HTTP 200) for the non-API path.
+    Alternate lanes, both gated: Demand Response Providers work under CPUC Rule 24
+    (Rule24Support@sce.com); governments and researchers use the Energy Data Request
+    Program at /partners/partnerships/edrp - that page rendered empty to an
+    anonymous fetch, its content sits behind an Okta-gated shell.
+    For grid data (DRPEP ArcGIS REST): no gate at all. Anonymous GET, no key, no
+    registration, no terms click-through.
+
+authModel:
+  consumerData:
+    scheme: OAuth 2.0 (authorization code, per SCE's own wording) plus a bulk file
+      transfer API; specifics undisclosed
+    evidence: |
+      SCE states third parties must have "technical system capabilities to complete
+      customer authorization using OAuth 2.0 and process files that are transferred
+      using bulk API." No authorization endpoint, token endpoint, scope list, client
+      registration flow, or redirect URI policy is published.
+  gridData:
+    scheme: none - anonymous
+    evidence: |
+      https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json returns 200
+      JSON with no token. Note that
+      https://drpep.sce.com/arcgis_server/rest/info?f=json reports
+      "isTokenBasedSecurity": true with a token service at
+      https://drpep.sce.com/arcgis_portal/sharing/rest/generateToken - but the
+      Hosted folder services are shared publicly and answer anonymously. The
+      sibling Utilities folder does require a token (HTTP 200 body
+      {"error":{"code":499,"message":"Token Required"}}).
+  identityProvider:
+    note: |
+      SCE fronts its web logins with Okta. https://sce.okta.com/.well-known/openid-configuration
+      returns HTTP 200 JSON (issuer https://sce.okta.com, authorization_endpoint
+      /oauth2/v1/authorize, token_endpoint /oauth2/v1/token, jwks_uri /oauth2/v1/keys).
+      This is SCE's Okta org discovery document, fetched anonymously; it is NOT
+      evidence of a Green Button OAuth surface and is recorded only as the observed
+      identity infrastructure. https://www.sce.com/.well-known/openid-configuration
+      returns 404.
+  apiGateway:
+    note: |
+      api.sce.com is live and fronted by Imperva, backed by an IBM DataPower / API
+      Connect gateway - every path probed returned HTTP 500 with a SOAP fault body
+      "Dynamic backend host not specified". Real API infrastructure, no anonymous
+      route, nothing documented.
+
+developerPortal:
+  exists: false
+  note: |
+    No developer portal was found. Probed and recorded: developer.sce.com (000, no
+    DNS/connection), developers.sce.com (000), docs.sce.com (000), data.sce.com
+    (000), apis.sce.com (000), portal.sce.com (000), partners.sce.com (000),
+    sharemydata.sce.com (000), smd.sce.com (000), greenbutton.sce.com (000),
+    energydata.sce.com (000), gbc.sce.com (000), api.sce.com (500 gateway fault).
+    Paths: /developers (404), /data (404), /openapi.json (404), /swagger.json (404),
+    /.well-known/openid-configuration (404). The closest thing to a portal is the
+    third-party registration landing page, which is a registration funnel and not a
+    developer portal.
+
+probes:
+  - url: https://www.sce.com/
+    status: 200
+    date: '2026-07-27'
+    note: Corporate site, Drupal; sitemap.xml fetched (2,358 <loc> entries).
+  - url: https://developer.sce.com/
+    status: 000
+    date: '2026-07-27'
+    note: No connection - no developer subdomain exists.
+  - url: https://developers.sce.com/
+    status: 000
+    date: '2026-07-27'
+  - url: https://docs.sce.com/
+    status: 000
+    date: '2026-07-27'
+  - url: https://data.sce.com/
+    status: 000
+    date: '2026-07-27'
+  - url: https://api.sce.com/
+    status: 500
+    date: '2026-07-27'
+    note: |
+      IBM DataPower/API Connect gateway behind Imperva. Body is a SOAP env:Fault with
+      error_message "Dynamic backend host not specified", error_code 0x01130009.
+      Same 500 for /GreenButtonConnect, /oauth/token, /v1/greenbutton, and three
+      ESPI-shaped resource paths.
+  - url: https://www.sce.com/.well-known/openid-configuration
+    status: 404
+    date: '2026-07-27'
+  - url: https://sce.okta.com/.well-known/openid-configuration
+    status: 200
+    date: '2026-07-27'
+    note: Okta org discovery document, fetched anonymously. Not a Green Button surface.
+  - url: https://www.sce.com/openapi.json
+    status: 404
+    date: '2026-07-27'
+  - url: https://www.sce.com/swagger.json
+    status: 404
+    date: '2026-07-27'
+  - url: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Primary first-party source. Names Green Button, NAESB, OAuth 2.0, bulk API,
+      GreenButton@sce.com, Rule24Support@sce.com, EnergyDataRequest_EDRP@sce.com,
+      3RDPARTY@sce.com and 1-844-235-2068.
+  - url: https://www.sce.com/partners/partnerships/thirdpartylandingpage
+    status: 200
+    date: '2026-07-27'
+    note: "Titled \"Green Button – Third Party Connection\". Four-step registration
+      requirements captured verbatim."
+  - url: https://www.sce.com/user-registration?userType=4
+    status: 200
+    date: '2026-07-27'
+    note: Third-party registration entry point.
+  - url: https://www.sce.com/terms-conditions/customer-data-access-terms-conditions
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Customer Data Access Terms & Conditions; references the "Green Button Connect
+      My Data Authorization" page in My Account and 36 months of historical meter
+      data for Demand Response Providers.
+  - url: https://www.sce.com/sites/default/files/inline-files/Rule26.pdf
+    status: 200
+    date: '2026-07-27'
+    note: |
+      239,298 bytes. Tariff Rule 26 "Release of Customer Data or Energy Usage Related
+      Data to Third Parties", Advice 3087-E, filed 2014-07-30, effective 2014-08-29,
+      Decision 14-05-016. Text extracted and read; NAESB ESPI Standard and
+      machine-to-machine technical eligibility language confirmed verbatim.
+  - url: https://www.sce.com/sites/default/files/custom-files/PDF_Files/ELECTRIC_FORMS_14-796.pdf
+    status: 200
+    date: '2026-07-27'
+    note: Customer Information Service Request (CISR) form - the non-API data lane.
+  - url: https://www.sce.com/sites/default/files/inline-files/Data_Element_Descriptions_SCE_1.pdf
+    status: 200
+    date: '2026-07-27'
+    note: Data element descriptions for shared customer data.
+  - url: https://www.sce.com/partners/partnerships/edrp
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Energy Data Request Program. Page renders as an empty header/footer shell to an
+      anonymous fetch; content behind an Okta-gated app. No API or portal observable.
+  - url: https://www.sce.com/regulatory/regulatory-information/energy-data-reports-compliances
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Publishes aggregated quarterly Electric Usage By ZIP spreadsheets, e.g.
+      /sites/default/files/custom-files/PDF_Files/SCE_2024_Q1_ElectricUsageByZip.xlsx.
+      Open data as files, not an API.
+  - url: https://drpep.sce.com/drpep/
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Distribution Resources Plan External Portal, an Esri Experience Builder app.
+      Its public app config at /drpep/cdn/31/config.json (200, 2,204,465 bytes)
+      enumerates the backing service URLs.
+  - url: https://drpep.sce.com/arcgis_server/rest/services?f=json
+    status: 200
+    date: '2026-07-27'
+    note: 'Anonymous. Returns {"currentVersion":11.1,"folders":["Hosted","Utilities"],"services":[]}'
+  - url: https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json
+    status: 200
+    date: '2026-07-27'
+    note: Anonymous. 15 FeatureServers. Saved verbatim to arcgis/sce-drpep-arcgis-services-catalog.json
+  - url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer?f=json
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Anonymous. 14 Integration Capacity Analysis feature layers. Saved verbatim to
+      arcgis/sce-drpep-ica-layer-featureserver.json
+  - url: https://drpep.sce.com/arcgis_server/rest/info?f=json
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Anonymous. Reports isTokenBasedSecurity true with generateToken at
+      /arcgis_portal/sharing/rest/generateToken, yet the Hosted services answer
+      without a token. Saved verbatim to arcgis/sce-drpep-arcgis-rest-info.json
+  - url: https://drpep.sce.com/arcgis_server/rest/services/Utilities?f=json
+    status: 200
+    date: '2026-07-27'
+    note: 'Body is an error: {"error":{"code":499,"message":"Token Required"}}. This
+      folder is NOT open.'
+  - url: https://drpep.sce.com/api/op3?circuit=TEST&kv=12
+    status: 200
+    date: '2026-07-27'
+    note: |
+      Undocumented JSON endpoint referenced by the DRPEP app config. Answers
+      anonymously. Not listed as an API in apis.yml because SCE publishes no contract
+      for it.
+  - url: https://drpep.sce.com/api/DownloadCSV?circuitName=TEST&nodeName=TEST
+    status: 201
+    date: '2026-07-27'
+    note: Undocumented DRPEP CSV download endpoint; answers anonymously.
+  - url: https://drpep-sce2.opendata.arcgis.com/
+    status: 200
+    date: '2026-07-27'
+    note: ArcGIS Hub open data site paired with DRPEP.
+  - url: https://www.greenbuttonalliance.org/
+    status: 200
+    date: '2026-07-27'
+    note: SCE not mentioned in the homepage content or member/sponsor listing shown.
+  - url: https://www.greenbuttonalliance.org/certified-products
+    status: 404
+    date: '2026-07-27'
+    note: No certified-products register available to check.
+
+artifacts:
+  openapi:
+    harvested: false
+    count: 0
+    note: |
+      No OpenAPI, Swagger, RAML, AsyncAPI, Postman collection, or any other API
+      contract was found on any SCE surface. /openapi.json, /swagger.json,
+      /api-docs, and the developer/docs/api subdomains were all probed and all
+      404'd or failed to resolve. Nothing was fabricated and the openapi/ directory
+      is therefore omitted.
+  arcgis:
+    harvested: true
+    count: 3
+    files:
+      - path: arcgis/sce-drpep-arcgis-services-catalog.json
+        source: https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json
+        status: 200
+        fetched: '2026-07-27'
+      - path: arcgis/sce-drpep-ica-layer-featureserver.json
+        source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer?f=json
+        status: 200
+        fetched: '2026-07-27'
+      - path: arcgis/sce-drpep-arcgis-rest-info.json
+        source: https://drpep.sce.com/arcgis_server/rest/info?f=json
+        status: 200
+        fetched: '2026-07-27'
+    note: |
+      Saved verbatim as fetched. These are Esri ArcGIS REST service descriptors, not
+      OpenAPI, and are deliberately kept out of openapi/ so nothing is
+      misrepresented.
+
+relatedEntities:
+  - slug: edison-international
+    relationship: parent
+    note: SCE is the regulated utility subsidiary of Edison International (NYSE - EIX).
+
+sources:
+  - url: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
+    type: Documentation
+    note: Green Button, NAESB, OAuth 2.0, bulk API, and all four data-access lanes.
+  - url: https://www.sce.com/partners/partnerships/thirdpartylandingpage
+    type: Portal
+    note: Third-party registration requirements, verbatim.
+  - url: https://www.sce.com/sites/default/files/inline-files/Rule26.pdf
+    type: Reference
+    note: The tariff that carries the obligation. Read directly, not summarized from
+      a secondary source.
+  - url: https://www.sce.com/terms-conditions/customer-data-access-terms-conditions
+    type: TermsOfService
+  - url: https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json
+    type: APIReference
+    note: The one anonymous machine-readable surface SCE actually serves.

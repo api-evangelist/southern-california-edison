@@ -1,0 +1,136 @@
+aid: southern-california-edison
+url: https://raw.githubusercontent.com/api-evangelist/southern-california-edison/refs/heads/main/apis.yml
+name: Southern California Edison
+kind: company
+description: Southern California Edison (SCE) is the regulated electric utility subsidiary
+  of Edison International, delivering power to roughly 15 million people across a 50,000
+  square-mile service territory in central, coastal, and southern California. In the
+  United States energy value chain SCE sits at the distribution and retail layer as
+  an investor-owned utility (IOU) regulated by the California Public Utilities Commission,
+  operating the meters, the distribution grid, and the customer of record relationship
+  that every downstream energy-data platform, DER aggregator, demand response provider,
+  and solar installer ultimately depends on. Its API posture splits cleanly in two.
+  Consumer data is mandated but closed to the open web - SCE runs Green Button Connect
+  My Data through its Customer Data Access platform under CPUC tariff Rule 26 (Advice
+  3087-E, Decision 14-05-016), and states publicly that third parties need OAuth 2.0
+  and bulk API capability consistent with the NAESB ESPI standard, but publishes no
+  developer portal, no base URI, no OpenAPI, and no sandbox - a third party must register
+  with a Taxpayer Identification Number, accept terms, and pass a machine-to-machine
+  connectivity test before any endpoint is disclosed. Grid data is genuinely open -
+  SCE's Distribution Resources Plan External Portal (DRPEP) serves Integration Capacity
+  Analysis, distribution circuit, PSPS, fire map, and load growth layers over an anonymous,
+  unauthenticated ArcGIS REST service catalog that any developer can query today without
+  a key.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/southern-california-edison.png
+tags:
+- Energy
+- United States
+- Utilities
+- Electricity
+- Smart Metering
+- Green Button
+- Grid
+- Demand Response
+- Solar
+- DER
+- EV Charging
+- California
+created: '2026-07-27'
+modified: '2026-07-27'
+specificationVersion: '0.19'
+apis:
+- aid: southern-california-edison:sce-green-button-connect-my-data
+  name: SCE Green Button Connect My Data
+  description: SCE's Customer Data Access (CDA) platform, through which a customer
+    can authorize a registered third party to receive their electric usage and billing
+    data. SCE states on its public third-party page that the program "leverages technology
+    consistent with the standard adopted by the North American Energy Standards Board
+    (NAESB) to support the Green Button Initiative" and that third parties must have
+    "technical system capabilities to complete customer authorization using OAuth 2.0
+    and process files that are transferred using bulk API." No base URI, endpoint list,
+    OpenAPI definition, scope list, or sandbox is published anywhere on sce.com - the
+    interface is disclosed only after a third party registers, provides a Taxpayer
+    Identification Number, accepts the Third Party Registration Terms & Conditions,
+    and passes an SCE-run connectivity test. The obligation to offer it is a California
+    regulatory one, carried in SCE tariff Rule 26 "Release of Customer Data or Energy
+    Usage Related Data to Third Parties" (Advice 3087-E, filed 2014-07-30, effective
+    2014-08-29, implementing CPUC Decision 14-05-016), which explicitly ties technical
+    eligibility criteria to the NAESB ESPI standard.
+  humanURL: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
+  tags:
+  - Green Button
+  - Customer Data
+  - Smart Metering
+  - OAuth
+  - ESPI
+  properties:
+  - type: Documentation
+    url: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
+  - type: Portal
+    url: https://www.sce.com/partners/partnerships/thirdpartylandingpage
+  - type: Signup
+    url: https://www.sce.com/user-registration?userType=4
+  - type: TermsOfService
+    url: https://www.sce.com/terms-conditions/customer-data-access-terms-conditions
+  - type: Reference
+    url: https://www.sce.com/sites/default/files/inline-files/Rule26.pdf
+  - type: Reference
+    url: https://www.sce.com/sites/default/files/inline-files/Data_Element_Descriptions_SCE_1.pdf
+  - type: Support
+    url: mailto:GreenButton@sce.com
+- aid: southern-california-edison:sce-drpep-arcgis-rest-services
+  name: SCE DRPEP ArcGIS REST Services
+  description: The machine-readable grid data layer behind SCE's Distribution Resources
+    Plan External Portal (DRPEP). An anonymous, unauthenticated Esri ArcGIS REST service
+    catalog (server version 11.1) exposing fifteen hosted FeatureServers covering Integration
+    Capacity Analysis circuit segments and constraint layers, distribution circuits,
+    Distribution Deferral Opportunity Report and Grid Needs Assessment layers, Locational
+    Net Benefit Analysis, PSPS boundaries, fire map, subtransmission and available-load
+    heat maps, and load growth penetration. SCE publishes no developer documentation
+    for these endpoints, but they are live, key-free, and self-describing over the
+    standard Esri ArcGIS REST interface, and a companion ArcGIS Hub open data site
+    is served at drpep-sce2.opendata.arcgis.com. This is the one place SCE data is
+    genuinely open to any developer without registration.
+  humanURL: https://drpep.sce.com/drpep/
+  baseURL: https://drpep.sce.com/arcgis_server/rest/services
+  tags:
+  - Grid
+  - Integration Capacity Analysis
+  - Open Data
+  - GIS
+  - Distributed Energy Resources
+  properties:
+  - type: APIReference
+    url: https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json
+  - type: Reference
+    url: arcgis/sce-drpep-arcgis-services-catalog.json
+  - type: Reference
+    url: arcgis/sce-drpep-ica-layer-featureserver.json
+  - type: Reference
+    url: arcgis/sce-drpep-arcgis-rest-info.json
+  - type: Documentation
+    url: https://drpep.sce.com/drpep/
+  - type: Documentation
+    url: https://drpep-sce2.opendata.arcgis.com/
+common:
+- type: Website
+  url: https://www.sce.com/
+- type: Portal
+  url: https://www.sce.com/partners/partnerships/thirdpartylandingpage
+- type: Signup
+  url: https://www.sce.com/user-registration?userType=4
+- type: Documentation
+  url: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
+- type: Documentation
+  url: https://www.sce.com/regulatory/regulatory-information/energy-data-reports-compliances
+- type: Documentation
+  url: https://www.sce.com/partners/3rd-party-energy-providers/rule-24-faqs
+- type: TermsOfService
+  url: https://www.sce.com/terms-conditions/customer-data-access-terms-conditions
+- type: Support
+  url: mailto:3RDPARTY@sce.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sce
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
