@@ -1,0 +1,2103 @@
+# generated: '2026-07-27'
+# method: generated
+# source: live anonymous probes of https://drpep.sce.com/arcgis_server/rest (see info.x-source-probes)
+openapi: 3.1.0
+info:
+  title: SCE DRPEP ArcGIS REST Services
+  version: '11.1'
+  summary: Anonymous, key-free Esri ArcGIS REST interface behind Southern California Edison's Distribution Resources Plan
+    External Portal (DRPEP).
+  description: 'Machine-readable description of the anonymous grid-data API that Southern California Edison serves at `drpep.sce.com`.
+    SCE publishes **no** OpenAPI, no developer portal, and no written API reference for this surface; this document was generated
+    by API Evangelist from live, unauthenticated probes of the service itself (ArcGIS Enterprise 11.1 REST, `f=json`) on 2026-07-27
+    and from the service, layer, and field descriptors saved verbatim under `arcgis/` in this repository. Every path, parameter,
+    and example below was observed answering anonymously with HTTP 200 - nothing here is aspirational.
+
+
+    The catalog exposes 15 hosted FeatureServers covering 47 feature layers and 11 tables: Integration Capacity Analysis (ICA)
+    circuit segments and their generation/load constraint layers, distribution circuits, substations, the Distribution Deferral
+    Opportunity Report (DDOR), the Grid Needs Assessment (GNA), Locational Net Benefit Analysis (LNBA), Public Safety Power
+    Shutoff (PSPS) boundaries, CPUC fire-threat tiers, transmission projects, available-load and subtransmission heat maps,
+    and load-growth penetration. The ICA circuit-segment layer alone answers 676,467 features.
+
+
+    Read-only: every hosted service advertises `capabilities: Query` (DRP_Transmission_Projects also allows `Extract`). There
+    is no write surface, no API key, and no rate-limit header. The sibling `Utilities` folder on the same server is NOT open
+    - it returns `{"error":{"code":499,"message":"Token Required"}}`.
+
+
+    This spec does not cover SCE Green Button Connect My Data. That interface is real and mandated by CPUC tariff Rule 26,
+    but SCE discloses no base URI, endpoint, or scope publicly; see `authentication/` and the repository review for what is
+    actually known.'
+  termsOfService: https://www.sce.com/terms-conditions
+  contact:
+    name: API Evangelist (generator of this description, not the API operator)
+    url: https://apievangelist.com
+  x-generated-by: api-evangelist enrichment pipeline
+  x-generated-on: '2026-07-27'
+  x-provenance: api-evangelist-generated from live anonymous probes; NOT published by Southern California Edison
+  x-source-probes:
+  - https://drpep.sce.com/arcgis_server/rest/info?f=json
+  - https://drpep.sce.com/arcgis_server/rest/services?f=json
+  - https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json
+  - https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer?f=json
+  - https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/0?f=json
+  - https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json
+servers:
+- url: https://drpep.sce.com
+  description: SCE Distribution Resources Plan External Portal (production, anonymous)
+externalDocs:
+  description: DRPEP portal (Esri Experience Builder app over these services)
+  url: https://drpep.sce.com/drpep/
+tags:
+- name: Server
+  description: ArcGIS Enterprise server metadata and the service catalog.
+- name: Feature Services
+  description: The 15 hosted FeatureServers and their layer/table descriptors.
+- name: Query
+  description: Attribute and spatial queries against a feature layer or table.
+- name: DRPEP Portal
+  description: Undocumented JSON endpoints the DRPEP web app calls directly. Observed answering anonymously; SCE publishes
+    no contract for them.
+paths:
+  /arcgis_server/rest/info:
+    get:
+      operationId: getServerInfo
+      tags:
+      - Server
+      summary: Get ArcGIS Enterprise server info
+      description: Returns the ArcGIS Enterprise version and token-service metadata for the DRPEP server. Note that `authInfo.isTokenBasedSecurity`
+        is true even though the Hosted folder services answer anonymously - the flag describes the server, not the public
+        sharing of those services.
+      parameters:
+      - name: f
+        in: query
+        required: false
+        description: Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on
+          hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine
+          use; without it the service returns HTML.
+        schema:
+          type: string
+          enum:
+          - json
+          - pjson
+          - geojson
+          - html
+          default: html
+        example: json
+      responses:
+        '200':
+          description: Server info document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerInfo'
+              example:
+                currentVersion: 11.1
+                fullVersion: 11.1.0
+                soapUrl: https://drpep.sce.com/arcgis_server/services
+                secureSoapUrl: null
+                owningSystemUrl: https://drpep.sce.com/arcgis_portal
+                authInfo:
+                  isTokenBasedSecurity: true
+                  tokenServicesUrl: https://drpep.sce.com/arcgis_portal/sharing/rest/generateToken
+  /arcgis_server/rest/services:
+    get:
+      operationId: listServiceCatalog
+      tags:
+      - Server
+      summary: List the root service catalog
+      description: 'Lists the folders and root-level services on the DRPEP ArcGIS server. Observed: two folders, `Hosted`
+        (public) and `Utilities` (token-required), and no root services.'
+      parameters:
+      - name: f
+        in: query
+        required: false
+        description: Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on
+          hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine
+          use; without it the service returns HTML.
+        schema:
+          type: string
+          enum:
+          - json
+          - pjson
+          - geojson
+          - html
+          default: html
+        example: json
+      responses:
+        '200':
+          description: Catalog document.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceCatalog'
+              example:
+                currentVersion: 11.1
+                folders:
+                - Hosted
+                - Utilities
+                services: []
+  /arcgis_server/rest/services/Hosted:
+    get:
+      operationId: listHostedServices
+      tags:
+      - Server
+      summary: List the public Hosted feature services
+      description: Lists the 15 hosted FeatureServers DRPEP shares publicly. This is the entry point for any anonymous consumer
+        of SCE grid data.
+      parameters:
+      - name: f
+        in: query
+        required: false
+        description: Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on
+          hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine
+          use; without it the service returns HTML.
+        schema:
+          type: string
+          enum:
+          - json
+          - pjson
+          - geojson
+          - html
+          default: html
+        example: json
+      responses:
+        '200':
+          description: Folder catalog with the hosted services.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceCatalog'
+              example:
+                currentVersion: 11.1
+                folders: []
+                services:
+                - name: Hosted/AVL_LOAD_CAP_TOGGLE
+                  type: FeatureServer
+                - name: Hosted/AVL_LOAD_HEAT_MAP_TOGGLE
+                  type: FeatureServer
+                - name: Hosted/DDOR_Layer
+                  type: FeatureServer
+                - name: Hosted/Distribution_circuits
+                  type: FeatureServer
+                - name: Hosted/DRP_PSPS_Layer
+                  type: FeatureServer
+                - name: Hosted/DRP_ScreenL_08202021
+                  type: FeatureServer
+                - name: Hosted/DRP_Transmission_Projects
+                  type: FeatureServer
+                - name: Hosted/Firemap
+                  type: FeatureServer
+                - name: Hosted/GNA_Layer
+                  type: FeatureServer
+                - name: Hosted/ICA_Layer
+                  type: FeatureServer
+                - name: Hosted/ICA_Tables
+                  type: FeatureServer
+                - name: Hosted/LNBA_Layer
+                  type: FeatureServer
+                - name: Hosted/LOAD_GROWTH_PEN_HTMAP
+                  type: FeatureServer
+                - name: Hosted/MGEP_AVL_LOAD_HEAT_MAP
+                  type: FeatureServer
+                - name: Hosted/SUBTRANS_HEATMAP
+                  type: FeatureServer
+  /arcgis_server/rest/services/Hosted/{serviceName}/FeatureServer:
+    get:
+      operationId: getFeatureService
+      tags:
+      - Feature Services
+      summary: Get a feature service descriptor
+      description: 'Returns the service-level descriptor: its layers and tables, `maxRecordCount` (2,000 or 5,000 depending
+        on the service), supported query capabilities, and spatial reference. Every DRPEP hosted service advertises `capabilities:
+        Query`; `DRP_Transmission_Projects` additionally advertises `Extract`.'
+      parameters:
+      - name: serviceName
+        in: path
+        required: true
+        description: Name of a hosted feature service, as returned by `listHostedServices`.
+        schema:
+          type: string
+          enum:
+          - AVL_LOAD_CAP_TOGGLE
+          - AVL_LOAD_HEAT_MAP_TOGGLE
+          - DDOR_Layer
+          - DRP_PSPS_Layer
+          - DRP_ScreenL_08202021
+          - DRP_Transmission_Projects
+          - Distribution_circuits
+          - Firemap
+          - GNA_Layer
+          - ICA_Layer
+          - ICA_Tables
+          - LNBA_Layer
+          - LOAD_GROWTH_PEN_HTMAP
+          - MGEP_AVL_LOAD_HEAT_MAP
+          - SUBTRANS_HEATMAP
+        example: ICA_Layer
+      - name: f
+        in: query
+        required: false
+        description: Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on
+          hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine
+          use; without it the service returns HTML.
+        schema:
+          type: string
+          enum:
+          - json
+          - pjson
+          - geojson
+          - html
+          default: html
+        example: json
+      responses:
+        '200':
+          description: Feature service descriptor, or an ArcGIS error envelope for an unknown service.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureService'
+  /arcgis_server/rest/services/Hosted/{serviceName}/FeatureServer/{layerId}:
+    get:
+      operationId: getFeatureLayer
+      tags:
+      - Feature Services
+      summary: Get a feature layer or table descriptor
+      description: Returns the layer descriptor including the full field list (name, Esri type, alias), geometry type, drawing
+        info, `maxRecordCount`, and `advancedQueryCapabilities` (pagination, statistics, order-by, distinct are all supported
+        on these layers). The field list is the only field-level documentation SCE provides for DRPEP data.
+      parameters:
+      - name: serviceName
+        in: path
+        required: true
+        description: Name of a hosted feature service, as returned by `listHostedServices`.
+        schema:
+          type: string
+          enum:
+          - AVL_LOAD_CAP_TOGGLE
+          - AVL_LOAD_HEAT_MAP_TOGGLE
+          - DDOR_Layer
+          - DRP_PSPS_Layer
+          - DRP_ScreenL_08202021
+          - DRP_Transmission_Projects
+          - Distribution_circuits
+          - Firemap
+          - GNA_Layer
+          - ICA_Layer
+          - ICA_Tables
+          - LNBA_Layer
+          - LOAD_GROWTH_PEN_HTMAP
+          - MGEP_AVL_LOAD_HEAT_MAP
+          - SUBTRANS_HEATMAP
+        example: ICA_Layer
+      - name: layerId
+        in: path
+        required: true
+        description: Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See
+          `x-drpep-inventory` in this document for the full 58-entry layer/table map.
+        schema:
+          type: integer
+          minimum: 0
+        example: 0
+      - name: f
+        in: query
+        required: false
+        description: Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on
+          hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine
+          use; without it the service returns HTML.
+        schema:
+          type: string
+          enum:
+          - json
+          - pjson
+          - geojson
+          - html
+          default: html
+        example: json
+      responses:
+        '200':
+          description: Layer/table descriptor, or an ArcGIS error envelope.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureLayer'
+  /arcgis_server/rest/services/Hosted/{serviceName}/FeatureServer/{layerId}/query:
+    get:
+      operationId: queryFeatureLayer
+      tags:
+      - Query
+      summary: Query features from a layer or table
+      description: 'The workhorse operation. Runs a SQL-92 attribute filter and/or a spatial filter against one layer and
+        returns matching features as Esri JSON (`f=json`) or GeoJSON (`f=geojson`, verified working). Paging is offset-based
+        via `resultOffset` + `resultRecordCount`; when a response is truncated the body carries `exceededTransferLimit: true`
+        and the caller must page. Errors are returned with HTTP 200 and an `error` envelope, not an HTTP error status.'
+      parameters:
+      - name: serviceName
+        in: path
+        required: true
+        description: Name of a hosted feature service, as returned by `listHostedServices`.
+        schema:
+          type: string
+          enum:
+          - AVL_LOAD_CAP_TOGGLE
+          - AVL_LOAD_HEAT_MAP_TOGGLE
+          - DDOR_Layer
+          - DRP_PSPS_Layer
+          - DRP_ScreenL_08202021
+          - DRP_Transmission_Projects
+          - Distribution_circuits
+          - Firemap
+          - GNA_Layer
+          - ICA_Layer
+          - ICA_Tables
+          - LNBA_Layer
+          - LOAD_GROWTH_PEN_HTMAP
+          - MGEP_AVL_LOAD_HEAT_MAP
+          - SUBTRANS_HEATMAP
+        example: ICA_Layer
+      - name: layerId
+        in: path
+        required: true
+        description: Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See
+          `x-drpep-inventory` in this document for the full 58-entry layer/table map.
+        schema:
+          type: integer
+          minimum: 0
+        example: 0
+      - name: where
+        in: query
+        required: false
+        description: SQL-92 WHERE clause applied to the layer attributes. Use `1=1` to select everything. A malformed clause
+          returns HTTP 200 with an ArcGIS error envelope (code 500, 'Syntax error').
+        schema:
+          type: string
+          default: 1=1
+        example: circuit_name = 'Acapulco'
+      - name: objectIds
+        in: query
+        required: false
+        description: Comma-separated list of ObjectIDs to fetch instead of a where clause.
+        schema:
+          type: string
+      - name: geometry
+        in: query
+        required: false
+        description: Geometry used to spatially filter the layer, in the format implied by geometryType (e.g. an envelope
+          `xmin,ymin,xmax,ymax`).
+        schema:
+          type: string
+      - name: geometryType
+        in: query
+        required: false
+        description: Type of the geometry filter.
+        schema:
+          type: string
+          enum:
+          - esriGeometryPoint
+          - esriGeometryMultipoint
+          - esriGeometryPolyline
+          - esriGeometryPolygon
+          - esriGeometryEnvelope
+      - name: spatialRel
+        in: query
+        required: false
+        description: Spatial relationship applied between the input geometry and the layer geometry.
+        schema:
+          type: string
+          enum:
+          - esriSpatialRelIntersects
+          - esriSpatialRelContains
+          - esriSpatialRelCrosses
+          - esriSpatialRelWithin
+          - esriSpatialRelTouches
+          - esriSpatialRelOverlaps
+          - esriSpatialRelEnvelopeIntersects
+          default: esriSpatialRelIntersects
+      - name: inSR
+        in: query
+        required: false
+        description: Spatial reference of the input geometry (WKID).
+        schema:
+          type: string
+        example: '4326'
+      - name: outSR
+        in: query
+        required: false
+        description: Spatial reference the returned geometry is projected into (WKID).
+        schema:
+          type: string
+        example: '4326'
+      - name: outFields
+        in: query
+        required: false
+        description: Comma-separated attribute list to return, or `*` for all. Field names come from the layer descriptor.
+        schema:
+          type: string
+          default: '*'
+        example: circuit_name,ica_overall_pv
+      - name: returnGeometry
+        in: query
+        required: false
+        description: Whether to include geometry with each feature. Set false for attribute-only pulls.
+        schema:
+          type: boolean
+          default: true
+      - name: returnCountOnly
+        in: query
+        required: false
+        description: 'Return only the matching feature count. Verified: `where=1=1&returnCountOnly=true` on ICA - Circuit
+          Segments returned 676,467.'
+        schema:
+          type: boolean
+          default: false
+      - name: returnIdsOnly
+        in: query
+        required: false
+        description: Return only the matching ObjectIDs - the standard way to page a layer larger than maxRecordCount.
+        schema:
+          type: boolean
+          default: false
+      - name: orderByFields
+        in: query
+        required: false
+        description: Comma-separated ORDER BY expression. Supported (supportsOrderBy is true on these layers).
+        schema:
+          type: string
+      - name: groupByFieldsForStatistics
+        in: query
+        required: false
+        description: Fields to group by when computing outStatistics.
+        schema:
+          type: string
+      - name: outStatistics
+        in: query
+        required: false
+        description: JSON array of statistic definitions (count/sum/min/max/avg/stddev). Supported (supportsStatistics is
+          true).
+        schema:
+          type: string
+      - name: resultOffset
+        in: query
+        required: false
+        description: Zero-based offset for pagination. Supported (supportsPagination is true).
+        schema:
+          type: integer
+          minimum: 0
+      - name: resultRecordCount
+        in: query
+        required: false
+        description: Maximum number of features to return in this page; capped by the layer maxRecordCount (2,000 or 5,000
+          on these services).
+        schema:
+          type: integer
+          minimum: 1
+      - name: returnDistinctValues
+        in: query
+        required: false
+        description: Return distinct values for the requested outFields (supportsDistinct is true).
+        schema:
+          type: boolean
+          default: false
+      - name: resultType
+        in: query
+        required: false
+        description: Query result hint.
+        schema:
+          type: string
+          enum:
+          - none
+          - standard
+          - tile
+      - name: f
+        in: query
+        required: false
+        description: Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on
+          hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine
+          use; without it the service returns HTML.
+        schema:
+          type: string
+          enum:
+          - json
+          - pjson
+          - geojson
+          - html
+          default: html
+        example: json
+      responses:
+        '200':
+          description: A feature set, a count, an id list, or an ArcGIS error envelope - all with HTTP 200.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/FeatureSet'
+                - $ref: '#/components/schemas/CountResult'
+                - $ref: '#/components/schemas/ErrorEnvelope'
+              examples:
+                count:
+                  summary: returnCountOnly on ICA - Circuit Segments (verified 2026-07-27)
+                  value:
+                    count: 676467
+                featureSet:
+                  summary: One ICA circuit segment, attributes only (verified 2026-07-27)
+                  value:
+                    features:
+                    - attributes:
+                        circuit_name: Acapulco
+                        ica_overall_pv: 0
+                    exceededTransferLimit: true
+                    objectIdFieldName: objectid
+                    fields:
+                    - name: circuit_name
+                      alias: Circuit Name
+                      type: esriFieldTypeString
+                      length: 50
+                    - name: ica_overall_pv
+                      alias: Photovoltaic Static Grid
+                      type: esriFieldTypeDouble
+                error:
+                  summary: Malformed where clause (verified 2026-07-27)
+                  value:
+                    error:
+                      code: 500
+                      message: Syntax error [].
+                      details: []
+            application/geo+json:
+              schema:
+                type: object
+                description: GeoJSON FeatureCollection, returned when f=geojson.
+  /api/op3:
+    get:
+      operationId: getDrpepOperationalFlexibility
+      tags:
+      - DRPEP Portal
+      summary: Get operational-flexibility (Op Flex) status for a circuit
+      description: Undocumented JSON endpoint called by the DRPEP web application. Observed answering anonymously with HTTP
+        200 and the body `{"beingProcessed":false,"title":null,"op3Disclaimer":null}` for an unknown circuit. SCE publishes
+        no contract, no field reference, and no support commitment for this endpoint; treat it as unstable.
+      parameters:
+      - name: circuit
+        in: query
+        required: true
+        description: Circuit name, as found in the `circuit_name` attribute of the ICA layers.
+        schema:
+          type: string
+      - name: kv
+        in: query
+        required: false
+        description: Circuit voltage in kV, as found in the `circuit_voltage` attribute.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Op Flex status document.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  beingProcessed:
+                    type: boolean
+                  title:
+                    type:
+                    - string
+                    - 'null'
+                  op3Disclaimer:
+                    type:
+                    - string
+                    - 'null'
+              example:
+                beingProcessed: false
+                title: null
+                op3Disclaimer: null
+      x-undocumented: true
+  /api/DownloadCSV:
+    get:
+      operationId: downloadDrpepNodeCsv
+      tags:
+      - DRPEP Portal
+      summary: Request the ICA CSV export for a circuit node
+      description: Undocumented JSON endpoint behind the DRPEP app per-node CSV download. Observed answering anonymously with
+        HTTP 201 and `{"status":false}` for unknown inputs. The stable, documented-by-data path to the same exports is the
+        `download_link` attribute carried on each ICA circuit segment feature.
+      parameters:
+      - name: circuitName
+        in: query
+        required: true
+        description: Circuit name from `circuit_name`.
+        schema:
+          type: string
+      - name: nodeName
+        in: query
+        required: true
+        description: Node identifier from `node_id`.
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Export request acknowledgement.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+              example:
+                status: false
+      x-undocumented: true
+components:
+  schemas:
+    ServerInfo:
+      type: object
+      description: ArcGIS Enterprise server metadata.
+      properties:
+        currentVersion:
+          type: number
+        fullVersion:
+          type: string
+        soapUrl:
+          type: string
+        secureSoapUrl:
+          type:
+          - string
+          - 'null'
+        owningSystemUrl:
+          type: string
+        authInfo:
+          type: object
+          properties:
+            isTokenBasedSecurity:
+              type: boolean
+            tokenServicesUrl:
+              type: string
+    ServiceCatalog:
+      type: object
+      description: A folder listing of ArcGIS services.
+      properties:
+        currentVersion:
+          type: number
+        folders:
+          type: array
+          items:
+            type: string
+        services:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+                enum:
+                - FeatureServer
+                - MapServer
+    FeatureService:
+      type: object
+      description: Feature service descriptor.
+      properties:
+        currentVersion:
+          type: number
+        serviceDescription:
+          type: string
+        maxRecordCount:
+          type: integer
+        capabilities:
+          type: string
+          examples:
+          - Query
+          - Query,Extract
+        layers:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+        tables:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayerSummary'
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - Feature Layer
+          - Table
+        geometryType:
+          type: string
+    Field:
+      type: object
+      properties:
+        name:
+          type: string
+        alias:
+          type: string
+        type:
+          type: string
+          description: Esri field type, e.g. esriFieldTypeString.
+        length:
+          type: integer
+    FeatureLayer:
+      type: object
+      description: Feature layer or table descriptor, including the field list.
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+        geometryType:
+          type: string
+        maxRecordCount:
+          type: integer
+        objectIdField:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/Field'
+        advancedQueryCapabilities:
+          type: object
+    FeatureSet:
+      type: object
+      description: Esri JSON feature set returned by a query.
+      properties:
+        objectIdFieldName:
+          type: string
+        globalIdFieldName:
+          type: string
+        geometryType:
+          type: string
+        spatialReference:
+          type: object
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/Field'
+        exceededTransferLimit:
+          type: boolean
+          description: True when the result was truncated at maxRecordCount - page with resultOffset.
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                type: object
+              geometry:
+                type: object
+    CountResult:
+      type: object
+      properties:
+        count:
+          type: integer
+    ErrorEnvelope:
+      type: object
+      description: ArcGIS error envelope. Returned with HTTP 200; the transport status is not the error signal.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              examples:
+              - 400
+              - 404
+              - 498
+              - 499
+              - 500
+            message:
+              type: string
+            messageCode:
+              type: string
+            details:
+              type: array
+              items:
+                type: string
+    IcaCircuitSegment:
+      type: object
+      title: ICA - Circuit Segments
+      description: Attribute shape of `ICA_Layer` layer 0 (ICA - Circuit Segments), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/0?f=json
+      properties:
+        system_name:
+          type: string
+          title: System Name
+          x-esri-field-type: esriFieldTypeString
+        substation_name:
+          type: string
+          title: Substation Name
+          x-esri-field-type: esriFieldTypeString
+        substation_voltage:
+          type: string
+          title: Substation Voltage
+          x-esri-field-type: esriFieldTypeString
+        circuit_name:
+          type: string
+          title: Circuit Name
+          x-esri-field-type: esriFieldTypeString
+        circuit_voltage:
+          type: string
+          title: Circuit Voltage
+          x-esri-field-type: esriFieldTypeString
+        section_id:
+          type: number
+          title: Segment ID
+          x-esri-field-type: esriFieldTypeDouble
+        node_id:
+          type: string
+          title: Node ID
+          x-esri-field-type: esriFieldTypeString
+        uniform_generation:
+          type: number
+          title: Uniform Generation Static Grid
+          x-esri-field-type: esriFieldTypeDouble
+        uniform_generation_op_flex:
+          type: string
+          title: Uniform Generation OpFlex
+          x-esri-field-type: esriFieldTypeString
+        ica_overall_pv:
+          type: number
+          title: Photovoltaic Static Grid
+          x-esri-field-type: esriFieldTypeDouble
+        ica_overall_pv_op_flex:
+          type: string
+          title: Photovoltaic OpFlex
+          x-esri-field-type: esriFieldTypeString
+        ica_overall_load:
+          type: string
+          title: Uniform Load
+          x-esri-field-type: esriFieldTypeString
+        disclaimer:
+          type: string
+          title: Disclaimer
+          x-esri-field-type: esriFieldTypeString
+        note:
+          type: string
+          title: Note
+          x-esri-field-type: esriFieldTypeString
+        lgp_flag:
+          type: string
+          title: LGP Flag
+          x-esri-field-type: esriFieldTypeString
+        most_limiting_criteria_ug_sg:
+          type: string
+          title: Most Limiting Criteria -Uniform Generation Static Grid
+          x-esri-field-type: esriFieldTypeString
+        most_limiting_criteria_ug_of:
+          type: string
+          title: Most Limiting Criteria-Uniform Gen Op Flex
+          x-esri-field-type: esriFieldTypeString
+        most_limiting_criteria_lsg:
+          type: string
+          title: Most Limiting Criteria -Load Static Grid
+          x-esri-field-type: esriFieldTypeString
+        most_limiting_criteria_pv_sg:
+          type: string
+          title: Most Limiting Criteria -Photovoltaic Static Grid
+          x-esri-field-type: esriFieldTypeString
+        most_limiting_criteria_pv_of:
+          type: string
+          title: Most Limiting Criteria -Photovoltaic Op Flex
+          x-esri-field-type: esriFieldTypeString
+        phase:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        download_link:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        download_link_microgrid:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        download_link_forecast:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        download_link_microgrid_forecas:
+          type: string
+          title: download_link_microgrid_forecast
+          x-esri-field-type: esriFieldTypeString
+        changed_date:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        changed_date_forecast:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    Substation:
+      type: object
+      title: Substations
+      description: Attribute shape of `ICA_Layer` layer 16 (Substations), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/16?f=json
+      properties:
+        subst_id:
+          type: number
+          title: Substation ID
+          x-esri-field-type: esriFieldTypeDouble
+        sub_name:
+          type: string
+          title: Substation Name
+          x-esri-field-type: esriFieldTypeString
+        sys_name:
+          type: string
+          title: System Name
+          x-esri-field-type: esriFieldTypeString
+        sub_type:
+          type: string
+          title: Substation Type Old
+          x-esri-field-type: esriFieldTypeString
+        sub_type_legend:
+          type: string
+          title: Substation Type
+          x-esri-field-type: esriFieldTypeString
+        substation_voltage:
+          type: string
+          title: Substation Voltage
+          x-esri-field-type: esriFieldTypeString
+        existing_gen:
+          type: number
+          title: Existing Generaion
+          x-esri-field-type: esriFieldTypeDouble
+        queued_gen:
+          type: number
+          title: Queued Generation
+          x-esri-field-type: esriFieldTypeDouble
+        total_gen:
+          type: number
+          title: Total Generation
+          x-esri-field-type: esriFieldTypeDouble
+        projected_load:
+          type: number
+          title: Projected Load
+          x-esri-field-type: esriFieldTypeDouble
+        penetration_level:
+          type: number
+          title: Penetration Level
+          x-esri-field-type: esriFieldTypeDouble
+        max_remain_cap:
+          type: number
+          title: Maxium Remaining Capacity
+          x-esri-field-type: esriFieldTypeDouble
+        note:
+          type: string
+          title: Note
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+    ServiceTerritory:
+      type: object
+      title: SCE Service Territory
+      description: Attribute shape of `ICA_Layer` layer 19 (SCE Service Territory), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/19?f=json
+      properties:
+        id:
+          type: number
+          title: ID
+          x-esri-field-type: esriFieldTypeDouble
+        existing_gen:
+          type: number
+          title: Existing Generation
+          x-esri-field-type: esriFieldTypeDouble
+        queued_gen:
+          type: number
+          title: Queued Generation
+          x-esri-field-type: esriFieldTypeDouble
+        total_gen:
+          type: number
+          title: Total Generation
+          x-esri-field-type: esriFieldTypeDouble
+        projected_load:
+          type: number
+          title: Projected Load
+          x-esri-field-type: esriFieldTypeDouble
+        penetration_level:
+          type: number
+          title: Penetration Level
+          x-esri-field-type: esriFieldTypeDouble
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        SHAPE__Area:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    DistributionCircuit:
+      type: object
+      title: Distribution Circuits
+      description: Attribute shape of `Distribution_circuits` layer 0 (Distribution Circuits), derived from the live layer
+        descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/Distribution_circuits/FeatureServer/0?f=json
+      properties:
+        circuit_id:
+          type: string
+          title: CIRCUIT_ID
+          x-esri-field-type: esriFieldTypeString
+        circuit_no:
+          type: string
+          title: CIRCUIT_NO
+          x-esri-field-type: esriFieldTypeString
+        circuit_type:
+          type: string
+          title: CIRCUIT_TYPE
+          x-esri-field-type: esriFieldTypeString
+        circt_nam:
+          type: string
+          title: CIRCT_NAM
+          x-esri-field-type: esriFieldTypeString
+        circuit_voltage:
+          type: number
+          title: CIRCUIT_VOLTAGE
+          x-esri-field-type: esriFieldTypeDouble
+        note:
+          type: string
+          title: NOTE
+          x-esri-field-type: esriFieldTypeString
+        substation_voltage:
+          type: string
+          title: SUBSTATION_VOLTAGE
+          x-esri-field-type: esriFieldTypeString
+        sub_name:
+          type: string
+          title: SUB_NAME
+          x-esri-field-type: esriFieldTypeString
+        sys_name:
+          type: string
+          title: SYS_NAME
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    IcaConsolidatedRow:
+      type: object
+      title: ICA Single Consolidated Table
+      description: Attribute shape of `ICA_Tables` layer 3 (ICA Single Consolidated Table), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/3?f=json
+      properties:
+        circuit_name:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        circuit_id:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        circuit_voltage:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        percent_15_cap:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        res_pct:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        com_pct:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        agr_pct:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        other_pct:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        ind_pct:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        sub_name:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        subst_id:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        note_sub:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        layer_identifier:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        sys_name:
+          type: string
+          x-esri-field-type: esriFieldTypeString
+        existing_gen:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        queued_gen:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        total_gen:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        projected_load:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        penetration_level:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        max_remain_cap:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        agr_total:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        com_total:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        ind_total:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        res_total:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        other_total:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+    HistoricalCircuitLoadProfile:
+      type: object
+      title: Historical Circuit Load Profile
+      description: Attribute shape of `ICA_Tables` layer 1 (Historical Circuit Load Profile), derived from the live layer
+        descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/1?f=json
+      properties:
+        circuit_name:
+          type: string
+          title: CIRCUIT_NAME
+          x-esri-field-type: esriFieldTypeString
+        voltage:
+          type: string
+          title: VOLTAGE
+          x-esri-field-type: esriFieldTypeString
+        year:
+          type: number
+          title: YEAR
+          x-esri-field-type: esriFieldTypeDouble
+        month:
+          type: number
+          title: MONTH
+          x-esri-field-type: esriFieldTypeDouble
+        hour:
+          type: number
+          title: HOUR
+          x-esri-field-type: esriFieldTypeDouble
+        min_load:
+          type: number
+          title: MIN_LOAD
+          x-esri-field-type: esriFieldTypeDouble
+        max_load:
+          type: number
+          title: MAX_LOAD
+          x-esri-field-type: esriFieldTypeDouble
+        min_load_mw:
+          type: number
+          title: MIN_LOAD_MW
+          x-esri-field-type: esriFieldTypeDouble
+        max_load_mw:
+          type: number
+          title: MAX_LOAD_MW
+          x-esri-field-type: esriFieldTypeDouble
+        substation:
+          type: string
+          title: SUBSTATION
+          x-esri-field-type: esriFieldTypeString
+        monthlabel:
+          type: string
+          title: MONTHLABEL
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+    GnaCircuit:
+      type: object
+      title: GNA - Circuits
+      description: Attribute shape of `GNA_Layer` layer 2 (GNA - Circuits), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/2?f=json
+      properties:
+        ckt_capacity_y1:
+          type: string
+          title: CKT_CAPACITY_Y1
+          x-esri-field-type: esriFieldTypeString
+        ckt_capacity_y2:
+          type: string
+          title: CKT_CAPACITY_Y2
+          x-esri-field-type: esriFieldTypeString
+        ckt_capacity_y3:
+          type: string
+          title: CKT_CAPACITY_Y3
+          x-esri-field-type: esriFieldTypeString
+        ckt_capacity_y4:
+          type: string
+          title: CKT_CAPACITY_Y4
+          x-esri-field-type: esriFieldTypeString
+        ckt_capacity_y5:
+          type: string
+          title: CKT_CAPACITY_Y5
+          x-esri-field-type: esriFieldTypeString
+        subst_capacity_y1:
+          type: string
+          title: SUBST_CAPACITY_Y1
+          x-esri-field-type: esriFieldTypeString
+        subst_capacity_y2:
+          type: string
+          title: SUBST_CAPACITY_Y2
+          x-esri-field-type: esriFieldTypeString
+        subst_capacity_y3:
+          type: string
+          title: SUBST_CAPACITY_Y3
+          x-esri-field-type: esriFieldTypeString
+        subst_capacity_y4:
+          type: string
+          title: SUBST_CAPACITY_Y4
+          x-esri-field-type: esriFieldTypeString
+        subst_capacity_y5:
+          type: string
+          title: SUBST_CAPACITY_Y5
+          x-esri-field-type: esriFieldTypeString
+        circuit_name:
+          type: string
+          title: CIRCUIT_NAME
+          x-esri-field-type: esriFieldTypeString
+        d_y1:
+          type: string
+          title: D_Y1
+          x-esri-field-type: esriFieldTypeString
+        d_y2:
+          type: string
+          title: D_Y2
+          x-esri-field-type: esriFieldTypeString
+        d_y3:
+          type: string
+          title: D_Y3
+          x-esri-field-type: esriFieldTypeString
+        d_y4:
+          type: string
+          title: D_Y4
+          x-esri-field-type: esriFieldTypeString
+        d_y5:
+          type: string
+          title: D_Y5
+          x-esri-field-type: esriFieldTypeString
+        deficiency_year:
+          type: string
+          title: DEFICIENCY_YEAR
+          x-esri-field-type: esriFieldTypeString
+        dp_max_legend:
+          type: number
+          title: DP_MAX_LEGEND
+          x-esri-field-type: esriFieldTypeDouble
+        dp_y_max:
+          type: string
+          title: DP_Y_MAX
+          x-esri-field-type: esriFieldTypeString
+        dp_y1:
+          type: string
+          title: DP_Y1
+          x-esri-field-type: esriFieldTypeString
+        dp_y2:
+          type: string
+          title: DP_Y2
+          x-esri-field-type: esriFieldTypeString
+        dp_y3:
+          type: string
+          title: DP_Y3
+          x-esri-field-type: esriFieldTypeString
+        dp_y4:
+          type: string
+          title: DP_Y4
+          x-esri-field-type: esriFieldTypeString
+        dp_y5:
+          type: string
+          title: DP_Y5
+          x-esri-field-type: esriFieldTypeString
+        dy_max:
+          type: string
+          title: DY_MAX
+          x-esri-field-type: esriFieldTypeString
+        element:
+          type: string
+          title: ELEMENT
+          x-esri-field-type: esriFieldTypeString
+        gna_id:
+          type: string
+          title: GNA_ID
+          x-esri-field-type: esriFieldTypeString
+        grid_need:
+          type: string
+          title: GRID_NEED
+          x-esri-field-type: esriFieldTypeString
+        operating_date:
+          type: string
+          title: OPERATING_DATE
+          x-esri-field-type: esriFieldTypeString
+        primary_driver:
+          type: string
+          title: PRIMARY_DRIVER
+          x-esri-field-type: esriFieldTypeString
+        rating:
+          type: string
+          title: RATING
+          x-esri-field-type: esriFieldTypeString
+        substation_name:
+          type: string
+          title: SUBSTATION_NAME
+          x-esri-field-type: esriFieldTypeString
+        unit:
+          type: string
+          title: UNIT
+          x-esri-field-type: esriFieldTypeString
+        year:
+          type: string
+          title: YEAR
+          x-esri-field-type: esriFieldTypeString
+        circuit_volt:
+          type: string
+          title: CIRCUIT_VOLT
+          x-esri-field-type: esriFieldTypeString
+        note:
+          type: string
+          title: NOTE
+          x-esri-field-type: esriFieldTypeString
+        system_name:
+          type: string
+          title: SYSTEM_NAME
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    DdorCircuit:
+      type: object
+      title: DDOR - Circuits
+      description: Attribute shape of `DDOR_Layer` layer 2 (DDOR - Circuits), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/2?f=json
+      properties:
+        circuit_id:
+          type: string
+          title: CIRCUIT_ID
+          x-esri-field-type: esriFieldTypeString
+        aace_cost_estimate:
+          type: string
+          title: AACE_COST_ESTIMATE
+          x-esri-field-type: esriFieldTypeString
+        candidate_deferral:
+          type: string
+          title: CANDIDATE_DEFERRAL
+          x-esri-field-type: esriFieldTypeString
+        circuit_name:
+          type: string
+          title: CIRCUIT_NAME
+          x-esri-field-type: esriFieldTypeString
+        d_y1:
+          type: string
+          title: D_Y1
+          x-esri-field-type: esriFieldTypeString
+        d_y2:
+          type: string
+          title: D_Y2
+          x-esri-field-type: esriFieldTypeString
+        d_y3:
+          type: string
+          title: D_Y3
+          x-esri-field-type: esriFieldTypeString
+        d_y4:
+          type: string
+          title: D_Y4
+          x-esri-field-type: esriFieldTypeString
+        d_y5:
+          type: string
+          title: D_Y5
+          x-esri-field-type: esriFieldTypeString
+        ddor_id:
+          type: string
+          title: DDOR_ID
+          x-esri-field-type: esriFieldTypeString
+        ddor_project_id:
+          type: string
+          title: DDOR_PROJECT_ID
+          x-esri-field-type: esriFieldTypeString
+        deficiency_year:
+          type: string
+          title: DEFICIENCY_YEAR
+          x-esri-field-type: esriFieldTypeString
+        der_eligible_svc:
+          type: string
+          title: DER_ELIGIBLE_SVC
+          x-esri-field-type: esriFieldTypeString
+        dp_max_legend:
+          type: string
+          title: DP_MAX_LEGEND
+          x-esri-field-type: esriFieldTypeString
+        dp_y_max:
+          type: string
+          title: DP_Y_MAX
+          x-esri-field-type: esriFieldTypeString
+        dp_y1:
+          type: string
+          title: DP_Y1
+          x-esri-field-type: esriFieldTypeString
+        dp_y2:
+          type: string
+          title: DP_Y2
+          x-esri-field-type: esriFieldTypeString
+        dp_y3:
+          type: string
+          title: DP_Y3
+          x-esri-field-type: esriFieldTypeString
+        dp_y4:
+          type: string
+          title: DP_Y4
+          x-esri-field-type: esriFieldTypeString
+        dp_y5:
+          type: string
+          title: DP_Y5
+          x-esri-field-type: esriFieldTypeString
+        dy_max:
+          type: string
+          title: DY_MAX
+          x-esri-field-type: esriFieldTypeString
+        equip_type:
+          type: string
+          title: EQUIP_TYPE
+          x-esri-field-type: esriFieldTypeString
+        gna_id:
+          type: string
+          title: GNA_ID
+          x-esri-field-type: esriFieldTypeString
+        grid_need:
+          type: string
+          title: GRID_NEED
+          x-esri-field-type: esriFieldTypeString
+        operating_date:
+          type: string
+          title: OPERATING_DATE
+          x-esri-field-type: esriFieldTypeString
+        proj_desc:
+          type: string
+          title: PROJ_DESC
+          x-esri-field-type: esriFieldTypeString
+        proj_desc_add_info:
+          type: string
+          title: PROJ_DESC_ADD_INFO
+          x-esri-field-type: esriFieldTypeString
+        proj_hist:
+          type: string
+          title: PROJ_HIST
+          x-esri-field-type: esriFieldTypeString
+        system_name:
+          type: string
+          title: SYSTEM_NAME
+          x-esri-field-type: esriFieldTypeString
+        substation_name:
+          type: string
+          title: SUBSTATION_NAME
+          x-esri-field-type: esriFieldTypeString
+        note:
+          type: string
+          title: NOTE
+          x-esri-field-type: esriFieldTypeString
+        unit:
+          type: string
+          title: UNIT
+          x-esri-field-type: esriFieldTypeString
+        year:
+          type: string
+          title: YEAR
+          x-esri-field-type: esriFieldTypeString
+        circuit_volt:
+          type: number
+          title: CIRCUIT_VOLT
+          x-esri-field-type: esriFieldTypeDouble
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    LnbaShortTerm:
+      type: object
+      title: LNBA Short-term, Planning
+      description: Attribute shape of `LNBA_Layer` layer 1 (LNBA Short-term, Planning), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/1?f=json
+      properties:
+        circuit_name:
+          type: string
+          title: Circuit
+          x-esri-field-type: esriFieldTypeString
+        section_id:
+          type: number
+          title: Section Id
+          x-esri-field-type: esriFieldTypeDouble
+        circuit_voltage:
+          type: string
+          title: Circuit Voltage
+          x-esri-field-type: esriFieldTypeString
+        substation_name:
+          type: string
+          title: Substation
+          x-esri-field-type: esriFieldTypeString
+        system_name:
+          type: string
+          title: System
+          x-esri-field-type: esriFieldTypeString
+        lnba_result_timeframe:
+          type: string
+          title: LNBA Timeframe
+          x-esri-field-type: esriFieldTypeString
+        title_1:
+          type: string
+          title: Project 1
+          x-esri-field-type: esriFieldTypeString
+        desc_1:
+          type: string
+          title: Description 1
+          x-esri-field-type: esriFieldTypeString
+        date_1:
+          type: string
+          title: Operating Date 1
+          x-esri-field-type: esriFieldTypeString
+        grid_services_1:
+          type: string
+          title: Distribution Service Required 1
+          x-esri-field-type: esriFieldTypeString
+        lnba_results_1:
+          type: string
+          title: Estimated LNBA Range 1
+          x-esri-field-type: esriFieldTypeString
+        title_2:
+          type: string
+          title: Project 2
+          x-esri-field-type: esriFieldTypeString
+        desc_2:
+          type: string
+          title: Description 2
+          x-esri-field-type: esriFieldTypeString
+        date_2:
+          type: string
+          title: Operating Date 2
+          x-esri-field-type: esriFieldTypeString
+        grid_services_2:
+          type: string
+          title: Distribution Service Required 2
+          x-esri-field-type: esriFieldTypeString
+        lnba_results_2:
+          type: string
+          title: Estimated LNBA Range 2
+          x-esri-field-type: esriFieldTypeString
+        title_3:
+          type: string
+          title: Project 3
+          x-esri-field-type: esriFieldTypeString
+        desc_3:
+          type: string
+          title: Description 3
+          x-esri-field-type: esriFieldTypeString
+        date_3:
+          type: string
+          title: Operating Date 3
+          x-esri-field-type: esriFieldTypeString
+        grid_services_3:
+          type: string
+          title: Distribution Service Required 3
+          x-esri-field-type: esriFieldTypeString
+        lnba_results_3:
+          type: string
+          title: Estimated LNBA Range 3
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    PspsCircuit:
+      type: object
+      title: PSPS_Circuit
+      description: Attribute shape of `DRP_PSPS_Layer` layer 1 (PSPS_Circuit), derived from the live layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer/1?f=json
+      properties:
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        circuit_type:
+          type: string
+          title: Circuit Type
+          x-esri-field-type: esriFieldTypeString
+        circuit_name:
+          type: string
+          title: Circuit Name
+          x-esri-field-type: esriFieldTypeString
+        substation_name:
+          type: string
+          title: Substation Name
+          x-esri-field-type: esriFieldTypeString
+        psps_event:
+          type: string
+          title: PSPS Event
+          x-esri-field-type: esriFieldTypeString
+        total_customers:
+          type: integer
+          title: Total Customers
+          x-esri-field-type: esriFieldTypeInteger
+        deenergization_datetime:
+          type: string
+          description: Epoch milliseconds (Esri date field)
+          title: De-energization Datetime
+          x-esri-field-type: esriFieldTypeDate
+        allclear_datetime:
+          type: string
+          description: Epoch milliseconds (Esri date field)
+          title: All Clear Datetime
+          x-esri-field-type: esriFieldTypeDate
+        wind_speed:
+          type: string
+          title: Wind Speed
+          x-esri-field-type: esriFieldTypeString
+        wind_gust:
+          type: string
+          title: Wind Gust
+          x-esri-field-type: esriFieldTypeString
+        fpi:
+          type: string
+          title: Fire Protection Index
+          x-esri-field-type: esriFieldTypeString
+        year:
+          type: integer
+          title: Year
+          x-esri-field-type: esriFieldTypeInteger
+        minutes_deenergized:
+          type: number
+          title: Minutest De-energized
+          x-esri-field-type: esriFieldTypeDouble
+        reenergization_datetime:
+          type: string
+          description: Epoch milliseconds (Esri date field)
+          title: Re-energization Datetime
+          x-esri-field-type: esriFieldTypeDate
+        stationid:
+          type: string
+          title: Weather Station ID
+          x-esri-field-type: esriFieldTypeString
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+    FireThreatTier3:
+      type: object
+      title: CPUC_Fire_Threat_Areas____Tier_3___Extreme
+      description: Attribute shape of `Firemap` layer 2 (CPUC_Fire_Threat_Areas____Tier_3___Extreme), derived from the live
+        layer descriptor.
+      x-source: https://drpep.sce.com/arcgis_server/rest/services/Hosted/Firemap/FeatureServer/2?f=json
+      properties:
+        acres:
+          type: number
+          title: Acres
+          x-esri-field-type: esriFieldTypeDouble
+        tierlvl:
+          type: number
+          title: TierLvl
+          x-esri-field-type: esriFieldTypeDouble
+        shape_leng:
+          type: number
+          title: Shape_Leng
+          x-esri-field-type: esriFieldTypeDouble
+        f_overlaps:
+          type: string
+          title: _overlaps
+          x-esri-field-type: esriFieldTypeString
+        f_segments:
+          type: string
+          title: _segments
+          x-esri-field-type: esriFieldTypeString
+        fid_drough:
+          type: integer
+          title: FID_Drough
+          x-esri-field-type: esriFieldTypeInteger
+        type:
+          type: string
+          title: Type
+          x-esri-field-type: esriFieldTypeString
+        objectid:
+          type: integer
+          title: OBJECTID
+          x-esri-field-type: esriFieldTypeOID
+        SHAPE__Length:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+        SHAPE__Area:
+          type: number
+          x-esri-field-type: esriFieldTypeDouble
+x-drpep-inventory:
+- service: AVL_LOAD_CAP_TOGGLE
+  id: 0
+  name: AVL_LOAD_CAP_FULL_SUBMITTAL
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 128
+- service: AVL_LOAD_CAP_TOGGLE
+  id: 1
+  name: AVL_LOAD_CAP_FULL_AND_PARTIAL_SUBMITTAL
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 128
+- service: AVL_LOAD_HEAT_MAP_TOGGLE
+  id: 0
+  name: GRID_RANK_AGGR_FULL
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 6
+- service: AVL_LOAD_HEAT_MAP_TOGGLE
+  id: 1
+  name: GRID_RANK_AGGR_FULL_PARTIAL
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 6
+- service: DDOR_Layer
+  id: 0
+  name: DDOR Substations
+  kind: layer
+  geometryType: esriGeometryPoint
+  fieldCount: 33
+- service: DDOR_Layer
+  id: 1
+  name: DDOR Subtransmission
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 33
+- service: DDOR_Layer
+  id: 2
+  name: DDOR - Circuits
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 36
+- service: DDOR_Layer
+  id: 3
+  name: DDOR FGDB DATE TIME
+  kind: table
+  geometryType: null
+  fieldCount: 3
+- service: DRP_PSPS_Layer
+  id: 0
+  name: PSPS_Subtransmission
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 14
+- service: DRP_PSPS_Layer
+  id: 1
+  name: PSPS_Circuit
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 16
+- service: DRP_ScreenL_08202021
+  id: 0
+  name: Sheet1
+  kind: table
+  geometryType: null
+  fieldCount: 3
+- service: DRP_Transmission_Projects
+  id: 0
+  name: CAISO_APPROVED_POLYGON
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 16
+- service: DRP_Transmission_Projects
+  id: 1
+  name: UTILITY_APPROVED_POLYGON
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 16
+- service: DRP_Transmission_Projects
+  id: 2
+  name: CPUC_APPROVED_POLYGON
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 16
+- service: Distribution_circuits
+  id: 0
+  name: Distribution Circuits
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 11
+- service: Firemap
+  id: 0
+  name: Tree_Mortality___Tier_1
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 10
+- service: Firemap
+  id: 1
+  name: CPUC_Fire_Threat_Areas____Tier_2___Elevated
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 10
+- service: Firemap
+  id: 2
+  name: CPUC_Fire_Threat_Areas____Tier_3___Extreme
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 10
+- service: GNA_Layer
+  id: 0
+  name: GNA Substations
+  kind: layer
+  geometryType: esriGeometryPoint
+  fieldCount: 31
+- service: GNA_Layer
+  id: 1
+  name: GNA Subtransmission
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 25
+- service: GNA_Layer
+  id: 2
+  name: GNA - Circuits
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 39
+- service: GNA_Layer
+  id: 3
+  name: Circuit Level Planning Assumptions
+  kind: table
+  geometryType: null
+  fieldCount: 23
+- service: GNA_Layer
+  id: 4
+  name: GNA FGDB DATE TIME
+  kind: table
+  geometryType: null
+  fieldCount: 3
+- service: GNA_Layer
+  id: 5
+  name: Substation Level Planning Assumptions
+  kind: table
+  geometryType: null
+  fieldCount: 20
+- service: ICA_Layer
+  id: 0
+  name: ICA - Circuit Segments
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 29
+- service: ICA_Layer
+  id: 1
+  name: ICA - Circuit Segments, Non-3 Phase
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 16
+- service: ICA_Layer
+  id: 2
+  name: ICA - Generation Op Flex
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 3
+  name: ICA - Generation Protection
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 4
+  name: ICA - Generation Steady State Voltage
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 5
+  name: ICA - Generation Thermal
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 6
+  name: ICA - Generation Voltage Variation
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 7
+  name: ICA - Load Steady State Voltage
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 8
+  name: ICA - Load Thermal
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 9
+  name: ICA - Load Voltage Variation
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 10
+  name: ICA - Solar Op Flex
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 11
+  name: ICA - Solar PV Static Grid
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 12
+  name: ICA - Unavailable Circuit Segments
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 8
+- service: ICA_Layer
+  id: 13
+  name: ICA - Uniform Generation Op Flex
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 14
+  name: ICA - Uniform Generation Static Grid
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 15
+  name: ICA - Uniform Load Static Grid
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 17
+- service: ICA_Layer
+  id: 16
+  name: Substations
+  kind: layer
+  geometryType: esriGeometryPoint
+  fieldCount: 14
+- service: ICA_Layer
+  id: 17
+  name: RAM - Circuits
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 16
+- service: ICA_Layer
+  id: 18
+  name: Transmission Circuits
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 6
+- service: ICA_Layer
+  id: 19
+  name: SCE Service Territory
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 9
+- service: ICA_Tables
+  id: 0
+  name: DRPEP_FGDB_DATE_TIME
+  kind: table
+  geometryType: null
+  fieldCount: 3
+- service: ICA_Tables
+  id: 1
+  name: Historical Circuit Load Profile
+  kind: table
+  geometryType: null
+  fieldCount: 12
+- service: ICA_Tables
+  id: 2
+  name: Historical Substation Load Profile
+  kind: table
+  geometryType: null
+  fieldCount: 9
+- service: ICA_Tables
+  id: 3
+  name: ICA Single Consolidated Table
+  kind: table
+  geometryType: null
+  fieldCount: 26
+- service: ICA_Tables
+  id: 4
+  name: Forecasted Circuit Load Profile
+  kind: table
+  geometryType: null
+  fieldCount: 12
+- service: LNBA_Layer
+  id: 0
+  name: DER Growth Scenario, Planning
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 10
+- service: LNBA_Layer
+  id: 1
+  name: LNBA Short-term, Planning
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 23
+- service: LNBA_Layer
+  id: 2
+  name: LNBA Mid-term, Planning
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 23
+- service: LNBA_Layer
+  id: 3
+  name: LNBA Long-term, Planning
+  kind: layer
+  geometryType: esriGeometryPolyline
+  fieldCount: 23
+- service: LNBA_Layer
+  id: 4
+  name: LNBA_FGDB_DATE_TIME
+  kind: table
+  geometryType: null
+  fieldCount: 3
+- service: LOAD_GROWTH_PEN_HTMAP
+  id: 0
+  name: GRID_RANK_AGGR
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 5
+- service: MGEP_AVL_LOAD_HEAT_MAP
+  id: 0
+  name: GRID_RANK_AGGR_FULL
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 6
+- service: MGEP_AVL_LOAD_HEAT_MAP
+  id: 1
+  name: GRID_RANK_AGGR_FULL_PARTIAL
+  kind: layer
+  geometryType: esriGeometryPolygon
+  fieldCount: 6
+- service: SUBTRANS_HEATMAP
+  id: 0
+  name: Subtrans_heatmap
+  kind: layer
+  geometryType: esriGeometryPoint
+  fieldCount: 19

@@ -1,0 +1,95 @@
+{
+ "allowGeometryUpdates": true,
+ "supportsApplyEditsWithGlobalIds": false,
+ "maxRecordCount": 2000,
+ "description": "",
+ "units": "esriMeters",
+ "maxViewsCount": 20,
+ "syncEnabled": false,
+ "tables": [
+  {
+   "name": "DDOR FGDB DATE TIME",
+   "id": 3,
+   "type": "Table"
+  }
+ ],
+ "hasVersionedData": false,
+ "hasViews": false,
+ "layerOverridesEnabled": true,
+ "supportsRelationshipsResource": true,
+ "layers": [
+  {
+   "name": "DDOR Substations",
+   "id": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPoint"
+  },
+  {
+   "name": "DDOR Subtransmission",
+   "id": 1,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "DDOR - Circuits",
+   "id": 2,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  }
+ ],
+ "spatialReference": {
+  "latestWkid": 3857,
+  "wkid": 102100
+ },
+ "fullExtent": {
+  "ymin": 3939525.913400002,
+  "xmin": -13331725.4103,
+  "ymax": 4528676.9777000025,
+  "xmax": -12711239.555599999,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "enableZDefaults": true,
+ "allowUpdateWithoutMValues": true,
+ "isLocationTrackingService": false,
+ "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+ "capabilities": "Query",
+ "supportsAppend": true,
+ "supportsDisconnectedEditing": false,
+ "supportsSyncModelNone": true,
+ "supportedAppendFormats": "shapefile,featureCollection",
+ "supportsReturnDeleteResults": true,
+ "currentVersion": 11.1,
+ "advancedEditingCapabilities": {
+  "supportsAsyncApplyEdits": true,
+  "supportsApplyEditsbyUploadID": true,
+  "supportsReturnEditResults": true,
+  "supportedApplyEditsUploadIDFormats": "JSON"
+ },
+ "supportedQueryFormats": "JSON",
+ "initialExtent": {
+  "ymin": 3464088.9595554043,
+  "xmin": -13714026.730228383,
+  "ymax": 4567065.8280445915,
+  "xmax": -12233207.931571618,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "serviceDescription": "",
+ "editorTrackingInfo": {
+  "allowOthersToUpdate": true,
+  "enableEditorTracking": false,
+  "allowOthersToDelete": false,
+  "allowOthersToQuery": true,
+  "enableOwnershipAccessControl": false
+ },
+ "hasSyncEnabledViews": false,
+ "copyrightText": "",
+ "zDefault": 0,
+ "supportsLayerOverrides": true,
+ "serviceItemId": "e79433ad34e54bfba869eccc4d034964"
+}

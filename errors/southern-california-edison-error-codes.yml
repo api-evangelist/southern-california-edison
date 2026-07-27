@@ -1,0 +1,75 @@
+generated: '2026-07-27'
+method: derived
+source: >-
+  live error responses observed against https://drpep.sce.com/arcgis_server/rest (2026-07-27) +
+  openapi/southern-california-edison-drpep-arcgis-openapi.yml
+format: arcgis-error-envelope
+rfc9457: false
+envelope:
+  shape: '{"error": {"code": <int>, "message": "<string>", "messageCode": "<string, sometimes>", "details": [<string>]}}'
+  transport_status: >-
+    HTTP 200 for essentially every failure. The ArcGIS REST interface carries its error code INSIDE the body;
+    the HTTP status line stays 200. Any client that branches on response.ok will silently treat failures as
+    success.
+  detection_rule: 'if "error" in body: fail'
+codes:
+- code: 499
+  title: Token Required
+  observed: true
+  evidence: >-
+    GET https://drpep.sce.com/arcgis_server/rest/services/Utilities?f=json -> HTTP 200,
+    {"error":{"code":499,"message":"Token Required","details":[]}}
+  meaning: The requested folder or service is not shared publicly and needs an ArcGIS token.
+  remediation: >-
+    Only the Hosted folder is public. There is no self-service path to a token for the Utilities folder - it
+    requires an SCE-issued ArcGIS portal account against
+    https://drpep.sce.com/arcgis_portal/sharing/rest/generateToken. Do not build against Utilities.
+- code: 404
+  title: Service not found
+  observed: true
+  evidence: >-
+    GET .../services/Hosted/NOPE_Layer/FeatureServer?f=json -> HTTP 200,
+    {"error":{"code":404,"message":"Service Hosted/NOPE_Layer/MapServer not found ","details":[]}}
+  meaning: The named service does not exist in the folder (note the message can name MapServer even when a FeatureServer was requested).
+  remediation: Re-read the service list from GET /arcgis_server/rest/services/Hosted?f=json; service names are case-sensitive.
+- code: 500
+  title: Syntax error in the where clause
+  observed: true
+  evidence: >-
+    GET .../ICA_Layer/FeatureServer/0/query?where=BOGUS(&f=json -> HTTP 200,
+    {"error":{"code":500,"message":"Syntax error [].","details":[]}}
+  meaning: The SQL-92 where expression could not be parsed. Code 500 here is a client-side input error, not a server fault.
+  remediation: Validate the where clause; quote string literals with single quotes; use 1=1 to select all.
+- code: 500
+  title: Unsupported resource
+  observed: true
+  evidence: >-
+    GET .../Hosted/ICA_Layer/OGCFeatureServer?f=json -> HTTP 200, {"error":{"code":500,"message":null,"details":[]}}
+  meaning: The requested service interface is not enabled. These layers expose FeatureServer only - no OGC API - Features endpoint.
+  remediation: Use the FeatureServer /query operation, or f=geojson if GeoJSON output is what is wanted.
+- code: 400
+  title: Invalid or missing parameter
+  observed: false
+  documented_by: Esri ArcGIS REST API (the interface SCE runs); not documented by SCE.
+  meaning: A parameter value failed validation (bad geometry, bad outFields, malformed outStatistics).
+  remediation: Compare parameter values against the layer descriptor returned by getFeatureLayer.
+- code: 498
+  title: Invalid token
+  observed: false
+  documented_by: Esri ArcGIS REST API; the companion of the observed 499 on secured folders.
+  meaning: A token was supplied but is expired or invalid.
+  remediation: Not applicable to the public Hosted layers, which take no token.
+gateway_errors:
+- host: api.sce.com
+  status: 500
+  body: >-
+    SOAP env:Fault, error_message "Dynamic backend host not specified", error_code 0x01130009 (IBM DataPower /
+    API Connect behind Imperva).
+  meaning: >-
+    The SCE API gateway is live but no route is exposed to an anonymous caller. Every ESPI/Green-Button-shaped
+    path probed returns this. It is an infrastructure fault, not a documented API error.
+green_button:
+  published: false
+  note: >-
+    SCE publishes no error reference, fault code list or ESPI error semantics for Green Button Connect My Data.
+    Nothing is asserted here for that interface.

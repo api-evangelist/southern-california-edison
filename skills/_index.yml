@@ -1,0 +1,32 @@
+generated: '2026-07-27'
+method: generated
+source: openapi/southern-california-edison-drpep-arcgis-openapi.yml + repository artifacts
+note: >-
+  Southern California Edison publishes no AGENTS.md, no skills and no developer documentation. These skills were
+  written by API Evangelist and every step is grounded in an operationId that exists in the generated DRPEP OpenAPI,
+  or - for the Green Button skill - in verbatim first-party text from sce.com. Nothing was invented.
+skills:
+- file: southern-california-edison-query-hosting-capacity.md
+  name: Query SCE hosting capacity (ICA) for a circuit or location
+  api: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  operations: [listHostedServices, getFeatureService, getFeatureLayer, queryFeatureLayer]
+  audience: solar/DER developers, interconnection engineers, siting analysts
+- file: southern-california-edison-bulk-extract-layer.md
+  name: Bulk-extract a DRPEP layer from SCE
+  api: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  operations: [listHostedServices, getFeatureService, getFeatureLayer, queryFeatureLayer, downloadDrpepNodeCsv]
+  audience: data engineers, researchers, GIS teams
+- file: southern-california-edison-grid-needs-and-wildfire-exposure.md
+  name: Assess SCE grid needs, deferral opportunities and wildfire/PSPS exposure for a circuit
+  api: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  operations: [listHostedServices, getFeatureService, getFeatureLayer, queryFeatureLayer, getDrpepOperationalFlexibility]
+  audience: DER developers bidding deferral, utility planners, wildfire risk analysts
+- file: southern-california-edison-request-customer-data-access.md
+  name: Obtain SCE customer energy data as a third party (Green Button Connect My Data)
+  api: null
+  operations: []
+  kind: procedural
+  audience: energy-data platforms, DR providers, researchers
+  note: >-
+    No callable surface. This skill exists to stop an agent from hallucinating an SCE Green Button endpoint and to
+    route it to the real, gated registration path.

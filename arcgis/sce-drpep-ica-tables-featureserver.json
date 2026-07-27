@@ -1,0 +1,96 @@
+{
+ "allowGeometryUpdates": true,
+ "supportsApplyEditsWithGlobalIds": false,
+ "maxRecordCount": 2000,
+ "description": "",
+ "units": "esriMeters",
+ "maxViewsCount": 20,
+ "syncEnabled": false,
+ "tables": [
+  {
+   "name": "DRPEP_FGDB_DATE_TIME",
+   "id": 0,
+   "type": "Table"
+  },
+  {
+   "name": "Historical Circuit Load Profile",
+   "id": 1,
+   "type": "Table"
+  },
+  {
+   "name": "Historical Substation Load Profile",
+   "id": 2,
+   "type": "Table"
+  },
+  {
+   "name": "ICA Single Consolidated Table",
+   "id": 3,
+   "type": "Table"
+  },
+  {
+   "name": "Forecasted Circuit Load Profile",
+   "id": 4,
+   "type": "Table"
+  }
+ ],
+ "hasVersionedData": false,
+ "hasViews": false,
+ "layerOverridesEnabled": true,
+ "supportsRelationshipsResource": true,
+ "layers": [],
+ "spatialReference": {
+  "latestWkid": 3857,
+  "wkid": 102100
+ },
+ "fullExtent": {
+  "ymin": "NaN",
+  "xmin": "NaN",
+  "ymax": "NaN",
+  "xmax": "NaN",
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "enableZDefaults": true,
+ "allowUpdateWithoutMValues": true,
+ "isLocationTrackingService": false,
+ "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+ "capabilities": "Query",
+ "supportsAppend": true,
+ "supportsDisconnectedEditing": false,
+ "supportsSyncModelNone": true,
+ "supportedAppendFormats": "shapefile,featureCollection",
+ "supportsReturnDeleteResults": true,
+ "currentVersion": 11.1,
+ "advancedEditingCapabilities": {
+  "supportsAsyncApplyEdits": true,
+  "supportsApplyEditsbyUploadID": true,
+  "supportsReturnEditResults": true,
+  "supportedApplyEditsUploadIDFormats": "JSON"
+ },
+ "supportedQueryFormats": "JSON",
+ "initialExtent": {
+  "ymin": -14789667.896678966,
+  "xmin": -39520295.20295203,
+  "ymax": 18789667.896678966,
+  "xmax": 39520295.20295203,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "serviceDescription": "",
+ "editorTrackingInfo": {
+  "allowOthersToUpdate": true,
+  "enableEditorTracking": false,
+  "allowOthersToDelete": false,
+  "allowOthersToQuery": true,
+  "enableOwnershipAccessControl": false
+ },
+ "hasSyncEnabledViews": false,
+ "copyrightText": "",
+ "zDefault": 0,
+ "supportsLayerOverrides": true,
+ "serviceItemId": "f0b1781cea1045fea548f1cb2f8bcec5"
+}

@@ -341,16 +341,25 @@ probes:
 artifacts:
   openapi:
     harvested: false
-    count: 0
+    generated: true
+    count: 1
+    file: openapi/southern-california-edison-drpep-arcgis-openapi.yml
     note: |
-      No OpenAPI, Swagger, RAML, AsyncAPI, Postman collection, or any other API
-      contract was found on any SCE surface. /openapi.json, /swagger.json,
-      /api-docs, and the developer/docs/api subdomains were all probed and all
-      404'd or failed to resolve. Nothing was fabricated and the openapi/ directory
-      is therefore omitted.
+      SCE publishes no OpenAPI, Swagger, RAML, AsyncAPI, GraphQL SDL, MCP manifest or
+      Postman collection. Re-probed 2026-07-27 in the enrichment round against every
+      host: /openapi.json, /swagger.json, /api-docs and /.well-known/* on www.sce.com
+      (404), drpep.sce.com (404) and api.sce.com (500 gateway fault). Nothing was
+      found and nothing was fabricated.
+
+      What WAS produced is an API Evangelist GENERATED OpenAPI 3.1 describing the
+      anonymous DRPEP ArcGIS REST surface - 8 operations, 20 component schemas, and a
+      58-entry x-drpep-inventory - built entirely from live unauthenticated probes and
+      the verbatim ArcGIS descriptors in arcgis/. Every path, parameter and example in
+      it was observed on the wire; info.x-provenance states plainly that it is not a
+      provider artifact. It must never be represented as SCE-published.
   arcgis:
     harvested: true
-    count: 3
+    count: 20
     files:
       - path: arcgis/sce-drpep-arcgis-services-catalog.json
         source: https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json
@@ -367,7 +376,44 @@ artifacts:
     note: |
       Saved verbatim as fetched. These are Esri ArcGIS REST service descriptors, not
       OpenAPI, and are deliberately kept out of openapi/ so nothing is
-      misrepresented.
+      misrepresented. The 2026-07-27 enrichment round added the remaining 14
+      FeatureServer descriptors (arcgis/sce-drpep-*-featureserver.json), refreshed the
+      ICA descriptor (which now lists 20 layers, not 14), and added the DCAT-US 1.1
+      catalog feed from the paired ArcGIS Hub site
+      (arcgis/sce-drpep-hub-dcat-us-1.1.json, 47 datasets, HTTP 200).
+
+enrichmentRound:
+  date: '2026-07-27'
+  contractDiscovery:
+    openapi: none published (re-probed every host and the docs/console host)
+    graphql: none - no /graphql surface exists on any SCE host
+    mcp: none - no hosted or remote MCP server, no tools/list endpoint, no registry entry
+    asyncapi: none - SCE documents no webhooks, events or streaming surface of any kind
+    grpc: none - no .proto published; the empty github.com/SouthernCaliforniaEdison org has 0 public repos
+    packages: none - no first-party SDK on npm, PyPI, Maven, NuGet, pkg.go.dev, RubyGems, Packagist or crates.io
+    cli: none
+    sandbox: none - no test credentials, test mode or simulator is published
+    changelog: none - Edison International newsroom is corporate news, not an API changelog
+    postman: none found
+  liveVerification:
+    - 'ICA_Layer/0 where=1=1&returnCountOnly=true -> {"count":676467} (HTTP 200, anonymous)'
+    - 'ICA_Layer/0 f=geojson -> RFC 7946 FeatureCollection (HTTP 200)'
+    - 'Utilities folder -> {"error":{"code":499,"message":"Token Required"}} (HTTP 200 body)'
+    - 'Hosted/NOPE_Layer -> {"error":{"code":404,...}} (HTTP 200 body)'
+    - 'malformed where -> {"error":{"code":500,"message":"Syntax error []."}} (HTTP 200 body)'
+    - 'ICA_Layer/OGCFeatureServer -> error 500; no OGC API - Features interface'
+    - 'sce.okta.com/.well-known/openid-configuration and /oauth-authorization-server -> 200'
+    - 'All 15 hosted FeatureServers and all 58 layers/tables described anonymously (HTTP 200)'
+  notEmitted:
+    - 'StatusPage - no API status page exists; the SCE outage map reports power outages, not API availability'
+    - 'Deprecation - no deprecation policy or Sunset support'
+    - 'Security / VulnerabilityDisclosure - no security.txt, no disclosure page, no bug bounty on sce.com or edison.com'
+    - 'Compliance / TrustCenter - no published certification or trust program found'
+    - 'Idempotency - read-only GET surface with no idempotency-key contract to record'
+    - 'SDKs / Packages / CLI / MCPServer / Sandbox / Webhooks / AsyncAPI - none exist'
+    - 'OAuthScopes - the only published scopes belong to SCE Okta, not to any energy-data API'
+    - 'GitHubOrganization - github.com/SouthernCaliforniaEdison exists but has 0 public repos and no profile; unverifiable as first-party'
+    - 'Pricing - SCE rate plans are electricity tariffs, not API pricing'
 
 relatedEntities:
   - slug: edison-international

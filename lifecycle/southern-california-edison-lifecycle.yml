@@ -1,0 +1,78 @@
+generated: '2026-07-27'
+method: searched
+source: >-
+  https://drpep.sce.com/arcgis_server/rest/info?f=json + live probes of SCE status/deprecation surfaces
+  (2026-07-27)
+summary: >-
+  SCE operates its API surfaces with no published lifecycle at all: no versioning policy, no deprecation
+  policy, no Sunset/Deprecation header support, no API status page, no SLA and no changelog. What does exist
+  is data-level vintage stamping inside the DRPEP layers themselves, plus the CPUC regulatory calendar that
+  drives when the ICA/GNA/DDOR/LNBA datasets are refreshed.
+versioning:
+  scheme: server-product-version (exposed, not negotiable)
+  current: '11.1'
+  discovery: https://drpep.sce.com/arcgis_server/rest/info?f=json
+  full_version: 11.1.0
+  policy_url: null
+  client_pinning: false
+  note: >-
+    There is no version segment in the path, no version header and no date pin. A consumer is always on
+    whatever ArcGIS Enterprise version SCE last upgraded to, and an Esri major upgrade can change response
+    details without notice.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  deprecated_operations: []
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset support, no advance-notice commitment. Layer names carry their
+    own dating instead - e.g. the service DRP_ScreenL_08202021 is stamped with a 2021 date in its own name,
+    and superseded layers simply disappear from the Hosted catalog.
+data_vintage:
+  mechanism: in-band, per dataset
+  sources:
+  - table: ICA_Tables/0 (DRPEP_FGDB_DATE_TIME)
+    meaning: Refresh timestamp of the ICA file geodatabase publication.
+  - table: DDOR_Layer/3 (DDOR FGDB DATE TIME)
+  - table: GNA_Layer/4 (GNA FGDB DATE TIME)
+  - table: LNBA_Layer/4 (LNBA_FGDB_DATE_TIME)
+  - field: ICA feature layers carry changed_date and changed_date_forecast per circuit segment.
+  recommendation: >-
+    Poll the FGDB DATE TIME tables to detect a data refresh; there is no webhook, feed or notification of any
+    kind for these datasets.
+release_cadence:
+  driver: CPUC Distribution Resources Plan / Distribution Planning Advisory Group calendar
+  note: >-
+    ICA, GNA, DDOR and LNBA are regulatory deliverables under the CPUC DRP proceeding, so refresh cadence
+    tracks the proceeding's filing calendar rather than any product release train. SCE publishes no
+    machine-readable schedule.
+status_page:
+  url: null
+  note: >-
+    No API status page exists. status.sce.com does not resolve. https://www.sce.com/outage-center/check-outage-status
+    and the SCE outage map are ELECTRICITY outage tools for customers - they report power outages, not API
+    availability - so they are deliberately NOT recorded as a StatusPage pointer.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No availability commitment is published for DRPEP or for Green Button Connect My Data. SCE's "service
+    guarantee" pages concern electric service, not API uptime.
+changelog:
+  url: null
+  note: >-
+    No dated API changelog. Corporate news is published at https://newsroom.edison.com/ (Edison International)
+    and is not an API changelog, so no ChangeLog pointer is emitted.
+green_button:
+  lifecycle_published: false
+  regulatory_anchor:
+    tariff: SCE Rule 26 - Release of Customer Data or Energy Usage Related Data to Third Parties
+    advice_letter: 3087-E
+    filed: '2014-07-30'
+    effective: '2014-08-29'
+    decision: CPUC D.14-05-016
+    document: https://www.sce.com/sites/default/files/inline-files/Rule26.pdf
+  note: >-
+    The tariff is the only durable versioned artifact for the consumer-data interface. Rule 26 states that
+    "technical eligibility criteria may change, from time to time, consistent with the NAESB ESPI Standard" -
+    i.e. the interface can change with the standard, with no consumer-facing versioning contract.

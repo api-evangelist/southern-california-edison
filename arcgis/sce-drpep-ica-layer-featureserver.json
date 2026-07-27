@@ -1,1 +1,193 @@
-{"allowGeometryUpdates":true,"supportsApplyEditsWithGlobalIds":false,"maxRecordCount":2000,"description":"","units":"esriMeters","maxViewsCount":20,"syncEnabled":false,"tables":[],"hasVersionedData":false,"hasViews":false,"layerOverridesEnabled":true,"supportsRelationshipsResource":true,"layers":[{"name":"ICA - Circuit Segments","id":0,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Circuit Segments, Non-3 Phase","id":1,"type":"Feature Layer","geometryType":"esriGeometryPolyline","serviceItemId":"8fcb65bb27784da080989874f1656fee"},{"name":"ICA - Generation Op Flex","id":2,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Generation Protection","id":3,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Generation Steady State Voltage","id":4,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Generation Thermal","id":5,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Generation Voltage Variation","id":6,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Load Steady State Voltage","id":7,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Load Thermal","id":8,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Load Voltage Variation","id":9,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Solar Op Flex","id":10,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Solar PV Static Grid","id":11,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Unavailable Circuit Segments","id":12,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Uniform Generation Op Flex","id":13,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Uniform Generation Static Grid","id":14,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"ICA - Uniform Load Static Grid","id":15,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"Substations","id":16,"type":"Feature Layer","geometryType":"esriGeometryPoint"},{"name":"RAM - Circuits","id":17,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"Transmission Circuits","id":18,"type":"Feature Layer","geometryType":"esriGeometryPolyline"},{"name":"SCE Service Territory","id":19,"type":"Feature Layer","geometryType":"esriGeometryPolygon"}],"spatialReference":{"latestWkid":3857,"wkid":102100},"fullExtent":{"ymin":3879788.030299999,"xmin":-1.34172383993E7,"ymax":4636887.529600002,"xmax":-1.2073474691300001E7,"spatialReference":{"latestWkid":3857,"wkid":102100}},"enableZDefaults":true,"allowUpdateWithoutMValues":true,"isLocationTrackingService":false,"supportedExportFormats":"sqlite,filegdb,shapefile,csv,geojson","capabilities":"Query","supportsAppend":true,"supportsDisconnectedEditing":false,"supportsSyncModelNone":true,"supportedAppendFormats":"shapefile,featureCollection","supportsReturnDeleteResults":true,"currentVersion":11.1,"advancedEditingCapabilities":{"supportsAsyncApplyEdits":true,"supportsApplyEditsbyUploadID":true,"supportsReturnEditResults":true,"supportedApplyEditsUploadIDFormats":"JSON"},"supportedQueryFormats":"JSON","initialExtent":{"ymin":-3.223862298061166E7,"xmin":-8.15693364940762E7,"ymax":1.0580678107799083E8,"xmax":1.446067492516567E8,"spatialReference":{"latestWkid":3857,"wkid":102100}},"serviceDescription":"","editorTrackingInfo":{"allowOthersToUpdate":true,"enableEditorTracking":false,"allowOthersToDelete":false,"allowOthersToQuery":true,"enableOwnershipAccessControl":false},"hasSyncEnabledViews":false,"copyrightText":"","zDefault":0,"supportsLayerOverrides":true,"serviceItemId":"8fcb65bb27784da080989874f1656fee"}
+{
+ "allowGeometryUpdates": true,
+ "supportsApplyEditsWithGlobalIds": false,
+ "maxRecordCount": 2000,
+ "description": "",
+ "units": "esriMeters",
+ "maxViewsCount": 20,
+ "syncEnabled": false,
+ "tables": [],
+ "hasVersionedData": false,
+ "hasViews": false,
+ "layerOverridesEnabled": true,
+ "supportsRelationshipsResource": true,
+ "layers": [
+  {
+   "name": "ICA - Circuit Segments",
+   "id": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Circuit Segments, Non-3 Phase",
+   "id": 1,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline",
+   "serviceItemId": "8fcb65bb27784da080989874f1656fee"
+  },
+  {
+   "name": "ICA - Generation Op Flex",
+   "id": 2,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Generation Protection",
+   "id": 3,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Generation Steady State Voltage",
+   "id": 4,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Generation Thermal",
+   "id": 5,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Generation Voltage Variation",
+   "id": 6,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Load Steady State Voltage",
+   "id": 7,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Load Thermal",
+   "id": 8,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Load Voltage Variation",
+   "id": 9,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Solar Op Flex",
+   "id": 10,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Solar PV Static Grid",
+   "id": 11,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Unavailable Circuit Segments",
+   "id": 12,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Uniform Generation Op Flex",
+   "id": 13,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline",
+   "serviceItemId": "8fcb65bb27784da080989874f1656fee"
+  },
+  {
+   "name": "ICA - Uniform Generation Static Grid",
+   "id": 14,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "ICA - Uniform Load Static Grid",
+   "id": 15,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "Substations",
+   "id": 16,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPoint"
+  },
+  {
+   "name": "RAM - Circuits",
+   "id": 17,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "Transmission Circuits",
+   "id": 18,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "SCE Service Territory",
+   "id": 19,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  }
+ ],
+ "spatialReference": {
+  "latestWkid": 3857,
+  "wkid": 102100
+ },
+ "fullExtent": {
+  "ymin": 3879788.030299999,
+  "xmin": -13417238.3993,
+  "ymax": 4636887.529600002,
+  "xmax": -12073474.691300001,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "enableZDefaults": true,
+ "allowUpdateWithoutMValues": true,
+ "isLocationTrackingService": false,
+ "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+ "capabilities": "Query",
+ "supportsAppend": true,
+ "supportsDisconnectedEditing": false,
+ "supportsSyncModelNone": true,
+ "supportedAppendFormats": "shapefile,featureCollection",
+ "supportsReturnDeleteResults": true,
+ "currentVersion": 11.1,
+ "advancedEditingCapabilities": {
+  "supportsAsyncApplyEdits": true,
+  "supportsApplyEditsbyUploadID": true,
+  "supportsReturnEditResults": true,
+  "supportedApplyEditsUploadIDFormats": "JSON"
+ },
+ "supportedQueryFormats": "JSON",
+ "initialExtent": {
+  "ymin": -32238622.98061166,
+  "xmin": -81569336.4940762,
+  "ymax": 105806781.07799083,
+  "xmax": 144606749.2516567,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "serviceDescription": "",
+ "editorTrackingInfo": {
+  "allowOthersToUpdate": true,
+  "enableEditorTracking": false,
+  "allowOthersToDelete": false,
+  "allowOthersToQuery": true,
+  "enableOwnershipAccessControl": false
+ },
+ "hasSyncEnabledViews": false,
+ "copyrightText": "",
+ "zDefault": 0,
+ "supportsLayerOverrides": true,
+ "serviceItemId": "8fcb65bb27784da080989874f1656fee"
+}

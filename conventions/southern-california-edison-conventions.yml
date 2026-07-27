@@ -1,0 +1,113 @@
+generated: '2026-07-27'
+method: derived
+source: >-
+  openapi/southern-california-edison-drpep-arcgis-openapi.yml + live behaviour observed against
+  https://drpep.sce.com/arcgis_server/rest (2026-07-27)
+applies_to: SCE DRPEP ArcGIS REST Services (the only callable SCE API surface)
+note: >-
+  SCE publishes no API style guide, no conventions page and no developer documentation. Everything below was
+  derived from the ArcGIS Enterprise 11.1 REST interface SCE actually serves and from responses observed on the
+  wire. Green Button Connect My Data is excluded - none of its conventions are public.
+transport:
+  protocol: HTTPS only
+  tls: TLSv1.3 (probed 2026-07-27)
+  methods: [GET]
+  http_verbs_note: >-
+    Read-only. Every hosted service advertises capabilities "Query" (DRP_Transmission_Projects also "Extract").
+    There is no POST/PUT/PATCH/DELETE surface, so there is nothing to make idempotent and SCE documents no
+    idempotency-key contract. All operations are naturally safe and repeatable.
+content_negotiation:
+  mechanism: query parameter, not Accept header
+  parameter: f
+  values:
+  - value: html
+    note: DEFAULT. Omitting f returns the ArcGIS REST Services Directory HTML page, not JSON.
+  - value: json
+    note: Esri JSON. The format every machine consumer should send.
+  - value: pjson
+    note: Pretty-printed Esri JSON (verified).
+  - value: geojson
+    note: RFC 7946 GeoJSON FeatureCollection on hosted feature layers (verified on ICA_Layer/0).
+  gotcha: >-
+    The single most common integration mistake against this API is forgetting f=json and parsing an HTML page.
+authentication:
+  style: none (anonymous)
+  detail: authentication/southern-california-edison-authentication.yml
+pagination:
+  style: offset
+  parameters:
+  - name: resultOffset
+    description: Zero-based record offset.
+  - name: resultRecordCount
+    description: Page size, capped by the layer maxRecordCount.
+  page_size_cap:
+    default_and_max: 2000 on most services, 5000 on AVL_LOAD_HEAT_MAP_TOGGLE, DRP_PSPS_Layer, LNBA_Layer and MGEP_AVL_LOAD_HEAT_MAP
+  truncation_signal:
+    field: exceededTransferLimit
+    value: true
+    meaning: The result was cut at maxRecordCount; issue the next page with resultOffset.
+  counting:
+    parameter: returnCountOnly=true
+    example: ICA_Layer layer 0 with where=1=1 returns {"count":676467} (verified 2026-07-27)
+  large_pull_pattern: >-
+    For layers in the hundreds of thousands of features, request returnIdsOnly=true first, then fetch in
+    objectIds batches of <= maxRecordCount, or page with resultOffset ordered by objectid.
+  capability_flags: supportsPagination, supportsPaginationOnAggregatedQueries and supportsMaxRecordCountFactor are all true on these layers.
+filtering:
+  attribute_filter:
+    parameter: where
+    language: SQL-92 subset
+    select_all: 1=1
+  field_selection:
+    parameter: outFields
+    default: '*'
+    note: Field names come from the layer descriptor (getFeatureLayer); there is no other field dictionary.
+  spatial_filter:
+    parameters: [geometry, geometryType, spatialRel, inSR]
+    default_relationship: esriSpatialRelIntersects
+  distinct: returnDistinctValues=true (supportsDistinct true)
+  ordering: orderByFields (supportsOrderBy true)
+  aggregation: outStatistics + groupByFieldsForStatistics (supportsStatistics, supportsPercentileStatistics, supportsCountDistinct all true)
+projection:
+  input: inSR (WKID)
+  output: outSR (WKID)
+  note: Layers are stored in Web Mercator; request outSR=4326 for WGS84 lon/lat.
+errors:
+  envelope_shape: '{"error": {"code": <int>, "message": "<string>", "details": []}}'
+  transport_status: >-
+    HTTP 200. This API does NOT signal failure with an HTTP status code - a malformed where clause, an unknown
+    service and a token-required folder all come back 200 with an error body. Clients MUST inspect the payload
+    for an "error" key rather than trusting the status line.
+  catalog: errors/southern-california-edison-error-codes.yml
+  rfc9457: false
+versioning:
+  scheme: server product version, exposed not negotiated
+  current: '11.1'
+  discovery: GET /arcgis_server/rest/info?f=json -> currentVersion 11.1, fullVersion 11.1.0
+  client_pinning: none - there is no version path segment, header or date pin a caller can request.
+  data_vintage: >-
+    Data currency is published as data, not as an API version: ICA_Tables/0 (DRPEP_FGDB_DATE_TIME),
+    DDOR_Layer/3, GNA_Layer/4 and LNBA_Layer/4 are FGDB DATE TIME tables carrying the refresh timestamp of
+    each dataset, and ICA feature layers carry changed_date / changed_date_forecast per segment.
+rate_limits:
+  published: false
+  headers: none observed
+  note: >-
+    No documented quota, no 429 observed, no RateLimit/Retry-After headers on any response. Absence of a
+    published limit is not permission - treat 2,000-5,000 features per request and modest concurrency as the
+    practical contract.
+tracing:
+  request_id: none - no correlation-id or request-id header is returned.
+bulk_export:
+  in_api: >-
+    ICA feature layers carry download_link, download_link_microgrid, download_link_forecast and
+    download_link_microgrid_forecast attributes pointing at per-segment CSV exports - the supported bulk path.
+  hub_catalog: >-
+    The paired ArcGIS Hub site at https://drpep-sce2.opendata.arcgis.com publishes the same 47 datasets as CSV,
+    GeoJSON, KML, Shapefile and a DCAT-US 1.1 catalog feed (arcgis/sce-drpep-hub-dcat-us-1.1.json).
+cross_reference:
+  authentication: authentication/southern-california-edison-authentication.yml
+  errors: errors/southern-california-edison-error-codes.yml
+  lifecycle: lifecycle/southern-california-edison-lifecycle.yml
+  data_model: data-model/southern-california-edison-data-model.yml
+  conformance: conformance/southern-california-edison-conformance.yml

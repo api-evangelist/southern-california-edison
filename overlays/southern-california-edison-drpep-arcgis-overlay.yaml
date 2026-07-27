@@ -1,0 +1,68 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for SCE DRPEP ArcGIS REST Services
+  version: 1.0.0
+  x-generated: '2026-07-27'
+  x-method: generated
+  x-source: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  x-note: >-
+    Southern California Edison publishes no OpenAPI, so the base document in openapi/ is itself an API
+    Evangelist generation from live anonymous probes. This overlay carries the API Evangelist assessment layer
+    on top of it - provenance, access posture, rating context and per-operation guidance - so the base
+    description stays a plain reading of the wire and the opinion stays separable.
+extends: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: southern-california-edison
+    x-apievangelist-repository: https://github.com/api-evangelist/southern-california-edison
+    x-apievangelist-access:
+      pricing: free
+      onboarding: none
+      gate: none
+      note: >-
+        Anonymous GET. No key, no registration, no terms click-through, no quota. This is the only SCE API a
+        developer can call today.
+    x-apievangelist-provenance:
+      spec_author: API Evangelist
+      spec_method: generated-from-live-probes
+      provider_published_spec: false
+      probed: '2026-07-27'
+    x-apievangelist-caveat: >-
+      Read-only regulatory grid data published under the CPUC Distribution Resources Plan proceeding. SCE
+      offers no SLA, no versioning policy, no deprecation notice and no status page for it - see
+      lifecycle/southern-california-edison-lifecycle.yml.
+- target: $.tags[?(@.name=='Query')]
+  update:
+    x-apievangelist-guidance: >-
+      Always send f=json (or f=geojson); the default f=html returns the ArcGIS Services Directory page. Check
+      the body for an "error" key - failures come back with HTTP 200.
+- target: $.tags[?(@.name=='DRPEP Portal')]
+  update:
+    x-apievangelist-stability: unstable
+    x-apievangelist-guidance: >-
+      These two endpoints are the DRPEP web app's own private calls. They answer anonymously but SCE publishes
+      no contract for them; prefer the FeatureServer /query operation and the download_link attributes.
+- target: $.paths['/arcgis_server/rest/services/Hosted/{serviceName}/FeatureServer/{layerId}/query'].get
+  update:
+    x-apievangelist-pagination:
+      style: offset
+      params: [resultOffset, resultRecordCount]
+      truncation_flag: exceededTransferLimit
+      max_page: 2000 (5000 on AVL_LOAD_HEAT_MAP_TOGGLE, DRP_PSPS_Layer, LNBA_Layer, MGEP_AVL_LOAD_HEAT_MAP)
+    x-apievangelist-conventions: conventions/southern-california-edison-conventions.yml
+    x-apievangelist-errors: errors/southern-california-edison-error-codes.yml
+    x-apievangelist-scale: >-
+      ICA_Layer layer 0 holds 676,467 features; plan for id-batched or offset-paged extraction rather than a
+      single pull.
+- target: $.paths['/arcgis_server/rest/services/Hosted/{serviceName}/FeatureServer/{layerId}'].get
+  update:
+    x-apievangelist-data-model: data-model/southern-california-edison-data-model.yml
+    x-apievangelist-schemas: json-schema/southern-california-edison-drpep-layers-schema.json
+    x-apievangelist-guidance: >-
+      This descriptor is the only field dictionary SCE provides. Join across services on circuit_name,
+      substation_name, system_name, node_id/section_id and gna_id.
+- target: $.components.schemas.ErrorEnvelope
+  update:
+    x-apievangelist-note: >-
+      Not RFC 9457. The transport status stays 200 on failure, so client error handling must inspect the body.

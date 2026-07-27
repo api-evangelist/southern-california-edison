@@ -1,0 +1,979 @@
+generated: '2026-07-27'
+method: derived
+source: live ArcGIS layer descriptors for all 15 DRPEP hosted feature services (arcgis/*-featureserver.json), fetched
+  2026-07-27
+applies_to: SCE DRPEP ArcGIS REST Services
+note: 'SCE publishes no object reference, no ERD and no field dictionary. This graph was derived entirely from the
+  field lists in the live ArcGIS layer descriptors. There are no foreign keys in the Esri sense: DRPEP layers are
+  joined by shared natural attribute keys - above all circuit_name, substation_name and system_name - which appear
+  verbatim across services. Relationships below are attribute joins observed by name, not declared by SCE.'
+grain:
+  system_name: SCE planning system / district (coarsest)
+  substation_name: Substation serving a set of circuits
+  circuit_name: Distribution circuit (the primary analytical unit across ICA, GNA, DDOR, LNBA and PSPS)
+  node_id: Node on a circuit, used with section_id to address an individual ICA circuit segment
+  section_id: Circuit segment identifier within a circuit (ICA layers)
+  gna_id: Grid Needs Assessment record identifier, shared between GNA and DDOR layers
+join_keys:
+- key: circuit_name
+  appears_in: 29
+  entities:
+  - AVL_LOAD_CAP_TOGGLE/0
+  - AVL_LOAD_CAP_TOGGLE/1
+  - DDOR_Layer/2
+  - DRP_PSPS_Layer/1
+  - GNA_Layer/2
+  - GNA_Layer/3
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+  - ICA_Layer/17
+  - ICA_Tables/1
+  - ICA_Tables/3
+  - ICA_Tables/4
+  - LNBA_Layer/0
+  - LNBA_Layer/1
+  - LNBA_Layer/2
+  - LNBA_Layer/3
+- key: substation_name
+  appears_in: 26
+  entities:
+  - AVL_LOAD_CAP_TOGGLE/0
+  - AVL_LOAD_CAP_TOGGLE/1
+  - DDOR_Layer/0
+  - DDOR_Layer/2
+  - DRP_PSPS_Layer/1
+  - GNA_Layer/0
+  - GNA_Layer/2
+  - GNA_Layer/5
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+  - LNBA_Layer/1
+  - LNBA_Layer/2
+  - LNBA_Layer/3
+- key: circuit_voltage
+  appears_in: 26
+  entities:
+  - AVL_LOAD_CAP_TOGGLE/0
+  - AVL_LOAD_CAP_TOGGLE/1
+  - Distribution_circuits/0
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/12
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+  - ICA_Layer/17
+  - ICA_Layer/18
+  - ICA_Tables/3
+  - LNBA_Layer/0
+  - LNBA_Layer/1
+  - LNBA_Layer/2
+  - LNBA_Layer/3
+- key: system_name
+  appears_in: 25
+  entities:
+  - AVL_LOAD_CAP_TOGGLE/0
+  - AVL_LOAD_CAP_TOGGLE/1
+  - DDOR_Layer/0
+  - DDOR_Layer/1
+  - DDOR_Layer/2
+  - GNA_Layer/0
+  - GNA_Layer/2
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+  - LNBA_Layer/1
+  - LNBA_Layer/2
+  - LNBA_Layer/3
+- key: substation_voltage
+  appears_in: 20
+  entities:
+  - Distribution_circuits/0
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/12
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+  - ICA_Layer/16
+  - ICA_Layer/17
+  - ICA_Tables/2
+- key: section_id
+  appears_in: 18
+  entities:
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+  - LNBA_Layer/1
+  - LNBA_Layer/2
+  - LNBA_Layer/3
+- key: node_id
+  appears_in: 15
+  entities:
+  - ICA_Layer/0
+  - ICA_Layer/1
+  - ICA_Layer/2
+  - ICA_Layer/3
+  - ICA_Layer/4
+  - ICA_Layer/5
+  - ICA_Layer/6
+  - ICA_Layer/7
+  - ICA_Layer/8
+  - ICA_Layer/9
+  - ICA_Layer/10
+  - ICA_Layer/11
+  - ICA_Layer/13
+  - ICA_Layer/14
+  - ICA_Layer/15
+- key: year
+  appears_in: 11
+  entities:
+  - DDOR_Layer/0
+  - DDOR_Layer/1
+  - DDOR_Layer/2
+  - DRP_PSPS_Layer/0
+  - DRP_PSPS_Layer/1
+  - GNA_Layer/0
+  - GNA_Layer/1
+  - GNA_Layer/2
+  - ICA_Tables/1
+  - ICA_Tables/2
+  - ICA_Tables/4
+- key: gna_id
+  appears_in: 8
+  entities:
+  - DDOR_Layer/0
+  - DDOR_Layer/1
+  - DDOR_Layer/2
+  - GNA_Layer/0
+  - GNA_Layer/1
+  - GNA_Layer/2
+  - GNA_Layer/3
+  - GNA_Layer/5
+entities:
+- entity: AVL_LOAD_CAP_TOGGLE/0
+  name: AVL_LOAD_CAP_FULL_SUBMITTAL
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 128
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_CAP_TOGGLE/FeatureServer/0
+- entity: AVL_LOAD_CAP_TOGGLE/1
+  name: AVL_LOAD_CAP_FULL_AND_PARTIAL_SUBMITTAL
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 128
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_CAP_TOGGLE/FeatureServer/1
+- entity: AVL_LOAD_HEAT_MAP_TOGGLE/0
+  name: GRID_RANK_AGGR_FULL
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 6
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_HEAT_MAP_TOGGLE/FeatureServer/0
+- entity: AVL_LOAD_HEAT_MAP_TOGGLE/1
+  name: GRID_RANK_AGGR_FULL_PARTIAL
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 6
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_HEAT_MAP_TOGGLE/FeatureServer/1
+- entity: DDOR_Layer/0
+  name: DDOR Substations
+  kind: feature layer
+  geometry: esriGeometryPoint
+  field_count: 33
+  object_id_field: objectid
+  join_keys:
+  - substation_name
+  - system_name
+  - gna_id
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/0
+- entity: DDOR_Layer/1
+  name: DDOR Subtransmission
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 33
+  object_id_field: objectid
+  join_keys:
+  - system_name
+  - gna_id
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/1
+- entity: DDOR_Layer/2
+  name: DDOR - Circuits
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 36
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - gna_id
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/2
+- entity: DDOR_Layer/3
+  name: DDOR FGDB DATE TIME
+  kind: table
+  geometry: null
+  field_count: 3
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/3
+- entity: DRP_PSPS_Layer/0
+  name: PSPS_Subtransmission
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 14
+  object_id_field: objectid
+  join_keys:
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer/0
+- entity: DRP_PSPS_Layer/1
+  name: PSPS_Circuit
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 16
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer/1
+- entity: DRP_ScreenL_08202021/0
+  name: Sheet1
+  kind: table
+  geometry: null
+  field_count: 3
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_ScreenL_08202021/FeatureServer/0
+- entity: DRP_Transmission_Projects/0
+  name: CAISO_APPROVED_POLYGON
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 16
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer/0
+- entity: DRP_Transmission_Projects/1
+  name: UTILITY_APPROVED_POLYGON
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 16
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer/1
+- entity: DRP_Transmission_Projects/2
+  name: CPUC_APPROVED_POLYGON
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 16
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer/2
+- entity: Distribution_circuits/0
+  name: Distribution Circuits
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 11
+  object_id_field: objectid
+  join_keys:
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/Distribution_circuits/FeatureServer/0
+- entity: Firemap/0
+  name: Tree_Mortality___Tier_1
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 10
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/Firemap/FeatureServer/0
+- entity: Firemap/1
+  name: CPUC_Fire_Threat_Areas____Tier_2___Elevated
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 10
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/Firemap/FeatureServer/1
+- entity: Firemap/2
+  name: CPUC_Fire_Threat_Areas____Tier_3___Extreme
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 10
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/Firemap/FeatureServer/2
+- entity: GNA_Layer/0
+  name: GNA Substations
+  kind: feature layer
+  geometry: esriGeometryPoint
+  field_count: 31
+  object_id_field: objectid
+  join_keys:
+  - substation_name
+  - system_name
+  - gna_id
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/0
+- entity: GNA_Layer/1
+  name: GNA Subtransmission
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 25
+  object_id_field: objectid
+  join_keys:
+  - gna_id
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/1
+- entity: GNA_Layer/2
+  name: GNA - Circuits
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 39
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - gna_id
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/2
+- entity: GNA_Layer/3
+  name: Circuit Level Planning Assumptions
+  kind: table
+  geometry: null
+  field_count: 23
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - gna_id
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/3
+- entity: GNA_Layer/4
+  name: GNA FGDB DATE TIME
+  kind: table
+  geometry: null
+  field_count: 3
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/4
+- entity: GNA_Layer/5
+  name: Substation Level Planning Assumptions
+  kind: table
+  geometry: null
+  field_count: 20
+  object_id_field: objectid
+  join_keys:
+  - substation_name
+  - gna_id
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/5
+- entity: ICA_Layer/0
+  name: ICA - Circuit Segments
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 29
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/0
+  exports:
+  - download_link
+  - download_link_microgrid
+  - download_link_forecast
+  - download_link_microgrid_forecas
+- entity: ICA_Layer/1
+  name: ICA - Circuit Segments, Non-3 Phase
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 16
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/1
+- entity: ICA_Layer/2
+  name: ICA - Generation Op Flex
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/2
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/3
+  name: ICA - Generation Protection
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/3
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/4
+  name: ICA - Generation Steady State Voltage
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/4
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/5
+  name: ICA - Generation Thermal
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/5
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/6
+  name: ICA - Generation Voltage Variation
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/6
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/7
+  name: ICA - Load Steady State Voltage
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/7
+- entity: ICA_Layer/8
+  name: ICA - Load Thermal
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/8
+- entity: ICA_Layer/9
+  name: ICA - Load Voltage Variation
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/9
+- entity: ICA_Layer/10
+  name: ICA - Solar Op Flex
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/10
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/11
+  name: ICA - Solar PV Static Grid
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/11
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/12
+  name: ICA - Unavailable Circuit Segments
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 8
+  object_id_field: objectid
+  join_keys:
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/12
+- entity: ICA_Layer/13
+  name: ICA - Uniform Generation Op Flex
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/13
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/14
+  name: ICA - Uniform Generation Static Grid
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/14
+  exports:
+  - download_link
+  - download_link_microgrid
+- entity: ICA_Layer/15
+  name: ICA - Uniform Load Static Grid
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 17
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - node_id
+  - section_id
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/15
+- entity: ICA_Layer/16
+  name: Substations
+  kind: feature layer
+  geometry: esriGeometryPoint
+  field_count: 14
+  object_id_field: objectid
+  join_keys:
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/16
+- entity: ICA_Layer/17
+  name: RAM - Circuits
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 16
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - circuit_voltage
+  - substation_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/17
+- entity: ICA_Layer/18
+  name: Transmission Circuits
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 6
+  object_id_field: objectid
+  join_keys:
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/18
+- entity: ICA_Layer/19
+  name: SCE Service Territory
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 9
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/19
+- entity: ICA_Tables/0
+  name: DRPEP_FGDB_DATE_TIME
+  kind: table
+  geometry: null
+  field_count: 3
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/0
+- entity: ICA_Tables/1
+  name: Historical Circuit Load Profile
+  kind: table
+  geometry: null
+  field_count: 12
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/1
+- entity: ICA_Tables/2
+  name: Historical Substation Load Profile
+  kind: table
+  geometry: null
+  field_count: 9
+  object_id_field: objectid
+  join_keys:
+  - substation_voltage
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/2
+- entity: ICA_Tables/3
+  name: ICA Single Consolidated Table
+  kind: table
+  geometry: null
+  field_count: 26
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/3
+- entity: ICA_Tables/4
+  name: Forecasted Circuit Load Profile
+  kind: table
+  geometry: null
+  field_count: 12
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - year
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/4
+- entity: LNBA_Layer/0
+  name: DER Growth Scenario, Planning
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 10
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/0
+- entity: LNBA_Layer/1
+  name: LNBA Short-term, Planning
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 23
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - section_id
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/1
+- entity: LNBA_Layer/2
+  name: LNBA Mid-term, Planning
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 23
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - section_id
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/2
+- entity: LNBA_Layer/3
+  name: LNBA Long-term, Planning
+  kind: feature layer
+  geometry: esriGeometryPolyline
+  field_count: 23
+  object_id_field: objectid
+  join_keys:
+  - circuit_name
+  - substation_name
+  - system_name
+  - section_id
+  - circuit_voltage
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/3
+- entity: LNBA_Layer/4
+  name: LNBA_FGDB_DATE_TIME
+  kind: table
+  geometry: null
+  field_count: 3
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/4
+- entity: LOAD_GROWTH_PEN_HTMAP/0
+  name: GRID_RANK_AGGR
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 5
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/LOAD_GROWTH_PEN_HTMAP/FeatureServer/0
+- entity: MGEP_AVL_LOAD_HEAT_MAP/0
+  name: GRID_RANK_AGGR_FULL
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 6
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/MGEP_AVL_LOAD_HEAT_MAP/FeatureServer/0
+- entity: MGEP_AVL_LOAD_HEAT_MAP/1
+  name: GRID_RANK_AGGR_FULL_PARTIAL
+  kind: feature layer
+  geometry: esriGeometryPolygon
+  field_count: 6
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/MGEP_AVL_LOAD_HEAT_MAP/FeatureServer/1
+- entity: SUBTRANS_HEATMAP/0
+  name: Subtrans_heatmap
+  kind: feature layer
+  geometry: esriGeometryPoint
+  field_count: 19
+  object_id_field: objectid
+  join_keys: []
+  url: https://drpep.sce.com/arcgis_server/rest/services/Hosted/SUBTRANS_HEATMAP/FeatureServer/0
+relationships:
+- from: ICA_Layer/16 (Substations)
+  to: ICA_Layer/0 (ICA - Circuit Segments)
+  type: has_many
+  via: substation_name
+  confidence: high
+- from: Distribution_circuits/0 (Distribution Circuits)
+  to: ICA_Layer/0 (ICA - Circuit Segments)
+  type: has_many
+  via: circuit_name
+  confidence: high
+- from: ICA_Layer/0 (ICA - Circuit Segments)
+  to: ICA_Layer/2..15 (ICA constraint layers)
+  type: has_one
+  via: circuit_name + node_id + section_id
+  confidence: high
+  note: Each constraint layer (generation/load thermal, steady-state voltage, voltage variation, protection, op
+    flex, solar PV static grid, uniform generation/load) is the same segment geometry carrying one limiting criterion.
+- from: ICA_Layer/0 (ICA - Circuit Segments)
+  to: ICA_Tables/3 (ICA Single Consolidated Table)
+  type: has_one
+  via: circuit_name + node_id
+  confidence: medium
+  note: The consolidated table is the tabular projection of the segment layer; joined by name, not declared.
+- from: Distribution_circuits/0 (Distribution Circuits)
+  to: ICA_Tables/1 (Historical Circuit Load Profile)
+  type: has_many
+  via: circuit_name
+  confidence: medium
+- from: Distribution_circuits/0 (Distribution Circuits)
+  to: ICA_Tables/4 (Forecasted Circuit Load Profile)
+  type: has_many
+  via: circuit_name
+  confidence: medium
+- from: ICA_Layer/16 (Substations)
+  to: ICA_Tables/2 (Historical Substation Load Profile)
+  type: has_many
+  via: substation_name
+  confidence: medium
+- from: GNA_Layer/2 (GNA - Circuits)
+  to: DDOR_Layer/2 (DDOR - Circuits)
+  type: has_one
+  via: gna_id
+  confidence: high
+  note: The Distribution Deferral Opportunity Report is scoped to grid needs identified in the Grid Needs Assessment;
+    gna_id is carried by both.
+- from: GNA_Layer/2 (GNA - Circuits)
+  to: GNA_Layer/3 (Circuit Level Planning Assumptions)
+  type: has_one
+  via: circuit_name
+  confidence: high
+- from: GNA_Layer/0 (GNA Substations)
+  to: GNA_Layer/5 (Substation Level Planning Assumptions)
+  type: has_one
+  via: substation_name
+  confidence: high
+- from: Distribution_circuits/0 (Distribution Circuits)
+  to: LNBA_Layer/1..3 (LNBA short/mid/long term)
+  type: has_many
+  via: circuit_name
+  confidence: medium
+- from: Distribution_circuits/0 (Distribution Circuits)
+  to: DRP_PSPS_Layer/1 (PSPS_Circuit)
+  type: has_one
+  via: circuit_name
+  confidence: high
+- from: ICA_Layer/19 (SCE Service Territory)
+  to: Firemap/0..2 (CPUC fire-threat tiers)
+  type: has_many
+  via: spatial overlay (no shared key)
+  confidence: low
+  note: Fire-threat tiers are CPUC polygons with no circuit key; relate them by geometry, not attributes.
+exports:
+  per_segment_csv: ICA feature layers carry download_link, download_link_microgrid, download_link_forecast and download_link_microgrid_forecast
+    per segment.
+  bulk_catalog: https://drpep-sce2.opendata.arcgis.com - 47 datasets as CSV/GeoJSON/KML/Shapefile plus DCAT-US 1.1
+    and DCAT-AP 2.1.1 feeds.
+schemas: json-schema/southern-california-edison-drpep-layers-schema.json
+excluded:
+  green_button: SCE publishes no data model for Green Button Connect My Data. The only public field-level document
+    is the Data Element Descriptions PDF (https://www.sce.com/sites/default/files/inline-files/Data_Element_Descriptions_SCE_1.pdf);
+    the ESPI resource model itself is undisclosed, so nothing is asserted here.

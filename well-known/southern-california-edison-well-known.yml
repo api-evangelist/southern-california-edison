@@ -1,0 +1,81 @@
+generated: '2026-07-27'
+method: searched
+source: live anonymous probes of every SCE host in apis.yml plus the OpenAPI servers host
+summary: >-
+  Southern California Edison publishes no /.well-known/ discovery surface on any of its own web or API
+  hosts. www.sce.com, drpep.sce.com and api.sce.com all miss security.txt, openid-configuration,
+  oauth-authorization-server, api-catalog and ai-plugin.json. The only /.well-known/ documents that
+  answer anonymously anywhere in SCE's estate belong to its Okta identity org (sce.okta.com) - these are
+  the standard Okta org discovery documents for the SCE workforce/customer login, NOT a Green Button or
+  DRPEP authorization surface. They are captured here because they are the only published, machine-readable
+  authorization metadata SCE operates, and they show the identity infrastructure a future Green Button
+  Connect My Data OAuth surface would most plausibly sit behind.
+hosts:
+- host: https://www.sce.com
+  role: corporate website + third-party registration funnel
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://drpep.sce.com
+  role: Distribution Resources Plan External Portal - the anonymous ArcGIS REST API host
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /api-docs
+    status: 404
+- host: https://api.sce.com
+  role: IBM DataPower / API Connect gateway behind Imperva - live but no anonymous route
+  documents:
+  - path: /.well-known/security.txt
+    status: 500
+    note: SOAP fault "Dynamic backend host not specified" - the gateway answers, nothing is routed.
+  - path: /.well-known/openid-configuration
+    status: 500
+  - path: /.well-known/oauth-authorization-server
+    status: 500
+  - path: /openapi.json
+    status: 500
+- host: https://sce.okta.com
+  role: SCE Okta identity org (workforce and customer sign-in)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: southern-california-edison-okta-openid-configuration.json
+    note: >-
+      Okta org discovery. issuer https://sce.okta.com, authorization_endpoint /oauth2/v1/authorize,
+      token_endpoint /oauth2/v1/token, jwks_uri /oauth2/v1/keys. scopes_supported: openid, email, profile,
+      address, phone, offline_access, groups. PKCE (S256) supported.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: southern-california-edison-okta-oauth-authorization-server.json
+    note: >-
+      RFC 8414 authorization-server metadata for the same org, adding client_credentials and the Okta
+      management scope family (okta.users.read, okta.apps.manage, ...). These are Okta platform scopes,
+      not SCE energy-data scopes.
+security_txt:
+  present: false
+  note: >-
+    No RFC 9116 security.txt on sce.com, drpep.sce.com, api.sce.com or edison.com (all 404). SCE publishes
+    no machine-readable security contact.

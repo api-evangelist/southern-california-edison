@@ -1,0 +1,3081 @@
+{
+ "@context": "https://project-open-data.cio.gov/v1.1/schema/catalog.jsonld",
+ "@type": "dcat:Catalog",
+ "conformsTo": "https://project-open-data.cio.gov/v1.1/schema",
+ "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json",
+ "dataset": [
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::ica-layer",
+   "title": "ICA Layer",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::ica-layer"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::substations-6",
+   "title": "Substations",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.1589,33.3985,-114.0215,38.2021",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::substations-6"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-unavailable-circuit-segments-1",
+   "title": "ICA - Unavailable Circuit Segments",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.0662,32.8538,-113.9791,38.3548",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-unavailable-circuit-segments-1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=2",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-circuit-segments",
+   "title": "ICA - Circuit Segments",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4223,33.3900,-114.3629,38.2581",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-circuit-segments"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=2"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=3",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-circuit-segments-non-3-phase",
+   "title": "ICA - Circuit Segments, Non-3 Phase",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4553,33.3846,-114.3610,38.2948",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-circuit-segments-non-3-phase"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=3"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=4",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ram-circuits-6",
+   "title": "RAM - Circuits",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4553,33.3846,-114.3610,38.2948",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ram-circuits-6"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=4"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=5",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::transmission-circuits-7",
+   "title": "Transmission Circuits",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.1480,33.0979,-108.3453,37.7544",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::transmission-circuits-7"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=5"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=23f48820904b46c38f0d4f2d75c69d23&sublayer=6",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::sce-service-territory",
+   "title": "SCE Service Territory",
+   "description": "<p>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the&nbsp;data provided is for information purposes only. Southern California Edison makes no&nbsp;guarantee, expressly or implied, for the outcome of an interconnection request.</p><p><br />&nbsp;</p><p>Note: ICA&nbsp;monthly refresh for June 2026 is completed.</p>",
+   "keyword": [
+    "DRPEP",
+    "ICA_Layers"
+   ],
+   "issued": "2022-05-23T14:39:35.000Z",
+   "modified": "2025-06-16T13:30:03.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.5271,33.1338,-113.9366,38.4187",
+   "license": "<span style='font-size:large; font-family:&quot;Segoe UI&quot;, sans-serif; color:black;'>While Southern California Edison makes every effort to ensure the accuracy of DRPEP, the\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>data provided is for information purposes only. Southern California Edison makes no\u00a0</span><span style='font-size:large; color:black; font-family:&quot;Segoe UI&quot;, sans-serif;'>guarantee, expressly or implied, for the outcome of an interconnection request.</span>",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::sce-service-territory"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Layer/FeatureServer/6"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/csv?layers=6"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/shapefile?layers=6"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/geojson?layers=6"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/23f48820904b46c38f0d4f2d75c69d23/kml?layers=6"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=f76174d459a14545b2b13110d1cc6fba",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::ica-tables-1",
+   "title": "ICA Tables",
+   "description": "",
+   "keyword": [],
+   "issued": "2025-02-15T08:40:05.000Z",
+   "modified": "2025-09-17T09:32:53.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::ica-tables-1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Tables/FeatureServer"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=f76174d459a14545b2b13110d1cc6fba&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::drpep-fgdb-date-time-4",
+   "title": "DRPEP FGDB DATE TIME",
+   "description": "",
+   "keyword": [],
+   "issued": "2025-02-15T08:40:05.000Z",
+   "modified": "2025-06-24T06:34:19.970Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::drpep-fgdb-date-time-4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Tables/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/kml?layers=0"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=f76174d459a14545b2b13110d1cc6fba&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::circuit-load-profile-4",
+   "title": "Circuit Load Profile",
+   "description": "",
+   "keyword": [],
+   "issued": "2025-02-15T08:40:05.000Z",
+   "modified": "2025-06-24T06:34:19.970Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::circuit-load-profile-4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Tables/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/kml?layers=1"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=f76174d459a14545b2b13110d1cc6fba&sublayer=2",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::substation-load-profile-4",
+   "title": "Substation Load Profile",
+   "description": "",
+   "keyword": [],
+   "issued": "2025-02-15T08:40:05.000Z",
+   "modified": "2025-06-24T06:34:19.970Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::substation-load-profile-4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Tables/FeatureServer/2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/csv?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/shapefile?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/geojson?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/kml?layers=2"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=f76174d459a14545b2b13110d1cc6fba&sublayer=3",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-single-consolidated-table-1",
+   "title": "ICA Single Consolidated Table",
+   "description": "",
+   "keyword": [],
+   "issued": "2025-02-15T08:40:05.000Z",
+   "modified": "2025-06-24T06:34:19.970Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ica-single-consolidated-table-1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/ICA_Tables/FeatureServer/3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/csv?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/shapefile?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/geojson?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f76174d459a14545b2b13110d1cc6fba/kml?layers=3"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=1b2ae9cdb84746f7addc2c5be769a790&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::distribution-circuits",
+   "title": "Distribution circuits",
+   "description": "",
+   "keyword": [
+    "Distribution Circuits Layer"
+   ],
+   "issued": "2023-08-29T13:06:00.000Z",
+   "modified": "2025-09-17T09:32:05.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4342,32.8443,-113.9797,38.3549",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::distribution-circuits"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/Distribution_circuits/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1b2ae9cdb84746f7addc2c5be769a790/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1b2ae9cdb84746f7addc2c5be769a790/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1b2ae9cdb84746f7addc2c5be769a790/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1b2ae9cdb84746f7addc2c5be769a790/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::gna-layer",
+   "title": "GNA Layer",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::gna-layer"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-substations",
+   "title": "GNA Substations",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.1553,33.2993,-114.0215,38.2021",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-substations"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-subtransmission",
+   "title": "GNA Subtransmission",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.2379,33.6467,-117.0520,36.3802",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-subtransmission"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e&sublayer=2",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-circuits",
+   "title": "GNA - Circuits",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4479,33.1970,-113.9791,38.3548",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-circuits"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/csv?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/shapefile?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/geojson?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/kml?layers=2"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e&sublayer=3",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::circuit-level-planning-assumptions",
+   "title": "Circuit Level Planning Assumptions",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::circuit-level-planning-assumptions"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/csv?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/shapefile?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/geojson?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/kml?layers=3"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e&sublayer=4",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-fgdb-date-time",
+   "title": "GNA FGDB DATE TIME",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::gna-fgdb-date-time"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/csv?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/shapefile?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/geojson?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/kml?layers=4"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=7ff7962968bc4584ae6af760b82d344e&sublayer=5",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::substation-level-planning-assumptions",
+   "title": "Substation Level Planning Assumptions",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "GNA"
+   ],
+   "issued": "2025-02-04T09:44:24.000Z",
+   "modified": "2025-08-29T14:48:09.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::substation-level-planning-assumptions"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/csv?layers=5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/shapefile?layers=5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/geojson?layers=5"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/7ff7962968bc4584ae6af760b82d344e/kml?layers=5"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=0df68953bb914a0eab44bfa97238853d",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::ddor-layer",
+   "title": "DDOR Layer",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "DDOR"
+   ],
+   "issued": "2025-02-04T09:29:01.000Z",
+   "modified": "2025-08-29T14:47:51.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.7609,33.3325,-114.1870,37.6399",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::ddor-layer"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=0df68953bb914a0eab44bfa97238853d&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-substations",
+   "title": "DDOR Substations",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "DDOR"
+   ],
+   "issued": "2025-02-04T09:29:01.000Z",
+   "modified": "2025-08-29T14:47:51.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.7609,33.3325,-114.6805,35.2182",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-substations"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=0df68953bb914a0eab44bfa97238853d&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-subtransmission",
+   "title": "DDOR Subtransmission",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "DDOR"
+   ],
+   "issued": "2025-02-04T09:29:01.000Z",
+   "modified": "2025-08-29T14:47:51.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.3131,33.5514,-117.0505,36.3578",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-subtransmission"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=0df68953bb914a0eab44bfa97238853d&sublayer=2",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-circuits",
+   "title": "DDOR - Circuits",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "DDOR"
+   ],
+   "issued": "2025-02-04T09:29:01.000Z",
+   "modified": "2025-08-29T14:47:51.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.6497,33.5375,-114.1870,37.6399",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-circuits"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/csv?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/shapefile?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/geojson?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/kml?layers=2"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=0df68953bb914a0eab44bfa97238853d&sublayer=3",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-fgdb-date-time",
+   "title": "DDOR FGDB DATE TIME",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "DDOR"
+   ],
+   "issued": "2025-02-04T09:29:01.000Z",
+   "modified": "2025-08-29T14:47:51.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.7609,33.3325,-114.1870,37.6399",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::ddor-fgdb-date-time"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/csv?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/shapefile?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/geojson?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/0df68953bb914a0eab44bfa97238853d/kml?layers=3"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=1621a312c9634198bd77b51c79b13602",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::drp-psps-layer",
+   "title": "DRP PSPS Layer",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "PSPS"
+   ],
+   "issued": "2025-02-04T09:46:25.000Z",
+   "modified": "2025-08-29T14:47:36.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.1245,33.3950,-116.3231,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::drp-psps-layer"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=1621a312c9634198bd77b51c79b13602&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::psps-subtransmission",
+   "title": "PSPS Subtransmission",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "PSPS"
+   ],
+   "issued": "2025-02-04T09:46:25.000Z",
+   "modified": "2025-08-29T14:47:36.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-118.9023,33.4905,-117.1335,34.4228",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::psps-subtransmission"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=1621a312c9634198bd77b51c79b13602&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::psps-circuit",
+   "title": "PSPS Circuit",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "PSPS"
+   ],
+   "issued": "2025-02-04T09:46:25.000Z",
+   "modified": "2025-08-29T14:47:36.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.1245,33.3950,-116.3231,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::psps-circuit"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/1621a312c9634198bd77b51c79b13602/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=ac63552d79354c20be7baee33b9a8cca",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::drp-transmission-projects",
+   "title": "DRP Transmission Projects",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "TransmissionProjects"
+   ],
+   "issued": "2025-02-04T09:48:05.000Z",
+   "modified": "2025-08-29T14:47:18.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-118.5693,33.5924,-114.7142,37.2570",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::drp-transmission-projects"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=ac63552d79354c20be7baee33b9a8cca&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::caiso-approved-polygon",
+   "title": "CAISO APPROVED POLYGON",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "TransmissionProjects"
+   ],
+   "issued": "2025-02-04T09:48:05.000Z",
+   "modified": "2025-08-29T14:47:18.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-118.5693,33.5924,-114.7142,37.2570",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::caiso-approved-polygon"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/kml?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "File Geodatabase",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/filegdb?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=ac63552d79354c20be7baee33b9a8cca&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::utility-approved-polygon",
+   "title": "UTILITY APPROVED POLYGON",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "TransmissionProjects"
+   ],
+   "issued": "2025-02-04T09:48:05.000Z",
+   "modified": "2025-08-29T14:47:18.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-118.5693,33.5924,-114.7142,37.2570",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::utility-approved-polygon"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/kml?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "File Geodatabase",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/filegdb?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=ac63552d79354c20be7baee33b9a8cca&sublayer=2",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::cpuc-approved-polygon",
+   "title": "CPUC APPROVED POLYGON",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "TransmissionProjects"
+   ],
+   "issued": "2025-02-04T09:48:05.000Z",
+   "modified": "2025-08-29T14:47:18.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-118.4746,33.5935,-114.7142,37.2570",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::cpuc-approved-polygon"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_Transmission_Projects/FeatureServer/2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/csv?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/shapefile?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/geojson?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/kml?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "File Geodatabase",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/ac63552d79354c20be7baee33b9a8cca/filegdb?layers=2"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=4781a0ac3028466ab3b5ed9ecffcfd0d&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::drp-screenl-08202021",
+   "title": "DRP ScreenL 08202021",
+   "description": "",
+   "keyword": [
+    "DRPEP",
+    "ScreenL"
+   ],
+   "issued": "2025-02-04T09:50:28.000Z",
+   "modified": "2025-08-29T14:45:45.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::drp-screenl-08202021"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_ScreenL_08202021/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/4781a0ac3028466ab3b5ed9ecffcfd0d/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/4781a0ac3028466ab3b5ed9ecffcfd0d/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/4781a0ac3028466ab3b5ed9ecffcfd0d/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/4781a0ac3028466ab3b5ed9ecffcfd0d/kml?layers=0"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=f6b29a43a0f7454dbad828e010ecc574&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::load-growth-pen-htmap",
+   "title": "LOAD GROWTH PEN HTMAP",
+   "description": "{{description}}",
+   "keyword": [
+    "LOADGROWTH",
+    "HEATMAP"
+   ],
+   "issued": "2025-02-25T09:29:52.000Z",
+   "modified": "2026-07-27T07:21:48.056Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-119.8426,33.3617,-114.3642,38.2965",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::load-growth-pen-htmap"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/LOAD_GROWTH_PEN_HTMAP/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f6b29a43a0f7454dbad828e010ecc574/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f6b29a43a0f7454dbad828e010ecc574/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f6b29a43a0f7454dbad828e010ecc574/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/f6b29a43a0f7454dbad828e010ecc574/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=69109c5882684486b038642428987dc7",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::avl-load-cap-toggle",
+   "title": "AVL LOAD CAP TOGGLE",
+   "description": "{{description}}",
+   "keyword": [
+    "DRPEP",
+    "AVL_LOAD"
+   ],
+   "issued": "2025-02-04T09:41:29.000Z",
+   "modified": "2025-02-04T09:42:24.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::avl-load-cap-toggle"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_CAP_TOGGLE/FeatureServer"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=69109c5882684486b038642428987dc7&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::avl-load-cap-full-submittal",
+   "title": "AVL LOAD CAP FULL SUBMITTAL",
+   "description": "{{description}}",
+   "keyword": [
+    "DRPEP",
+    "AVL_LOAD"
+   ],
+   "issued": "2025-02-04T09:41:29.000Z",
+   "modified": "2026-07-27T13:47:46.823Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4479,33.1970,-113.9791,38.3548",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::avl-load-cap-full-submittal"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_CAP_TOGGLE/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=69109c5882684486b038642428987dc7&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::avl-load-cap-full-and-partial-submittal",
+   "title": "AVL LOAD CAP FULL AND PARTIAL SUBMITTAL",
+   "description": "{{description}}",
+   "keyword": [
+    "DRPEP",
+    "AVL_LOAD"
+   ],
+   "issued": "2025-02-04T09:41:29.000Z",
+   "modified": "2026-07-27T13:47:39.098Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4479,33.1970,-113.9791,38.3548",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::avl-load-cap-full-and-partial-submittal"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_CAP_TOGGLE/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/69109c5882684486b038642428987dc7/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=cb68e8f68fe449359e7df5cef76a502f",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::available-load-capacity-heat-map-1",
+   "title": "Available Load Capacity Heat Map",
+   "description": "",
+   "keyword": [],
+   "issued": "2024-05-09T13:20:18.000Z",
+   "modified": "2025-01-31T21:21:57.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::available-load-capacity-heat-map-1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_HEAT_MAP_TOGGLE/FeatureServer"
+    }
+   ],
+   "theme": ""
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=cb68e8f68fe449359e7df5cef76a502f&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::grid-rank-aggr-full",
+   "title": "GRID RANK AGGR FULL",
+   "description": "",
+   "keyword": [],
+   "issued": "2024-05-09T13:20:18.000Z",
+   "modified": "2026-07-27T12:50:05.034Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4520,33.1953,-113.9787,38.3570",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::grid-rank-aggr-full"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_HEAT_MAP_TOGGLE/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=cb68e8f68fe449359e7df5cef76a502f&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::grid-rank-aggr-full-partial",
+   "title": "GRID RANK AGGR FULL PARTIAL",
+   "description": "",
+   "keyword": [],
+   "issued": "2024-05-09T13:20:18.000Z",
+   "modified": "2026-07-27T12:52:22.406Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4520,33.1953,-113.9787,38.3570",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::grid-rank-aggr-full-partial"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/AVL_LOAD_HEAT_MAP_TOGGLE/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/cb68e8f68fe449359e7df5cef76a502f/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=228b426f8a16412fbeb99eb0db905e4d",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::lnba-layer-1",
+   "title": "LNBA Layer",
+   "description": "Disclaimer:\n\nWhile Southern California Edison makes every effort to ensure the accuracy of DERiM, the data provided is for information only. Southern California Edison makes no guarantee, expressly or implied, for the outcome of an interconnection request.<div><br /></div><div>Completed Yearly refresh in August 2023</div>",
+   "keyword": [
+    "DERiM",
+    "SCE",
+    "Edison",
+    "DRPEP",
+    "LNBA"
+   ],
+   "issued": "2022-05-23T14:40:12.000Z",
+   "modified": "2024-06-04T16:41:28.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4650,33.2081,-114.1332,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/maps/SCE2::lnba-layer-1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/LNBA_Layer/FeatureServer"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=228b426f8a16412fbeb99eb0db905e4d&sublayer=0",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::der-growth-scenario-planning-3",
+   "title": "DER Growth Scenario, Planning",
+   "description": "Disclaimer:\n\nWhile Southern California Edison makes every effort to ensure the accuracy of DERiM, the data provided is for information only. Southern California Edison makes no guarantee, expressly or implied, for the outcome of an interconnection request.<div><br /></div><div>Completed Yearly refresh in August 2023</div>",
+   "keyword": [
+    "DERiM",
+    "SCE",
+    "Edison",
+    "DRPEP",
+    "LNBA"
+   ],
+   "issued": "2022-05-23T14:40:12.000Z",
+   "modified": "2024-06-04T16:41:28.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4650,33.2081,-114.1332,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::der-growth-scenario-planning-3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/LNBA_Layer/FeatureServer/0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/csv?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/shapefile?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/geojson?layers=0"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/kml?layers=0"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=228b426f8a16412fbeb99eb0db905e4d&sublayer=1",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-short-term-planning-3",
+   "title": "LNBA Short-term, Planning",
+   "description": "Disclaimer:\n\nWhile Southern California Edison makes every effort to ensure the accuracy of DERiM, the data provided is for information only. Southern California Edison makes no guarantee, expressly or implied, for the outcome of an interconnection request.<div><br /></div><div>Completed Yearly refresh in August 2023</div>",
+   "keyword": [
+    "DERiM",
+    "SCE",
+    "Edison",
+    "DRPEP",
+    "LNBA"
+   ],
+   "issued": "2022-05-23T14:40:12.000Z",
+   "modified": "2024-06-04T16:41:28.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4650,33.2081,-114.1332,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-short-term-planning-3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/LNBA_Layer/FeatureServer/1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/csv?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/shapefile?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/geojson?layers=1"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/kml?layers=1"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=228b426f8a16412fbeb99eb0db905e4d&sublayer=2",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-mid-term-planning-3",
+   "title": "LNBA Mid-term, Planning",
+   "description": "Disclaimer:\n\nWhile Southern California Edison makes every effort to ensure the accuracy of DERiM, the data provided is for information only. Southern California Edison makes no guarantee, expressly or implied, for the outcome of an interconnection request.<div><br /></div><div>Completed Yearly refresh in August 2023</div>",
+   "keyword": [
+    "DERiM",
+    "SCE",
+    "Edison",
+    "DRPEP",
+    "LNBA"
+   ],
+   "issued": "2022-05-23T14:40:12.000Z",
+   "modified": "2024-06-04T16:41:28.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4650,33.2081,-114.1332,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-mid-term-planning-3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/LNBA_Layer/FeatureServer/2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/csv?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/shapefile?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/geojson?layers=2"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/kml?layers=2"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=228b426f8a16412fbeb99eb0db905e4d&sublayer=3",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-long-term-planning-3",
+   "title": "LNBA Long-term, Planning",
+   "description": "Disclaimer:\n\nWhile Southern California Edison makes every effort to ensure the accuracy of DERiM, the data provided is for information only. Southern California Edison makes no guarantee, expressly or implied, for the outcome of an interconnection request.<div><br /></div><div>Completed Yearly refresh in August 2023</div>",
+   "keyword": [
+    "DERiM",
+    "SCE",
+    "Edison",
+    "DRPEP",
+    "LNBA"
+   ],
+   "issued": "2022-05-23T14:40:12.000Z",
+   "modified": "2024-06-04T16:41:28.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4650,33.2081,-114.1332,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-long-term-planning-3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/LNBA_Layer/FeatureServer/3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/csv?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/shapefile?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/geojson?layers=3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/kml?layers=3"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "https://www.arcgis.com/home/item.html?id=228b426f8a16412fbeb99eb0db905e4d&sublayer=4",
+   "landingPage": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-fgdb-date-time-3",
+   "title": "LNBA FGDB DATE TIME",
+   "description": "Disclaimer:\n\nWhile Southern California Edison makes every effort to ensure the accuracy of DERiM, the data provided is for information only. Southern California Edison makes no guarantee, expressly or implied, for the outcome of an interconnection request.<div><br /></div><div>Completed Yearly refresh in August 2023</div>",
+   "keyword": [
+    "DERiM",
+    "SCE",
+    "Edison",
+    "DRPEP",
+    "LNBA"
+   ],
+   "issued": "2022-05-23T14:40:12.000Z",
+   "modified": "2024-06-04T16:41:28.000Z",
+   "publisher": {
+    "name": "SCE C-GIS Project"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "ESRI_SUPPORT1",
+    "hasEmail": "mailto:managed services gis esri support"
+   },
+   "accessLevel": "public",
+   "spatial": "-120.4650,33.2081,-114.1332,38.3674",
+   "license": "",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "format": "Web Page",
+     "mediaType": "text/html",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/datasets/SCE2::lnba-fgdb-date-time-3"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS GeoService",
+     "format": "ArcGIS GeoServices REST API",
+     "mediaType": "application/json",
+     "accessURL": "https://services5.arcgis.com/z6hI6KRjKHvhNO0r/arcgis/rest/services/LNBA_Layer/FeatureServer/4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "format": "CSV",
+     "mediaType": "text/csv",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/csv?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "Shapefile",
+     "format": "ZIP",
+     "mediaType": "application/zip",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/shapefile?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "format": "GeoJSON",
+     "mediaType": "application/vnd.geo+json",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/geojson?layers=4"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "format": "KML",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "accessURL": "https://drpep-sce2.opendata.arcgis.com/api/download/v1/items/228b426f8a16412fbeb99eb0db905e4d/kml?layers=4"
+    }
+   ],
+   "theme": [
+    "geospatial"
+   ]
+  }
+ ]
+}

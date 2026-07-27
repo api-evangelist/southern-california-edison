@@ -78,6 +78,8 @@ apis:
     url: https://www.sce.com/sites/default/files/inline-files/Data_Element_Descriptions_SCE_1.pdf
   - type: Support
     url: mailto:GreenButton@sce.com
+  - type: Authentication
+    url: authentication/southern-california-edison-authentication.yml
 - aid: southern-california-edison:sce-drpep-arcgis-rest-services
   name: SCE DRPEP ArcGIS REST Services
   description: The machine-readable grid data layer behind SCE's Distribution Resources
@@ -112,7 +114,23 @@ apis:
     url: https://drpep.sce.com/drpep/
   - type: Documentation
     url: https://drpep-sce2.opendata.arcgis.com/
+  - type: OpenAPI
+    url: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  - type: Overlay
+    url: overlays/southern-california-edison-drpep-arcgis-overlay.yaml
+  - type: JsonSchema
+    url: json-schema/southern-california-edison-drpep-layers-schema.json
+  - type: DataModel
+    url: data-model/southern-california-edison-data-model.yml
+  - type: Conventions
+    url: conventions/southern-california-edison-conventions.yml
+  - type: ErrorCatalog
+    url: errors/southern-california-edison-error-codes.yml
+  - type: Catalogs
+    url: https://drpep-sce2.opendata.arcgis.com/api/feed/dcat-us/1.1.json
 common:
+- type: DomainSecurity
+  url: security/southern-california-edison-domain-security.yml
 - type: Website
   url: https://www.sce.com/
 - type: Portal
@@ -131,6 +149,32 @@ common:
   url: mailto:3RDPARTY@sce.com
 - type: LinkedIn
   url: https://www.linkedin.com/company/sce
+- type: PrivacyPolicy
+  url: https://www.sce.com/privacy
+- type: Newsroom
+  url: https://newsroom.edison.com/
+- type: Authentication
+  url: authentication/southern-california-edison-authentication.yml
+- type: Conventions
+  url: conventions/southern-california-edison-conventions.yml
+- type: ErrorCatalog
+  url: errors/southern-california-edison-error-codes.yml
+- type: Lifecycle
+  url: lifecycle/southern-california-edison-lifecycle.yml
+- type: Conformance
+  url: conformance/southern-california-edison-conformance.yml
+- type: DataModel
+  url: data-model/southern-california-edison-data-model.yml
+- type: WellKnown
+  url: well-known/southern-california-edison-well-known.yml
+- type: LLMsTxt
+  url: llms/southern-california-edison-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: OpenAPI
+  url: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+- type: JsonSchema
+  url: json-schema/southern-california-edison-drpep-layers-schema.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

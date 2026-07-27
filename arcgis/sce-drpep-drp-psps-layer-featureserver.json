@@ -1,0 +1,83 @@
+{
+ "allowGeometryUpdates": true,
+ "supportsApplyEditsWithGlobalIds": false,
+ "maxRecordCount": 5000,
+ "description": "",
+ "units": "esriMeters",
+ "maxViewsCount": 20,
+ "syncEnabled": false,
+ "tables": [],
+ "hasVersionedData": false,
+ "hasViews": false,
+ "layerOverridesEnabled": true,
+ "supportsRelationshipsResource": true,
+ "layers": [
+  {
+   "name": "PSPS_Subtransmission",
+   "id": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "PSPS_Circuit",
+   "id": 1,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  }
+ ],
+ "spatialReference": {
+  "latestWkid": 3857,
+  "wkid": 102100
+ },
+ "fullExtent": {
+  "ymin": 3947846.2590000033,
+  "xmin": -13372201.917399999,
+  "ymax": 4631461.089100003,
+  "xmax": -12949033.7644,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "enableZDefaults": true,
+ "allowUpdateWithoutMValues": true,
+ "isLocationTrackingService": false,
+ "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+ "capabilities": "Query",
+ "supportsAppend": true,
+ "supportsDisconnectedEditing": false,
+ "supportsSyncModelNone": true,
+ "supportedAppendFormats": "shapefile,featureCollection",
+ "supportsReturnDeleteResults": true,
+ "currentVersion": 11.1,
+ "advancedEditingCapabilities": {
+  "supportsAsyncApplyEdits": true,
+  "supportsApplyEditsbyUploadID": true,
+  "supportsReturnEditResults": true,
+  "supportedApplyEditsUploadIDFormats": "JSON"
+ },
+ "supportedQueryFormats": "JSON",
+ "initialExtent": {
+  "ymin": 3373903.46902783,
+  "xmin": -13874126.637491474,
+  "ymax": 4916708.9713679915,
+  "xmax": -12061636.631904563,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "serviceDescription": "",
+ "editorTrackingInfo": {
+  "allowOthersToUpdate": true,
+  "enableEditorTracking": false,
+  "allowOthersToDelete": false,
+  "allowOthersToQuery": true,
+  "enableOwnershipAccessControl": false
+ },
+ "hasSyncEnabledViews": false,
+ "copyrightText": "",
+ "zDefault": 0,
+ "supportsLayerOverrides": true,
+ "serviceItemId": "091d274c2f7548f38ff78e1b3d2206a2"
+}

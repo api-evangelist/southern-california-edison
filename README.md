@@ -99,15 +99,37 @@ The machine-readable grid data layer behind SCE's Distribution Resources Plan Ex
 | Access gate | `application-approval` — Third Party User ID, Taxpayer Identification Number, terms acceptance, then an SCE-run connectivity test. |
 | Auth model | OAuth 2.0 plus a bulk file API for consumer data (specifics undisclosed); none for grid data. Okta fronts SCE web logins. |
 | Developer portal | None. No `developer.`, `developers.`, `docs.`, `data.`, or `apis.` subdomain resolves; `api.sce.com` is an IBM API Connect gateway returning a 500 fault to every anonymous path. |
-| OpenAPI harvested | None found. Nothing fabricated. |
+| OpenAPI published by SCE | None. SCE publishes no OpenAPI, Swagger, AsyncAPI, GraphQL or Postman contract anywhere. The spec in `openapi/` is an API Evangelist generation from live anonymous probes and is labelled as such. |
 
 Full probe log with HTTP status for every URL tested is in [review.yml](review.yml).
 
-## Harvested Artifacts
+## Harvested Artifacts (verbatim, as fetched)
 
-- `arcgis/sce-drpep-arcgis-services-catalog.json` — the DRPEP hosted service catalog, verbatim
-- `arcgis/sce-drpep-ica-layer-featureserver.json` — Integration Capacity Analysis FeatureServer metadata, verbatim
-- `arcgis/sce-drpep-arcgis-rest-info.json` — ArcGIS Server REST info document, verbatim
+- `arcgis/sce-drpep-arcgis-services-catalog.json` — the DRPEP hosted service catalog
+- `arcgis/sce-drpep-arcgis-rest-info.json` — ArcGIS Server REST info document
+- `arcgis/sce-drpep-*-featureserver.json` — all 15 hosted FeatureServer descriptors (47 feature layers, 11 tables)
+- `arcgis/sce-drpep-hub-dcat-us-1.1.json` — DCAT-US 1.1 catalog feed from the paired ArcGIS Hub site (47 datasets)
+- `well-known/southern-california-edison-okta-openid-configuration.json` — SCE Okta OIDC discovery document
+- `well-known/southern-california-edison-okta-oauth-authorization-server.json` — SCE Okta RFC 8414 metadata
+
+## Generated and Derived Artifacts
+
+Produced by the API Evangelist enrichment pipeline from the harvested documents and live probes. None of these are
+published by SCE; each carries provenance frontmatter.
+
+- `openapi/southern-california-edison-drpep-arcgis-openapi.yml` — OpenAPI 3.1, 8 operations, 20 schemas, 58-entry layer inventory
+- `overlays/southern-california-edison-drpep-arcgis-overlay.yaml` — the API Evangelist assessment layer over that spec
+- `json-schema/southern-california-edison-drpep-layers-schema.json` — attribute schemas for 11 marquee layers/tables
+- `data-model/southern-california-edison-data-model.yml` — 58 entities, 13 relationships, join keys
+- `conventions/southern-california-edison-conventions.yml` — `f=json`, offset pagination, `exceededTransferLimit`, no rate-limit signalling
+- `errors/southern-california-edison-error-codes.yml` — the ArcGIS error envelope returned with HTTP 200
+- `authentication/southern-california-edison-authentication.yml` — none for DRPEP, OAuth 2.0 claimed-undisclosed for Green Button, Okta for logins
+- `conformance/southern-california-edison-conformance.yml` — ArcGIS REST / GeoJSON / DCAT verified; ESPI and OAuth claimed only
+- `lifecycle/southern-california-edison-lifecycle.yml` — no versioning, deprecation, SLA, changelog or API status page
+- `security/southern-california-edison-domain-security.yml` — TLS 1.3 both hosts, HSTS on www only, SPF + DMARC quarantine, no DNSSEC/CAA
+- `well-known/southern-california-edison-well-known.yml` — the full `/.well-known/` probe index
+- `llms/southern-california-edison-llms.txt` — agent-facing summary of what is and is not callable
+- `skills/` — four packaged agent skills, three grounded in real operationIds plus the Green Button registration path
 
 ## Maintainers
 

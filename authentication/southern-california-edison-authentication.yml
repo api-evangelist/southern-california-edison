@@ -1,0 +1,86 @@
+generated: '2026-07-27'
+method: searched
+source: >-
+  https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data +
+  https://drpep.sce.com/arcgis_server/rest/info?f=json + https://sce.okta.com/.well-known/openid-configuration
+docs: https://www.sce.com/partners/partnerships/thirdpartylandingpage
+summary:
+  types: [none, oauth2, token]
+  api_key_in: []
+  oauth2_flows: [authorizationCode]
+  note: >-
+    Two disjoint surfaces. The one API a developer can call today (DRPEP ArcGIS REST) has NO authentication
+    at all. The one API SCE is compelled by tariff to operate (Green Button Connect My Data) is stated to use
+    OAuth 2.0 but publishes no authorization endpoint, token endpoint, scope list, client-registration flow or
+    redirect-URI policy anywhere public. Nothing in the OAuth column below was observed on the wire; it is
+    SCE's own written claim plus the tariff text, recorded as a claim.
+surfaces:
+- name: SCE DRPEP ArcGIS REST Services
+  api: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  scheme: none
+  status: verified
+  evidence: >-
+    https://drpep.sce.com/arcgis_server/rest/services/Hosted?f=json and every hosted FeatureServer /query
+    under it return HTTP 200 JSON with no token, no key, no cookie and no registration (verified 2026-07-27).
+  notes:
+  - >-
+    /arcgis_server/rest/info reports authInfo.isTokenBasedSecurity = true with a token service at
+    https://drpep.sce.com/arcgis_portal/sharing/rest/generateToken. That describes the ArcGIS Enterprise
+    deployment, not the public sharing of the Hosted folder - the Hosted services are shared publicly and
+    answer anonymously.
+  - >-
+    The sibling folder /arcgis_server/rest/services/Utilities is NOT public: it returns HTTP 200 with
+    {"error":{"code":499,"message":"Token Required"}}. Anyone needing it must obtain an ArcGIS token from
+    generateToken, which requires an SCE-issued portal account.
+  - No API key, no rate-limit header, no per-caller identity of any kind is issued for the public layers.
+- name: SCE Green Button Connect My Data (Customer Data Access)
+  api: null
+  scheme: oauth2
+  status: claimed-undisclosed
+  claimed_flow: authorizationCode
+  evidence: >-
+    SCE's third-party page states a third party must have "technical system capabilities to complete customer
+    authorization using OAuth 2.0 and process files that are transferred using bulk API", and that the program
+    "leverages technology consistent with the standard adopted by the North American Energy Standards Board
+    (NAESB) to support the Green Button Initiative". CPUC tariff Rule 26 (Advice 3087-E, effective 2014-08-29,
+    implementing D.14-05-016) requires machine-to-machine verification and ties technical eligibility to the
+    NAESB ESPI Standard.
+  undisclosed:
+  - authorization endpoint
+  - token endpoint
+  - base URI / resource endpoint
+  - ApplicationInformation document (NAESB ESPI client registration)
+  - scope syntax (ESPI FB=/ scope strings)
+  - token lifetime / refresh policy
+  - sandbox or test client
+  gate:
+    type: application-approval
+    steps:
+    - Create a Third Party User ID (an email not already an SCE.com user ID) at https://www.sce.com/user-registration?userType=4
+    - Supply the organization's Taxpayer Identification Number (TIN)
+    - Accept the Third Party Registration Terms & Conditions for use of customer data
+    - Pass an SCE-run machine-to-machine connectivity test
+    contact: mailto:GreenButton@sce.com
+  probe_result: >-
+    api.sce.com is live (Imperva -> IBM DataPower / API Connect) but every ESPI-shaped path probed
+    (/espi/1_1/resource/ApplicationInformation, /DataCustodian/espi/1_1/..., /greenbutton/..., /oauth/token)
+    returned HTTP 500 with the gateway fault "Dynamic backend host not specified". Real gateway, no anonymous route.
+- name: SCE Okta identity org
+  api: null
+  scheme: openIdConnect
+  status: verified
+  discovery: https://sce.okta.com/.well-known/openid-configuration
+  artifact: well-known/southern-california-edison-okta-openid-configuration.json
+  evidence: >-
+    Anonymous HTTP 200. issuer https://sce.okta.com; authorization_endpoint /oauth2/v1/authorize;
+    token_endpoint /oauth2/v1/token; jwks_uri /oauth2/v1/keys; grant types authorization_code, implicit,
+    refresh_token, password, device_code (plus client_credentials on the RFC 8414 document); PKCE S256.
+  caveat: >-
+    This is the login estate for sce.com / My Account / the Energy Data Request Program shell. It is NOT
+    evidence of a Green Button OAuth surface and must not be presented as one.
+scopes:
+  published: false
+  note: >-
+    No energy-data scope list exists publicly. The scopes advertised by sce.okta.com are Okta's own platform
+    scopes (openid/email/profile plus okta.* management scopes) and describe Okta, not SCE customer data - so
+    no scopes/ artifact is emitted for this provider rather than fabricate one.

@@ -1,0 +1,1197 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://raw.githubusercontent.com/api-evangelist/southern-california-edison/refs/heads/main/json-schema/southern-california-edison-drpep-layers-schema.json",
+ "title": "SCE DRPEP feature layer attribute schemas",
+ "description": "JSON Schema for the attribute shapes of the marquee SCE DRPEP ArcGIS feature layers and tables, derived from the live ArcGIS layer descriptors fetched 2026-07-27. Esri field types are mapped to JSON types and preserved in x-esri-field-type.",
+ "x-generated": "2026-07-27",
+ "x-method": "derived",
+ "x-source": "arcgis/*-featureserver.json + live ArcGIS layer descriptors",
+ "$defs": {
+  "IcaCircuitSegment": {
+   "type": "object",
+   "title": "ICA - Circuit Segments",
+   "description": "Attributes of DRPEP ICA_Layer layer 0 (ICA - Circuit Segments).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/0?f=json",
+   "properties": {
+    "system_name": {
+     "type": "string",
+     "title": "System Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_name": {
+     "type": "string",
+     "title": "Substation Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_voltage": {
+     "type": "string",
+     "title": "Substation Voltage",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_name": {
+     "type": "string",
+     "title": "Circuit Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_voltage": {
+     "type": "string",
+     "title": "Circuit Voltage",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "section_id": {
+     "type": "number",
+     "title": "Segment ID",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "node_id": {
+     "type": "string",
+     "title": "Node ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "uniform_generation": {
+     "type": "number",
+     "title": "Uniform Generation Static Grid",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "uniform_generation_op_flex": {
+     "type": "string",
+     "title": "Uniform Generation OpFlex",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ica_overall_pv": {
+     "type": "number",
+     "title": "Photovoltaic Static Grid",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "ica_overall_pv_op_flex": {
+     "type": "string",
+     "title": "Photovoltaic OpFlex",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ica_overall_load": {
+     "type": "string",
+     "title": "Uniform Load",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "disclaimer": {
+     "type": "string",
+     "title": "Disclaimer",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "note": {
+     "type": "string",
+     "title": "Note",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "lgp_flag": {
+     "type": "string",
+     "title": "LGP Flag",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "most_limiting_criteria_ug_sg": {
+     "type": "string",
+     "title": "Most Limiting Criteria -Uniform Generation Static Grid",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "most_limiting_criteria_ug_of": {
+     "type": "string",
+     "title": "Most Limiting Criteria-Uniform Gen Op Flex",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "most_limiting_criteria_lsg": {
+     "type": "string",
+     "title": "Most Limiting Criteria -Load Static Grid",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "most_limiting_criteria_pv_sg": {
+     "type": "string",
+     "title": "Most Limiting Criteria -Photovoltaic Static Grid",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "most_limiting_criteria_pv_of": {
+     "type": "string",
+     "title": "Most Limiting Criteria -Photovoltaic Op Flex",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "phase": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "download_link": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "download_link_microgrid": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "download_link_forecast": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "download_link_microgrid_forecas": {
+     "type": "string",
+     "title": "download_link_microgrid_forecast",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "changed_date": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "changed_date_forecast": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "Substation": {
+   "type": "object",
+   "title": "Substations",
+   "description": "Attributes of DRPEP ICA_Layer layer 16 (Substations).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/16?f=json",
+   "properties": {
+    "subst_id": {
+     "type": "number",
+     "title": "Substation ID",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "sub_name": {
+     "type": "string",
+     "title": "Substation Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "sys_name": {
+     "type": "string",
+     "title": "System Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "sub_type": {
+     "type": "string",
+     "title": "Substation Type Old",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "sub_type_legend": {
+     "type": "string",
+     "title": "Substation Type",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_voltage": {
+     "type": "string",
+     "title": "Substation Voltage",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "existing_gen": {
+     "type": "number",
+     "title": "Existing Generaion",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "queued_gen": {
+     "type": "number",
+     "title": "Queued Generation",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "total_gen": {
+     "type": "number",
+     "title": "Total Generation",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "projected_load": {
+     "type": "number",
+     "title": "Projected Load",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "penetration_level": {
+     "type": "number",
+     "title": "Penetration Level",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "max_remain_cap": {
+     "type": "number",
+     "title": "Maxium Remaining Capacity",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "note": {
+     "type": "string",
+     "title": "Note",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    }
+   },
+   "additionalProperties": false
+  },
+  "ServiceTerritory": {
+   "type": "object",
+   "title": "SCE Service Territory",
+   "description": "Attributes of DRPEP ICA_Layer layer 19 (SCE Service Territory).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Layer/FeatureServer/19?f=json",
+   "properties": {
+    "id": {
+     "type": "number",
+     "title": "ID",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "existing_gen": {
+     "type": "number",
+     "title": "Existing Generation",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "queued_gen": {
+     "type": "number",
+     "title": "Queued Generation",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "total_gen": {
+     "type": "number",
+     "title": "Total Generation",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "projected_load": {
+     "type": "number",
+     "title": "Projected Load",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "penetration_level": {
+     "type": "number",
+     "title": "Penetration Level",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "SHAPE__Area": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "DistributionCircuit": {
+   "type": "object",
+   "title": "Distribution Circuits",
+   "description": "Attributes of DRPEP Distribution_circuits layer 0 (Distribution Circuits).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/Distribution_circuits/FeatureServer/0?f=json",
+   "properties": {
+    "circuit_id": {
+     "type": "string",
+     "title": "CIRCUIT_ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_no": {
+     "type": "string",
+     "title": "CIRCUIT_NO",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_type": {
+     "type": "string",
+     "title": "CIRCUIT_TYPE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circt_nam": {
+     "type": "string",
+     "title": "CIRCT_NAM",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_voltage": {
+     "type": "number",
+     "title": "CIRCUIT_VOLTAGE",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "note": {
+     "type": "string",
+     "title": "NOTE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_voltage": {
+     "type": "string",
+     "title": "SUBSTATION_VOLTAGE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "sub_name": {
+     "type": "string",
+     "title": "SUB_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "sys_name": {
+     "type": "string",
+     "title": "SYS_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "IcaConsolidatedRow": {
+   "type": "object",
+   "title": "ICA Single Consolidated Table",
+   "description": "Attributes of DRPEP ICA_Tables layer 3 (ICA Single Consolidated Table).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/3?f=json",
+   "properties": {
+    "circuit_name": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_id": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "circuit_voltage": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "percent_15_cap": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "res_pct": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "com_pct": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "agr_pct": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "other_pct": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "ind_pct": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "sub_name": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "subst_id": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "note_sub": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "layer_identifier": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "sys_name": {
+     "type": "string",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "existing_gen": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "queued_gen": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "total_gen": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "projected_load": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "penetration_level": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "max_remain_cap": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "agr_total": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "com_total": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "ind_total": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "res_total": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "other_total": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    }
+   },
+   "additionalProperties": false
+  },
+  "HistoricalCircuitLoadProfile": {
+   "type": "object",
+   "title": "Historical Circuit Load Profile",
+   "description": "Attributes of DRPEP ICA_Tables layer 1 (Historical Circuit Load Profile).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/ICA_Tables/FeatureServer/1?f=json",
+   "properties": {
+    "circuit_name": {
+     "type": "string",
+     "title": "CIRCUIT_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "voltage": {
+     "type": "string",
+     "title": "VOLTAGE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "year": {
+     "type": "number",
+     "title": "YEAR",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "month": {
+     "type": "number",
+     "title": "MONTH",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "hour": {
+     "type": "number",
+     "title": "HOUR",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "min_load": {
+     "type": "number",
+     "title": "MIN_LOAD",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "max_load": {
+     "type": "number",
+     "title": "MAX_LOAD",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "min_load_mw": {
+     "type": "number",
+     "title": "MIN_LOAD_MW",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "max_load_mw": {
+     "type": "number",
+     "title": "MAX_LOAD_MW",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "substation": {
+     "type": "string",
+     "title": "SUBSTATION",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "monthlabel": {
+     "type": "string",
+     "title": "MONTHLABEL",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    }
+   },
+   "additionalProperties": false
+  },
+  "GnaCircuit": {
+   "type": "object",
+   "title": "GNA - Circuits",
+   "description": "Attributes of DRPEP GNA_Layer layer 2 (GNA - Circuits).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/GNA_Layer/FeatureServer/2?f=json",
+   "properties": {
+    "ckt_capacity_y1": {
+     "type": "string",
+     "title": "CKT_CAPACITY_Y1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ckt_capacity_y2": {
+     "type": "string",
+     "title": "CKT_CAPACITY_Y2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ckt_capacity_y3": {
+     "type": "string",
+     "title": "CKT_CAPACITY_Y3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ckt_capacity_y4": {
+     "type": "string",
+     "title": "CKT_CAPACITY_Y4",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ckt_capacity_y5": {
+     "type": "string",
+     "title": "CKT_CAPACITY_Y5",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "subst_capacity_y1": {
+     "type": "string",
+     "title": "SUBST_CAPACITY_Y1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "subst_capacity_y2": {
+     "type": "string",
+     "title": "SUBST_CAPACITY_Y2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "subst_capacity_y3": {
+     "type": "string",
+     "title": "SUBST_CAPACITY_Y3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "subst_capacity_y4": {
+     "type": "string",
+     "title": "SUBST_CAPACITY_Y4",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "subst_capacity_y5": {
+     "type": "string",
+     "title": "SUBST_CAPACITY_Y5",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_name": {
+     "type": "string",
+     "title": "CIRCUIT_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y1": {
+     "type": "string",
+     "title": "D_Y1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y2": {
+     "type": "string",
+     "title": "D_Y2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y3": {
+     "type": "string",
+     "title": "D_Y3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y4": {
+     "type": "string",
+     "title": "D_Y4",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y5": {
+     "type": "string",
+     "title": "D_Y5",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "deficiency_year": {
+     "type": "string",
+     "title": "DEFICIENCY_YEAR",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_max_legend": {
+     "type": "number",
+     "title": "DP_MAX_LEGEND",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "dp_y_max": {
+     "type": "string",
+     "title": "DP_Y_MAX",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y1": {
+     "type": "string",
+     "title": "DP_Y1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y2": {
+     "type": "string",
+     "title": "DP_Y2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y3": {
+     "type": "string",
+     "title": "DP_Y3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y4": {
+     "type": "string",
+     "title": "DP_Y4",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y5": {
+     "type": "string",
+     "title": "DP_Y5",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dy_max": {
+     "type": "string",
+     "title": "DY_MAX",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "element": {
+     "type": "string",
+     "title": "ELEMENT",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "gna_id": {
+     "type": "string",
+     "title": "GNA_ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "grid_need": {
+     "type": "string",
+     "title": "GRID_NEED",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "operating_date": {
+     "type": "string",
+     "title": "OPERATING_DATE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "primary_driver": {
+     "type": "string",
+     "title": "PRIMARY_DRIVER",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "rating": {
+     "type": "string",
+     "title": "RATING",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_name": {
+     "type": "string",
+     "title": "SUBSTATION_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "unit": {
+     "type": "string",
+     "title": "UNIT",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "year": {
+     "type": "string",
+     "title": "YEAR",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_volt": {
+     "type": "string",
+     "title": "CIRCUIT_VOLT",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "note": {
+     "type": "string",
+     "title": "NOTE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "system_name": {
+     "type": "string",
+     "title": "SYSTEM_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "DdorCircuit": {
+   "type": "object",
+   "title": "DDOR - Circuits",
+   "description": "Attributes of DRPEP DDOR_Layer layer 2 (DDOR - Circuits).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DDOR_Layer/FeatureServer/2?f=json",
+   "properties": {
+    "circuit_id": {
+     "type": "string",
+     "title": "CIRCUIT_ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "aace_cost_estimate": {
+     "type": "string",
+     "title": "AACE_COST_ESTIMATE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "candidate_deferral": {
+     "type": "string",
+     "title": "CANDIDATE_DEFERRAL",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_name": {
+     "type": "string",
+     "title": "CIRCUIT_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y1": {
+     "type": "string",
+     "title": "D_Y1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y2": {
+     "type": "string",
+     "title": "D_Y2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y3": {
+     "type": "string",
+     "title": "D_Y3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y4": {
+     "type": "string",
+     "title": "D_Y4",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "d_y5": {
+     "type": "string",
+     "title": "D_Y5",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ddor_id": {
+     "type": "string",
+     "title": "DDOR_ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "ddor_project_id": {
+     "type": "string",
+     "title": "DDOR_PROJECT_ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "deficiency_year": {
+     "type": "string",
+     "title": "DEFICIENCY_YEAR",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "der_eligible_svc": {
+     "type": "string",
+     "title": "DER_ELIGIBLE_SVC",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_max_legend": {
+     "type": "string",
+     "title": "DP_MAX_LEGEND",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y_max": {
+     "type": "string",
+     "title": "DP_Y_MAX",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y1": {
+     "type": "string",
+     "title": "DP_Y1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y2": {
+     "type": "string",
+     "title": "DP_Y2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y3": {
+     "type": "string",
+     "title": "DP_Y3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y4": {
+     "type": "string",
+     "title": "DP_Y4",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dp_y5": {
+     "type": "string",
+     "title": "DP_Y5",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "dy_max": {
+     "type": "string",
+     "title": "DY_MAX",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "equip_type": {
+     "type": "string",
+     "title": "EQUIP_TYPE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "gna_id": {
+     "type": "string",
+     "title": "GNA_ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "grid_need": {
+     "type": "string",
+     "title": "GRID_NEED",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "operating_date": {
+     "type": "string",
+     "title": "OPERATING_DATE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "proj_desc": {
+     "type": "string",
+     "title": "PROJ_DESC",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "proj_desc_add_info": {
+     "type": "string",
+     "title": "PROJ_DESC_ADD_INFO",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "proj_hist": {
+     "type": "string",
+     "title": "PROJ_HIST",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "system_name": {
+     "type": "string",
+     "title": "SYSTEM_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_name": {
+     "type": "string",
+     "title": "SUBSTATION_NAME",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "note": {
+     "type": "string",
+     "title": "NOTE",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "unit": {
+     "type": "string",
+     "title": "UNIT",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "year": {
+     "type": "string",
+     "title": "YEAR",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_volt": {
+     "type": "number",
+     "title": "CIRCUIT_VOLT",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "LnbaShortTerm": {
+   "type": "object",
+   "title": "LNBA Short-term, Planning",
+   "description": "Attributes of DRPEP LNBA_Layer layer 1 (LNBA Short-term, Planning).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/LNBA_Layer/FeatureServer/1?f=json",
+   "properties": {
+    "circuit_name": {
+     "type": "string",
+     "title": "Circuit",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "section_id": {
+     "type": "number",
+     "title": "Section Id",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "circuit_voltage": {
+     "type": "string",
+     "title": "Circuit Voltage",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_name": {
+     "type": "string",
+     "title": "Substation",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "system_name": {
+     "type": "string",
+     "title": "System",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "lnba_result_timeframe": {
+     "type": "string",
+     "title": "LNBA Timeframe",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "title_1": {
+     "type": "string",
+     "title": "Project 1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "desc_1": {
+     "type": "string",
+     "title": "Description 1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "date_1": {
+     "type": "string",
+     "title": "Operating Date 1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "grid_services_1": {
+     "type": "string",
+     "title": "Distribution Service Required 1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "lnba_results_1": {
+     "type": "string",
+     "title": "Estimated LNBA Range 1",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "title_2": {
+     "type": "string",
+     "title": "Project 2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "desc_2": {
+     "type": "string",
+     "title": "Description 2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "date_2": {
+     "type": "string",
+     "title": "Operating Date 2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "grid_services_2": {
+     "type": "string",
+     "title": "Distribution Service Required 2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "lnba_results_2": {
+     "type": "string",
+     "title": "Estimated LNBA Range 2",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "title_3": {
+     "type": "string",
+     "title": "Project 3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "desc_3": {
+     "type": "string",
+     "title": "Description 3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "date_3": {
+     "type": "string",
+     "title": "Operating Date 3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "grid_services_3": {
+     "type": "string",
+     "title": "Distribution Service Required 3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "lnba_results_3": {
+     "type": "string",
+     "title": "Estimated LNBA Range 3",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "PspsCircuit": {
+   "type": "object",
+   "title": "PSPS_Circuit",
+   "description": "Attributes of DRPEP DRP_PSPS_Layer layer 1 (PSPS_Circuit).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/DRP_PSPS_Layer/FeatureServer/1?f=json",
+   "properties": {
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "circuit_type": {
+     "type": "string",
+     "title": "Circuit Type",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "circuit_name": {
+     "type": "string",
+     "title": "Circuit Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "substation_name": {
+     "type": "string",
+     "title": "Substation Name",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "psps_event": {
+     "type": "string",
+     "title": "PSPS Event",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "total_customers": {
+     "type": "integer",
+     "title": "Total Customers",
+     "x-esri-field-type": "esriFieldTypeInteger"
+    },
+    "deenergization_datetime": {
+     "type": "string",
+     "description": "Epoch milliseconds (Esri date field)",
+     "title": "De-energization Datetime",
+     "x-esri-field-type": "esriFieldTypeDate"
+    },
+    "allclear_datetime": {
+     "type": "string",
+     "description": "Epoch milliseconds (Esri date field)",
+     "title": "All Clear Datetime",
+     "x-esri-field-type": "esriFieldTypeDate"
+    },
+    "wind_speed": {
+     "type": "string",
+     "title": "Wind Speed",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "wind_gust": {
+     "type": "string",
+     "title": "Wind Gust",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "fpi": {
+     "type": "string",
+     "title": "Fire Protection Index",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "year": {
+     "type": "integer",
+     "title": "Year",
+     "x-esri-field-type": "esriFieldTypeInteger"
+    },
+    "minutes_deenergized": {
+     "type": "number",
+     "title": "Minutest De-energized",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "reenergization_datetime": {
+     "type": "string",
+     "description": "Epoch milliseconds (Esri date field)",
+     "title": "Re-energization Datetime",
+     "x-esri-field-type": "esriFieldTypeDate"
+    },
+    "stationid": {
+     "type": "string",
+     "title": "Weather Station ID",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  },
+  "FireThreatTier3": {
+   "type": "object",
+   "title": "CPUC_Fire_Threat_Areas____Tier_3___Extreme",
+   "description": "Attributes of DRPEP Firemap layer 2 (CPUC_Fire_Threat_Areas____Tier_3___Extreme).",
+   "x-source": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/Firemap/FeatureServer/2?f=json",
+   "properties": {
+    "acres": {
+     "type": "number",
+     "title": "Acres",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "tierlvl": {
+     "type": "number",
+     "title": "TierLvl",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "shape_leng": {
+     "type": "number",
+     "title": "Shape_Leng",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "f_overlaps": {
+     "type": "string",
+     "title": "_overlaps",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "f_segments": {
+     "type": "string",
+     "title": "_segments",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "fid_drough": {
+     "type": "integer",
+     "title": "FID_Drough",
+     "x-esri-field-type": "esriFieldTypeInteger"
+    },
+    "type": {
+     "type": "string",
+     "title": "Type",
+     "x-esri-field-type": "esriFieldTypeString"
+    },
+    "objectid": {
+     "type": "integer",
+     "title": "OBJECTID",
+     "x-esri-field-type": "esriFieldTypeOID"
+    },
+    "SHAPE__Length": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    },
+    "SHAPE__Area": {
+     "type": "number",
+     "x-esri-field-type": "esriFieldTypeDouble"
+    }
+   },
+   "additionalProperties": false
+  }
+ }
+}

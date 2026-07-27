@@ -1,0 +1,89 @@
+{
+ "allowGeometryUpdates": true,
+ "supportsApplyEditsWithGlobalIds": false,
+ "maxRecordCount": 2000,
+ "description": "",
+ "units": "esriMeters",
+ "maxViewsCount": 20,
+ "syncEnabled": false,
+ "tables": [],
+ "hasVersionedData": false,
+ "hasViews": false,
+ "layerOverridesEnabled": true,
+ "supportsRelationshipsResource": true,
+ "layers": [
+  {
+   "name": "Tree_Mortality___Tier_1",
+   "id": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  },
+  {
+   "name": "CPUC_Fire_Threat_Areas____Tier_2___Elevated",
+   "id": 1,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  },
+  {
+   "name": "CPUC_Fire_Threat_Areas____Tier_3___Extreme",
+   "id": 2,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  }
+ ],
+ "spatialReference": {
+  "latestWkid": 3310,
+  "wkid": 3310
+ },
+ "fullExtent": {
+  "ymin": -603305.8842000002,
+  "xmin": -373950.95910000056,
+  "ymax": 453305.9283000007,
+  "xmax": 372387.84690000117,
+  "spatialReference": {
+   "latestWkid": 3310,
+   "wkid": 3310
+  }
+ },
+ "enableZDefaults": true,
+ "allowUpdateWithoutMValues": true,
+ "isLocationTrackingService": false,
+ "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+ "capabilities": "Query",
+ "supportsAppend": true,
+ "supportsDisconnectedEditing": false,
+ "supportsSyncModelNone": true,
+ "supportedAppendFormats": "shapefile,featureCollection",
+ "supportsReturnDeleteResults": true,
+ "currentVersion": 11.1,
+ "advancedEditingCapabilities": {
+  "supportsAsyncApplyEdits": true,
+  "supportsApplyEditsbyUploadID": true,
+  "supportsReturnEditResults": true,
+  "supportedApplyEditsUploadIDFormats": "JSON"
+ },
+ "supportedQueryFormats": "JSON",
+ "initialExtent": {
+  "ymin": -656136.4748250003,
+  "xmin": -840889.3277018127,
+  "ymax": 506136.5189250008,
+  "xmax": 839326.2155018133,
+  "spatialReference": {
+   "latestWkid": 3310,
+   "wkid": 3310
+  }
+ },
+ "serviceDescription": "",
+ "editorTrackingInfo": {
+  "allowOthersToUpdate": true,
+  "enableEditorTracking": false,
+  "allowOthersToDelete": false,
+  "allowOthersToQuery": true,
+  "enableOwnershipAccessControl": false
+ },
+ "hasSyncEnabledViews": false,
+ "copyrightText": "",
+ "zDefault": 0,
+ "supportsLayerOverrides": true,
+ "serviceItemId": "4075d18964684ec08557ba6405a32bdd"
+}

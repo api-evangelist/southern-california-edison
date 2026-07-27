@@ -1,0 +1,101 @@
+{
+ "allowGeometryUpdates": true,
+ "supportsApplyEditsWithGlobalIds": false,
+ "maxRecordCount": 5000,
+ "description": "",
+ "units": "esriMeters",
+ "maxViewsCount": 20,
+ "syncEnabled": false,
+ "tables": [
+  {
+   "name": "LNBA_FGDB_DATE_TIME",
+   "id": 4,
+   "type": "Table"
+  }
+ ],
+ "hasVersionedData": false,
+ "hasViews": false,
+ "layerOverridesEnabled": true,
+ "supportsRelationshipsResource": true,
+ "layers": [
+  {
+   "name": "DER Growth Scenario, Planning",
+   "id": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "LNBA Short-term, Planning",
+   "id": 1,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "LNBA Mid-term, Planning",
+   "id": 2,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  },
+  {
+   "name": "LNBA Long-term, Planning",
+   "id": 3,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolyline"
+  }
+ ],
+ "spatialReference": {
+  "latestWkid": 3857,
+  "wkid": 102100
+ },
+ "fullExtent": {
+  "ymin": 3922960.2575000003,
+  "xmin": -13410105.7854,
+  "ymax": 4631461.0891999975,
+  "xmax": -12705247.575100001,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "enableZDefaults": true,
+ "allowUpdateWithoutMValues": true,
+ "isLocationTrackingService": false,
+ "supportedExportFormats": "sqlite,filegdb,shapefile,csv,geojson",
+ "capabilities": "Query",
+ "supportsAppend": true,
+ "supportsDisconnectedEditing": false,
+ "supportsSyncModelNone": true,
+ "supportedAppendFormats": "shapefile,featureCollection",
+ "supportsReturnDeleteResults": true,
+ "currentVersion": 11.1,
+ "advancedEditingCapabilities": {
+  "supportsAsyncApplyEdits": true,
+  "supportsApplyEditsbyUploadID": true,
+  "supportsReturnEditResults": true,
+  "supportedApplyEditsUploadIDFormats": "JSON"
+ },
+ "supportedQueryFormats": "JSON",
+ "initialExtent": {
+  "ymin": 4461575.884812706,
+  "xmin": -13317126.377148218,
+  "ymax": 5820657.519911055,
+  "xmax": -11290186.574659131,
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100
+  }
+ },
+ "serviceDescription": "",
+ "editorTrackingInfo": {
+  "allowOthersToUpdate": true,
+  "enableEditorTracking": false,
+  "allowOthersToDelete": false,
+  "allowOthersToQuery": true,
+  "enableOwnershipAccessControl": false
+ },
+ "hasSyncEnabledViews": false,
+ "copyrightText": "",
+ "zDefault": 0,
+ "supportsLayerOverrides": true,
+ "serviceItemId": "4a04dbc7b27a4d869a6f27eb1a2dfdb7"
+}
