@@ -1,0 +1,1051 @@
+{
+  "item": [
+    {
+      "id": "08e8d47f-7858-4e7f-9326-eea077510b5b",
+      "name": "Server",
+      "description": {
+        "content": "ArcGIS Enterprise server metadata and the service catalog.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51db86ea-256b-4735-abfe-66aadc6e2647",
+          "name": "Get ArcGIS Enterprise server info",
+          "request": {
+            "name": "Get ArcGIS Enterprise server info",
+            "description": {
+              "content": "Returns the ArcGIS Enterprise version and token-service metadata for the DRPEP server. Note that `authInfo.isTokenBasedSecurity` is true even though the Hosted folder services answer anonymously - the flag describes the server, not the public sharing of those services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arcgis_server",
+                "rest",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb85bfb2-91c4-47f9-a733-88de7604b4f9",
+              "name": "Server info document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arcgis_server",
+                    "rest",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 11.1,\n  \"fullVersion\": \"11.1.0\",\n  \"soapUrl\": \"https://drpep.sce.com/arcgis_server/services\",\n  \"secureSoapUrl\": null,\n  \"owningSystemUrl\": \"https://drpep.sce.com/arcgis_portal\",\n  \"authInfo\": {\n    \"isTokenBasedSecurity\": true,\n    \"tokenServicesUrl\": \"https://drpep.sce.com/arcgis_portal/sharing/rest/generateToken\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcad4ff1-36ea-43b8-87bd-4858ab561293",
+          "name": "List the root service catalog",
+          "request": {
+            "name": "List the root service catalog",
+            "description": {
+              "content": "Lists the folders and root-level services on the DRPEP ArcGIS server. Observed: two folders, `Hosted` (public) and `Utilities` (token-required), and no root services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arcgis_server",
+                "rest",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b863e38-513d-4dce-9cfd-f4afcb787bb7",
+              "name": "Catalog document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arcgis_server",
+                    "rest",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 11.1,\n  \"folders\": [\n    \"Hosted\",\n    \"Utilities\"\n  ],\n  \"services\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8002612b-a48d-4475-8171-3d896ea09b78",
+          "name": "List the public Hosted feature services",
+          "request": {
+            "name": "List the public Hosted feature services",
+            "description": {
+              "content": "Lists the 15 hosted FeatureServers DRPEP shares publicly. This is the entry point for any anonymous consumer of SCE grid data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arcgis_server",
+                "rest",
+                "services",
+                "Hosted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d22de360-c377-4f78-af6b-351c6ea1a883",
+              "name": "Folder catalog with the hosted services.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arcgis_server",
+                    "rest",
+                    "services",
+                    "Hosted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 11.1,\n  \"folders\": [],\n  \"services\": [\n    {\n      \"name\": \"Hosted/AVL_LOAD_CAP_TOGGLE\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/AVL_LOAD_HEAT_MAP_TOGGLE\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/DDOR_Layer\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/Distribution_circuits\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/DRP_PSPS_Layer\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/DRP_ScreenL_08202021\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/DRP_Transmission_Projects\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/Firemap\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/GNA_Layer\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/ICA_Layer\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/ICA_Tables\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/LNBA_Layer\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/LOAD_GROWTH_PEN_HTMAP\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/MGEP_AVL_LOAD_HEAT_MAP\",\n      \"type\": \"FeatureServer\"\n    },\n    {\n      \"name\": \"Hosted/SUBTRANS_HEATMAP\",\n      \"type\": \"FeatureServer\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c2c71865-e485-416c-8a6e-af8e217e3618",
+      "name": "Feature Services",
+      "description": {
+        "content": "The 15 hosted FeatureServers and their layer/table descriptors.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25d562f1-85cc-4472-8a8a-26bbe22995b5",
+          "name": "Get a feature service descriptor",
+          "request": {
+            "name": "Get a feature service descriptor",
+            "description": {
+              "content": "Returns the service-level descriptor: its layers and tables, `maxRecordCount` (2,000 or 5,000 depending on the service), supported query capabilities, and spatial reference. Every DRPEP hosted service advertises `capabilities: Query`; `DRP_Transmission_Projects` additionally advertises `Extract`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arcgis_server",
+                "rest",
+                "services",
+                "Hosted",
+                ":serviceName",
+                "FeatureServer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serviceName",
+                  "description": "(Required) Name of a hosted feature service, as returned by `listHostedServices`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28353071-dabf-4d36-bcbd-53612ff5abec",
+              "name": "Feature service descriptor, or an ArcGIS error envelope for an unknown service.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arcgis_server",
+                    "rest",
+                    "services",
+                    "Hosted",
+                    ":serviceName",
+                    "FeatureServer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "serviceName",
+                      "description": "(Required) Name of a hosted feature service, as returned by `listHostedServices`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 1204.620028036939,\n  \"serviceDescription\": \"string\",\n  \"maxRecordCount\": 8815,\n  \"capabilities\": \"Query\",\n  \"layers\": [\n    {\n      \"id\": 5893,\n      \"name\": \"string\",\n      \"type\": \"Feature Layer\",\n      \"geometryType\": \"string\"\n    },\n    {\n      \"id\": 8784,\n      \"name\": \"string\",\n      \"type\": \"Feature Layer\",\n      \"geometryType\": \"string\"\n    }\n  ],\n  \"tables\": [\n    {\n      \"id\": 5829,\n      \"name\": \"string\",\n      \"type\": \"Feature Layer\",\n      \"geometryType\": \"string\"\n    },\n    {\n      \"id\": 827,\n      \"name\": \"string\",\n      \"type\": \"Table\",\n      \"geometryType\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16de828b-8873-4317-90bf-cd57704a5c2a",
+          "name": "Get a feature layer or table descriptor",
+          "request": {
+            "name": "Get a feature layer or table descriptor",
+            "description": {
+              "content": "Returns the layer descriptor including the full field list (name, Esri type, alias), geometry type, drawing info, `maxRecordCount`, and `advancedQueryCapabilities` (pagination, statistics, order-by, distinct are all supported on these layers). The field list is the only field-level documentation SCE provides for DRPEP data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arcgis_server",
+                "rest",
+                "services",
+                "Hosted",
+                ":serviceName",
+                "FeatureServer",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serviceName",
+                  "description": "(Required) Name of a hosted feature service, as returned by `listHostedServices`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "layerId",
+                  "description": "(Required) Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See `x-drpep-inventory` in this document for the full 58-entry layer/table map."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef4802c2-c6e5-474e-a7c9-4a292348e710",
+              "name": "Layer/table descriptor, or an ArcGIS error envelope.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arcgis_server",
+                    "rest",
+                    "services",
+                    "Hosted",
+                    ":serviceName",
+                    "FeatureServer",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "serviceName",
+                      "description": "(Required) Name of a hosted feature service, as returned by `listHostedServices`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "layerId",
+                      "description": "(Required) Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See `x-drpep-inventory` in this document for the full 58-entry layer/table map."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8755,\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"geometryType\": \"string\",\n  \"maxRecordCount\": 8732,\n  \"objectIdField\": \"string\",\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"alias\": \"string\",\n      \"type\": \"string\",\n      \"length\": 2402\n    },\n    {\n      \"name\": \"string\",\n      \"alias\": \"string\",\n      \"type\": \"string\",\n      \"length\": 7123\n    }\n  ],\n  \"advancedQueryCapabilities\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "18f32bc4-86ff-412c-8704-4d2b657aca79",
+      "name": "Query",
+      "description": {
+        "content": "Attribute and spatial queries against a feature layer or table.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "037066ac-2cc5-4c0c-aa25-5df27b9fc57e",
+          "name": "Query features from a layer or table",
+          "request": {
+            "name": "Query features from a layer or table",
+            "description": {
+              "content": "The workhorse operation. Runs a SQL-92 attribute filter and/or a spatial filter against one layer and returns matching features as Esri JSON (`f=json`) or GeoJSON (`f=geojson`, verified working). Paging is offset-based via `resultOffset` + `resultRecordCount`; when a response is truncated the body carries `exceededTransferLimit: true` and the caller must page. Errors are returned with HTTP 200 and an `error` envelope, not an HTTP error status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "arcgis_server",
+                "rest",
+                "services",
+                "Hosted",
+                ":serviceName",
+                "FeatureServer",
+                ":layerId",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "1=1",
+                  "description": "SQL-92 WHERE clause applied to the layer attributes. Use `1=1` to select everything. A malformed clause returns HTTP 200 with an ArcGIS error envelope (code 500, 'Syntax error')."
+                },
+                {
+                  "disabled": false,
+                  "key": "objectIds",
+                  "value": "<string>",
+                  "description": "Comma-separated list of ObjectIDs to fetch instead of a where clause."
+                },
+                {
+                  "disabled": false,
+                  "key": "geometry",
+                  "value": "<string>",
+                  "description": "Geometry used to spatially filter the layer, in the format implied by geometryType (e.g. an envelope `xmin,ymin,xmax,ymax`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "geometryType",
+                  "value": "<string>",
+                  "description": "Type of the geometry filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "spatialRel",
+                  "value": "esriSpatialRelIntersects",
+                  "description": "Spatial relationship applied between the input geometry and the layer geometry."
+                },
+                {
+                  "disabled": false,
+                  "key": "inSR",
+                  "value": "<string>",
+                  "description": "Spatial reference of the input geometry (WKID)."
+                },
+                {
+                  "disabled": false,
+                  "key": "outSR",
+                  "value": "<string>",
+                  "description": "Spatial reference the returned geometry is projected into (WKID)."
+                },
+                {
+                  "disabled": false,
+                  "key": "outFields",
+                  "value": "*",
+                  "description": "Comma-separated attribute list to return, or `*` for all. Field names come from the layer descriptor."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnGeometry",
+                  "value": "true",
+                  "description": "Whether to include geometry with each feature. Set false for attribute-only pulls."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnCountOnly",
+                  "value": "false",
+                  "description": "Return only the matching feature count. Verified: `where=1=1&returnCountOnly=true` on ICA - Circuit Segments returned 676,467."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnIdsOnly",
+                  "value": "false",
+                  "description": "Return only the matching ObjectIDs - the standard way to page a layer larger than maxRecordCount."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderByFields",
+                  "value": "<string>",
+                  "description": "Comma-separated ORDER BY expression. Supported (supportsOrderBy is true on these layers)."
+                },
+                {
+                  "disabled": false,
+                  "key": "groupByFieldsForStatistics",
+                  "value": "<string>",
+                  "description": "Fields to group by when computing outStatistics."
+                },
+                {
+                  "disabled": false,
+                  "key": "outStatistics",
+                  "value": "<string>",
+                  "description": "JSON array of statistic definitions (count/sum/min/max/avg/stddev). Supported (supportsStatistics is true)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resultOffset",
+                  "value": "<integer>",
+                  "description": "Zero-based offset for pagination. Supported (supportsPagination is true)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resultRecordCount",
+                  "value": "<integer>",
+                  "description": "Maximum number of features to return in this page; capped by the layer maxRecordCount (2,000 or 5,000 on these services)."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDistinctValues",
+                  "value": "false",
+                  "description": "Return distinct values for the requested outFields (supportsDistinct is true)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resultType",
+                  "value": "<string>",
+                  "description": "Query result hint."
+                },
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serviceName",
+                  "description": "(Required) Name of a hosted feature service, as returned by `listHostedServices`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "layerId",
+                  "description": "(Required) Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See `x-drpep-inventory` in this document for the full 58-entry layer/table map."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f1be520-6a27-4799-9a24-a2732363fece",
+              "name": "A feature set, a count, an id list, or an ArcGIS error envelope - all with HTTP 200.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "arcgis_server",
+                    "rest",
+                    "services",
+                    "Hosted",
+                    ":serviceName",
+                    "FeatureServer",
+                    ":layerId",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "where",
+                      "value": "circuit_name = 'Acapulco'"
+                    },
+                    {
+                      "key": "objectIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geometry",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geometryType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spatialRel",
+                      "value": "esriSpatialRelIntersects"
+                    },
+                    {
+                      "key": "inSR",
+                      "value": "4326"
+                    },
+                    {
+                      "key": "outSR",
+                      "value": "4326"
+                    },
+                    {
+                      "key": "outFields",
+                      "value": "circuit_name,ica_overall_pv"
+                    },
+                    {
+                      "key": "returnGeometry",
+                      "value": "true"
+                    },
+                    {
+                      "key": "returnCountOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnIdsOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "orderByFields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupByFieldsForStatistics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outStatistics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resultOffset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resultRecordCount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "returnDistinctValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "resultType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "f",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "serviceName",
+                      "description": "(Required) Name of a hosted feature service, as returned by `listHostedServices`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "layerId",
+                      "description": "(Required) Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See `x-drpep-inventory` in this document for the full 58-entry layer/table map."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 676467\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "beb7640f-7a91-4084-8139-04426fb0d309",
+      "name": "DRPEP Portal",
+      "description": {
+        "content": "Undocumented JSON endpoints the DRPEP web app calls directly. Observed answering anonymously; SCE publishes no contract for them.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "765f3d41-4190-4033-b637-eb9b4fb5a30c",
+          "name": "Get operational-flexibility (Op Flex) status for a circuit",
+          "request": {
+            "name": "Get operational-flexibility (Op Flex) status for a circuit",
+            "description": {
+              "content": "Undocumented JSON endpoint called by the DRPEP web application. Observed answering anonymously with HTTP 200 and the body `{\"beingProcessed\":false,\"title\":null,\"op3Disclaimer\":null}` for an unknown circuit. SCE publishes no contract, no field reference, and no support commitment for this endpoint; treat it as unstable.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "op3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "circuit",
+                  "value": "<string>",
+                  "description": "(Required) Circuit name, as found in the `circuit_name` attribute of the ICA layers."
+                },
+                {
+                  "disabled": false,
+                  "key": "kv",
+                  "value": "<string>",
+                  "description": "Circuit voltage in kV, as found in the `circuit_voltage` attribute."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9f67838-d06b-46be-b0a3-47a30241c65e",
+              "name": "Op Flex status document.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "op3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "circuit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kv",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"beingProcessed\": false,\n  \"title\": null,\n  \"op3Disclaimer\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17e44eac-e3fa-466a-b0cf-f28d1eedb271",
+          "name": "Request the ICA CSV export for a circuit node",
+          "request": {
+            "name": "Request the ICA CSV export for a circuit node",
+            "description": {
+              "content": "Undocumented JSON endpoint behind the DRPEP app per-node CSV download. Observed answering anonymously with HTTP 201 and `{\"status\":false}` for unknown inputs. The stable, documented-by-data path to the same exports is the `download_link` attribute carried on each ICA circuit segment feature.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "DownloadCSV"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "circuitName",
+                  "value": "<string>",
+                  "description": "(Required) Circuit name from `circuit_name`."
+                },
+                {
+                  "disabled": false,
+                  "key": "nodeName",
+                  "value": "<string>",
+                  "description": "(Required) Node identifier from `node_id`."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c83ba4e4-a2f4-4d83-84af-a2d3acbc8a2b",
+              "name": "Export request acknowledgement.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "DownloadCSV"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "circuitName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nodeName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://drpep.sce.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c44750a7-1118-4b6c-8efa-370f7411d154",
+    "name": "SCE DRPEP ArcGIS REST Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Machine-readable description of the anonymous grid-data API that Southern California Edison serves at `drpep.sce.com`. SCE publishes **no** OpenAPI, no developer portal, and no written API reference for this surface; this document was generated by API Evangelist from live, unauthenticated probes of the service itself (ArcGIS Enterprise 11.1 REST, `f=json`) on 2026-07-27 and from the service, layer, and field descriptors saved verbatim under `arcgis/` in this repository. Every path, parameter, and example below was observed answering anonymously with HTTP 200 - nothing here is aspirational.\n\nThe catalog exposes 15 hosted FeatureServers covering 47 feature layers and 11 tables: Integration Capacity Analysis (ICA) circuit segments and their generation/load constraint layers, distribution circuits, substations, the Distribution Deferral Opportunity Report (DDOR), the Grid Needs Assessment (GNA), Locational Net Benefit Analysis (LNBA), Public Safety Power Shutoff (PSPS) boundaries, CPUC fire-threat tiers, transmission projects, available-load and subtransmission heat maps, and load-growth penetration. The ICA circuit-segment layer alone answers 676,467 features.\n\nRead-only: every hosted service advertises `capabilities: Query` (DRP_Transmission_Projects also allows `Extract`). There is no write surface, no API key, and no rate-limit header. The sibling `Utilities` folder on the same server is NOT open - it returns `{\"error\":{\"code\":499,\"message\":\"Token Required\"}}`.\n\nThis spec does not cover SCE Green Button Connect My Data. That interface is real and mandated by CPUC tariff Rule 26, but SCE discloses no base URI, endpoint, or scope publicly; see `authentication/` and the repository review for what is actually known.\n\nContact Support:\n Name: API Evangelist (generator of this description, not the API operator)",
+      "type": "text/plain"
+    }
+  }
+}

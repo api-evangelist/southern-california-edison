@@ -1,0 +1,344 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SCE DRPEP ArcGIS REST Services",
+    "version": "11.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Server",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get ArcGIS Enterprise server info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/arcgis_server/rest/info",
+            "params": [
+              {
+                "name": "f",
+                "value": "json",
+                "type": "query",
+                "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+              }
+            ]
+          },
+          "docs": "Returns the ArcGIS Enterprise version and token-service metadata for the DRPEP server. Note that `authInfo.isTokenBasedSecurity` is true even though the Hosted folder services answer anonymously - the flag describes the server, not the public sharing of those services."
+        },
+        {
+          "info": {
+            "name": "List the root service catalog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/arcgis_server/rest/services",
+            "params": [
+              {
+                "name": "f",
+                "value": "json",
+                "type": "query",
+                "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+              }
+            ]
+          },
+          "docs": "Lists the folders and root-level services on the DRPEP ArcGIS server. Observed: two folders, `Hosted` (public) and `Utilities` (token-required), and no root services."
+        },
+        {
+          "info": {
+            "name": "List the public Hosted feature services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/arcgis_server/rest/services/Hosted",
+            "params": [
+              {
+                "name": "f",
+                "value": "json",
+                "type": "query",
+                "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+              }
+            ]
+          },
+          "docs": "Lists the 15 hosted FeatureServers DRPEP shares publicly. This is the entry point for any anonymous consumer of SCE grid data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Feature Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a feature service descriptor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/:serviceName/FeatureServer",
+            "params": [
+              {
+                "name": "serviceName",
+                "value": "ICA_Layer",
+                "type": "path",
+                "description": "Name of a hosted feature service, as returned by `listHostedServices`."
+              },
+              {
+                "name": "f",
+                "value": "json",
+                "type": "query",
+                "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+              }
+            ]
+          },
+          "docs": "Returns the service-level descriptor: its layers and tables, `maxRecordCount` (2,000 or 5,000 depending on the service), supported query capabilities, and spatial reference. Every DRPEP hosted service advertises `capabilities: Query`; `DRP_Transmission_Projects` additionally advertises `Extract`."
+        },
+        {
+          "info": {
+            "name": "Get a feature layer or table descriptor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/:serviceName/FeatureServer/:layerId",
+            "params": [
+              {
+                "name": "serviceName",
+                "value": "ICA_Layer",
+                "type": "path",
+                "description": "Name of a hosted feature service, as returned by `listHostedServices`."
+              },
+              {
+                "name": "layerId",
+                "value": "0",
+                "type": "path",
+                "description": "Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See `x-drpep-inventory` in this document for the full 58-entry layer/table map."
+              },
+              {
+                "name": "f",
+                "value": "json",
+                "type": "query",
+                "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+              }
+            ]
+          },
+          "docs": "Returns the layer descriptor including the full field list (name, Esri type, alias), geometry type, drawing info, `maxRecordCount`, and `advancedQueryCapabilities` (pagination, statistics, order-by, distinct are all supported on these layers). The field list is the only field-level documentation SCE provides for DRPEP data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query features from a layer or table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/arcgis_server/rest/services/Hosted/:serviceName/FeatureServer/:layerId/query",
+            "params": [
+              {
+                "name": "serviceName",
+                "value": "ICA_Layer",
+                "type": "path",
+                "description": "Name of a hosted feature service, as returned by `listHostedServices`."
+              },
+              {
+                "name": "layerId",
+                "value": "0",
+                "type": "path",
+                "description": "Zero-based id of a layer or table inside the feature service, as returned by `getFeatureService`. See `x-drpep-inventory` in this document for the full 58-entry layer/table map."
+              },
+              {
+                "name": "where",
+                "value": "circuit_name = 'Acapulco'",
+                "type": "query",
+                "description": "SQL-92 WHERE clause applied to the layer attributes. Use `1=1` to select everything. A malformed clause returns HTTP 200 with an ArcGIS error envelope (code 500, 'Syntax error')."
+              },
+              {
+                "name": "objectIds",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of ObjectIDs to fetch instead of a where clause."
+              },
+              {
+                "name": "geometry",
+                "value": "",
+                "type": "query",
+                "description": "Geometry used to spatially filter the layer, in the format implied by geometryType (e.g. an envelope `xmin,ymin,xmax,ymax`)."
+              },
+              {
+                "name": "geometryType",
+                "value": "",
+                "type": "query",
+                "description": "Type of the geometry filter."
+              },
+              {
+                "name": "spatialRel",
+                "value": "",
+                "type": "query",
+                "description": "Spatial relationship applied between the input geometry and the layer geometry."
+              },
+              {
+                "name": "inSR",
+                "value": "4326",
+                "type": "query",
+                "description": "Spatial reference of the input geometry (WKID)."
+              },
+              {
+                "name": "outSR",
+                "value": "4326",
+                "type": "query",
+                "description": "Spatial reference the returned geometry is projected into (WKID)."
+              },
+              {
+                "name": "outFields",
+                "value": "circuit_name,ica_overall_pv",
+                "type": "query",
+                "description": "Comma-separated attribute list to return, or `*` for all. Field names come from the layer descriptor."
+              },
+              {
+                "name": "returnGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include geometry with each feature. Set false for attribute-only pulls."
+              },
+              {
+                "name": "returnCountOnly",
+                "value": "",
+                "type": "query",
+                "description": "Return only the matching feature count. Verified: `where=1=1&returnCountOnly=true` on ICA - Circuit Segments returned 676,467."
+              },
+              {
+                "name": "returnIdsOnly",
+                "value": "",
+                "type": "query",
+                "description": "Return only the matching ObjectIDs - the standard way to page a layer larger than maxRecordCount."
+              },
+              {
+                "name": "orderByFields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated ORDER BY expression. Supported (supportsOrderBy is true on these layers)."
+              },
+              {
+                "name": "groupByFieldsForStatistics",
+                "value": "",
+                "type": "query",
+                "description": "Fields to group by when computing outStatistics."
+              },
+              {
+                "name": "outStatistics",
+                "value": "",
+                "type": "query",
+                "description": "JSON array of statistic definitions (count/sum/min/max/avg/stddev). Supported (supportsStatistics is true)."
+              },
+              {
+                "name": "resultOffset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for pagination. Supported (supportsPagination is true)."
+              },
+              {
+                "name": "resultRecordCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of features to return in this page; capped by the layer maxRecordCount (2,000 or 5,000 on these services)."
+              },
+              {
+                "name": "returnDistinctValues",
+                "value": "",
+                "type": "query",
+                "description": "Return distinct values for the requested outFields (supportsDistinct is true)."
+              },
+              {
+                "name": "resultType",
+                "value": "",
+                "type": "query",
+                "description": "Query result hint."
+              },
+              {
+                "name": "f",
+                "value": "json",
+                "type": "query",
+                "description": "Response format. `json` (Esri JSON), `pjson` (pretty JSON), `geojson` (GeoJSON - verified supported on hosted feature layers), or `html` (the default ArcGIS REST Services Directory page). Always send `f=json` for machine use; without it the service returns HTML."
+              }
+            ]
+          },
+          "docs": "The workhorse operation. Runs a SQL-92 attribute filter and/or a spatial filter against one layer and returns matching features as Esri JSON (`f=json`) or GeoJSON (`f=geojson`, verified working). Paging is offset-based via `resultOffset` + `resultRecordCount`; when a response is truncated the body carries `exceededTransferLimit: true` and the caller must page. Errors are returned with HTTP 200 and an `error` envelope, not an HTTP error status."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "DRPEP Portal",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get operational-flexibility (Op Flex) status for a circuit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/api/op3",
+            "params": [
+              {
+                "name": "circuit",
+                "value": "",
+                "type": "query",
+                "description": "Circuit name, as found in the `circuit_name` attribute of the ICA layers."
+              },
+              {
+                "name": "kv",
+                "value": "",
+                "type": "query",
+                "description": "Circuit voltage in kV, as found in the `circuit_voltage` attribute."
+              }
+            ]
+          },
+          "docs": "Undocumented JSON endpoint called by the DRPEP web application. Observed answering anonymously with HTTP 200 and the body `{\"beingProcessed\":false,\"title\":null,\"op3Disclaimer\":null}` for an unknown circuit. SCE publishes no contract, no field reference, and no support commitment for this endpoint; treat it as unstable."
+        },
+        {
+          "info": {
+            "name": "Request the ICA CSV export for a circuit node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://drpep.sce.com/api/DownloadCSV",
+            "params": [
+              {
+                "name": "circuitName",
+                "value": "",
+                "type": "query",
+                "description": "Circuit name from `circuit_name`."
+              },
+              {
+                "name": "nodeName",
+                "value": "",
+                "type": "query",
+                "description": "Node identifier from `node_id`."
+              }
+            ]
+          },
+          "docs": "Undocumented JSON endpoint behind the DRPEP app per-node CSV download. Observed answering anonymously with HTTP 201 and `{\"status\":false}` for unknown inputs. The stable, documented-by-data path to the same exports is the `download_link` attribute carried on each ICA circuit segment feature."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
