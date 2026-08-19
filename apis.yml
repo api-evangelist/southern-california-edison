@@ -37,7 +37,7 @@ tags:
 - California
 created: '2026-07-27'
 modified: '2026-07-27'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: southern-california-edison:sce-green-button-connect-my-data
   name: SCE Green Button Connect My Data
