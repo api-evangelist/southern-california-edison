@@ -61,6 +61,12 @@ apis:
   - Green Button
   - Customer Data
   - Smart Metering
+  - Authentication
+  - ESPI
+  tags_raw:
+  - Green Button
+  - Customer Data
+  - Smart Metering
   - OAuth
   - ESPI
   properties:
