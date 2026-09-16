@@ -2,25 +2,21 @@ aid: southern-california-edison
 url: https://raw.githubusercontent.com/api-evangelist/southern-california-edison/refs/heads/main/apis.yml
 name: Southern California Edison
 kind: company
-description: Southern California Edison (SCE) is the regulated electric utility subsidiary
-  of Edison International, delivering power to roughly 15 million people across a 50,000
-  square-mile service territory in central, coastal, and southern California. In the
-  United States energy value chain SCE sits at the distribution and retail layer as
-  an investor-owned utility (IOU) regulated by the California Public Utilities Commission,
-  operating the meters, the distribution grid, and the customer of record relationship
-  that every downstream energy-data platform, DER aggregator, demand response provider,
-  and solar installer ultimately depends on. Its API posture splits cleanly in two.
-  Consumer data is mandated but closed to the open web - SCE runs Green Button Connect
-  My Data through its Customer Data Access platform under CPUC tariff Rule 26 (Advice
-  3087-E, Decision 14-05-016), and states publicly that third parties need OAuth 2.0
-  and bulk API capability consistent with the NAESB ESPI standard, but publishes no
-  developer portal, no base URI, no OpenAPI, and no sandbox - a third party must register
-  with a Taxpayer Identification Number, accept terms, and pass a machine-to-machine
-  connectivity test before any endpoint is disclosed. Grid data is genuinely open -
-  SCE's Distribution Resources Plan External Portal (DRPEP) serves Integration Capacity
-  Analysis, distribution circuit, PSPS, fire map, and load growth layers over an anonymous,
-  unauthenticated ArcGIS REST service catalog that any developer can query today without
-  a key.
+description: Southern California Edison (SCE) is the regulated electric utility subsidiary of Edison International,
+  delivering power to roughly 15 million people across a 50,000 square-mile service territory in central,
+  coastal, and southern California. In the United States energy value chain SCE sits at the distribution
+  and retail layer as an investor-owned utility (IOU) regulated by the California Public Utilities Commission,
+  operating the meters, the distribution grid, and the customer of record relationship that every downstream
+  energy-data platform, DER aggregator, demand response provider, and solar installer ultimately depends
+  on. Its API posture splits cleanly in two. Consumer data is mandated but closed to the open web - SCE
+  runs Green Button Connect My Data through its Customer Data Access platform under CPUC tariff Rule 26
+  (Advice 3087-E, Decision 14-05-016), and states publicly that third parties need OAuth 2.0 and bulk
+  API capability consistent with the NAESB ESPI standard, but publishes no developer portal, no base URI,
+  no OpenAPI, and no sandbox - a third party must register with a Taxpayer Identification Number, accept
+  terms, and pass a machine-to-machine connectivity test before any endpoint is disclosed. Grid data is
+  genuinely open - SCE's Distribution Resources Plan External Portal (DRPEP) serves Integration Capacity
+  Analysis, distribution circuit, PSPS, fire map, and load growth layers over an anonymous, unauthenticated
+  ArcGIS REST service catalog that any developer can query today without a key.
 deliveryModel:
   model: saas
   open_source: false
@@ -61,15 +57,14 @@ tags:
 - EV Charging
 - California
 created: '2026-07-27'
-modified: '2026-07-27'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: southern-california-edison:sce-green-button-connect-my-data
   name: SCE Green Button Connect My Data
-  description: >-
-    SCE's Customer Data Access (CDA) platform, through which a customer can authorize a registered third
-    party to receive their electric usage and billing data. SCE states on its public third-party page
-    that the program "leverages technology consistent with the standard adopted by the North American
+  description: SCE's Customer Data Access (CDA) platform, through which a customer can authorize a registered
+    third party to receive their electric usage and billing data. SCE states on its public third-party
+    page that the program "leverages technology consistent with the standard adopted by the North American
     Energy Standards Board (NAESB) to support the Green Button Initiative" and that third parties must
     have "technical system capabilities to complete customer authorization using OAuth 2.0 and process
     files that are transferred using bulk API." No base URI, endpoint list, OpenAPI definition, scope
@@ -111,9 +106,8 @@ apis:
     url: authentication/southern-california-edison-authentication.yml
 - aid: southern-california-edison:southern-california-edison-drpep-portal-api
   name: Southern California Edison DRPEP Portal API
-  description: >-
-    Undocumented JSON endpoints the DRPEP web app calls directly. Observed answering anonymously; SCE
-    publishes no contract for them.
+  description: Undocumented JSON endpoints the DRPEP web app calls directly. Observed answering anonymously;
+    SCE publishes no contract for them.
   humanURL: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
   baseURL: https://drpep.sce.com/arcgis_server/rest/services
   tags:
@@ -285,7 +279,7 @@ common:
 - type: AgentSkill
   url: skills/_index.yml
 - type: OpenAPI
-  url: openapi/southern-california-edison-drpep-arcgis-openapi.yml
+  url: openapi/_original/southern-california-edison-drpep-arcgis-openapi.yml
 - type: JsonSchema
   url: json-schema/southern-california-edison-drpep-layers-schema.json
 maintainers:
