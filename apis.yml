@@ -207,6 +207,8 @@ apis:
   humanURL: https://www.sce.com/partners/3rd-party-energy-providers/access-energy-usage-data
   baseURL: https://drpep.sce.com/arcgis_server/rest/services
   tags:
+  - Servers
+  tags_raw:
   - Server
   properties:
   - type: OpenAPI
