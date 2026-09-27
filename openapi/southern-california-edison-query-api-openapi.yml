@@ -261,6 +261,29 @@ paths:
                 description: GeoJSON FeatureCollection, returned when f=geojson.
 components:
   schemas:
+    ErrorEnvelope:
+      type: object
+      description: ArcGIS error envelope. Returned with HTTP 200; the transport status is not the error signal.
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+              examples:
+              - 400
+              - 404
+              - 498
+              - 499
+              - 500
+            message:
+              type: string
+            messageCode:
+              type: string
+            details:
+              type: array
+              items:
+                type: string
     FeatureSet:
       type: object
       description: Esri JSON feature set returned by a query.
@@ -289,29 +312,6 @@ components:
                 type: object
               geometry:
                 type: object
-    ErrorEnvelope:
-      type: object
-      description: ArcGIS error envelope. Returned with HTTP 200; the transport status is not the error signal.
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-              examples:
-              - 400
-              - 404
-              - 498
-              - 499
-              - 500
-            message:
-              type: string
-            messageCode:
-              type: string
-            details:
-              type: array
-              items:
-                type: string
     Field:
       type: object
       properties:
