@@ -284,6 +284,23 @@ components:
               type: array
               items:
                 type: string
+    CountResult:
+      type: object
+      properties:
+        count:
+          type: integer
+    Field:
+      type: object
+      properties:
+        name:
+          type: string
+        alias:
+          type: string
+        type:
+          type: string
+          description: Esri field type, e.g. esriFieldTypeString.
+        length:
+          type: integer
     FeatureSet:
       type: object
       description: Esri JSON feature set returned by a query.
@@ -312,23 +329,6 @@ components:
                 type: object
               geometry:
                 type: object
-    Field:
-      type: object
-      properties:
-        name:
-          type: string
-        alias:
-          type: string
-        type:
-          type: string
-          description: Esri field type, e.g. esriFieldTypeString.
-        length:
-          type: integer
-    CountResult:
-      type: object
-      properties:
-        count:
-          type: integer
 externalDocs:
   description: DRPEP portal (Esri Experience Builder app over these services)
   url: https://drpep.sce.com/drpep/

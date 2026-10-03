@@ -160,28 +160,6 @@ paths:
                   type: FeatureServer
 components:
   schemas:
-    ServiceCatalog:
-      type: object
-      description: A folder listing of ArcGIS services.
-      properties:
-        currentVersion:
-          type: number
-        folders:
-          type: array
-          items:
-            type: string
-        services:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              type:
-                type: string
-                enum:
-                - FeatureServer
-                - MapServer
     ServerInfo:
       type: object
       description: ArcGIS Enterprise server metadata.
@@ -205,6 +183,28 @@ components:
               type: boolean
             tokenServicesUrl:
               type: string
+    ServiceCatalog:
+      type: object
+      description: A folder listing of ArcGIS services.
+      properties:
+        currentVersion:
+          type: number
+        folders:
+          type: array
+          items:
+            type: string
+        services:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+                enum:
+                - FeatureServer
+                - MapServer
 externalDocs:
   description: DRPEP portal (Esri Experience Builder app over these services)
   url: https://drpep.sce.com/drpep/

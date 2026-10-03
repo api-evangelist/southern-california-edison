@@ -137,6 +137,20 @@ paths:
                 $ref: '#/components/schemas/FeatureLayer'
 components:
   schemas:
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - Feature Layer
+          - Table
+        geometryType:
+          type: string
     FeatureLayer:
       type: object
       description: Feature layer or table descriptor, including the field list.
@@ -159,32 +173,6 @@ components:
             $ref: '#/components/schemas/Field'
         advancedQueryCapabilities:
           type: object
-    LayerSummary:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - Feature Layer
-          - Table
-        geometryType:
-          type: string
-    Field:
-      type: object
-      properties:
-        name:
-          type: string
-        alias:
-          type: string
-        type:
-          type: string
-          description: Esri field type, e.g. esriFieldTypeString.
-        length:
-          type: integer
     FeatureService:
       type: object
       description: Feature service descriptor.
@@ -208,6 +196,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LayerSummary'
+    Field:
+      type: object
+      properties:
+        name:
+          type: string
+        alias:
+          type: string
+        type:
+          type: string
+          description: Esri field type, e.g. esriFieldTypeString.
+        length:
+          type: integer
 externalDocs:
   description: DRPEP portal (Esri Experience Builder app over these services)
   url: https://drpep.sce.com/drpep/
