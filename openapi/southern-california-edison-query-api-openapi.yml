@@ -284,11 +284,6 @@ components:
               type: array
               items:
                 type: string
-    CountResult:
-      type: object
-      properties:
-        count:
-          type: integer
     Field:
       type: object
       properties:
@@ -329,6 +324,11 @@ components:
                 type: object
               geometry:
                 type: object
+    CountResult:
+      type: object
+      properties:
+        count:
+          type: integer
 externalDocs:
   description: DRPEP portal (Esri Experience Builder app over these services)
   url: https://drpep.sce.com/drpep/

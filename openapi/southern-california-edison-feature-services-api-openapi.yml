@@ -137,20 +137,6 @@ paths:
                 $ref: '#/components/schemas/FeatureLayer'
 components:
   schemas:
-    LayerSummary:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - Feature Layer
-          - Table
-        geometryType:
-          type: string
     FeatureLayer:
       type: object
       description: Feature layer or table descriptor, including the field list.
@@ -196,6 +182,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LayerSummary'
+    LayerSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - Feature Layer
+          - Table
+        geometryType:
+          type: string
     Field:
       type: object
       properties:
