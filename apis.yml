@@ -57,7 +57,7 @@ tags:
 - EV Charging
 - California
 created: '2026-07-27'
-modified: '2026-09-16'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: southern-california-edison:sce-green-button-connect-my-data
@@ -236,6 +236,8 @@ apis:
   - type: Catalogs
     url: https://drpep-sce2.opendata.arcgis.com/api/feed/dcat-us/1.1.json
 common:
+- url: https://www.sce.com/rss.xml
+  type: BlogRSS
 - type: Overlay
   url: overlays/southern-california-edison-drpep-arcgis-overlay.yaml
 - type: DomainSecurity
