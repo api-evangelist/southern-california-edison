@@ -1,0 +1,14 @@
+{
+  "repo": "southern-california-edison",
+  "feeds": [
+    {
+      "source": "https://www.sce.com/rss.xml",
+      "feed_url": "https://www.sce.com/rss.xml",
+      "title": "",
+      "saved": 7,
+      "method": "feed"
+    }
+  ],
+  "post_count": 7,
+  "fetched": "2026-10-10T13:15:00Z"
+}
