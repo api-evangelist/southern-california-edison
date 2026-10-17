@@ -261,6 +261,39 @@ paths:
                 description: GeoJSON FeatureCollection, returned when f=geojson.
 components:
   schemas:
+    CountResult:
+      type: object
+      properties:
+        count:
+          type: integer
+    FeatureSet:
+      type: object
+      description: Esri JSON feature set returned by a query.
+      properties:
+        objectIdFieldName:
+          type: string
+        globalIdFieldName:
+          type: string
+        geometryType:
+          type: string
+        spatialReference:
+          type: object
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/Field'
+        exceededTransferLimit:
+          type: boolean
+          description: True when the result was truncated at maxRecordCount - page with resultOffset.
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes:
+                type: object
+              geometry:
+                type: object
     ErrorEnvelope:
       type: object
       description: ArcGIS error envelope. Returned with HTTP 200; the transport status is not the error signal.
@@ -295,39 +328,6 @@ components:
           type: string
           description: Esri field type, e.g. esriFieldTypeString.
         length:
-          type: integer
-    FeatureSet:
-      type: object
-      description: Esri JSON feature set returned by a query.
-      properties:
-        objectIdFieldName:
-          type: string
-        globalIdFieldName:
-          type: string
-        geometryType:
-          type: string
-        spatialReference:
-          type: object
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/Field'
-        exceededTransferLimit:
-          type: boolean
-          description: True when the result was truncated at maxRecordCount - page with resultOffset.
-        features:
-          type: array
-          items:
-            type: object
-            properties:
-              attributes:
-                type: object
-              geometry:
-                type: object
-    CountResult:
-      type: object
-      properties:
-        count:
           type: integer
 externalDocs:
   description: DRPEP portal (Esri Experience Builder app over these services)

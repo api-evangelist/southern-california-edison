@@ -137,28 +137,6 @@ paths:
                 $ref: '#/components/schemas/FeatureLayer'
 components:
   schemas:
-    FeatureLayer:
-      type: object
-      description: Feature layer or table descriptor, including the field list.
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        type:
-          type: string
-        geometryType:
-          type: string
-        maxRecordCount:
-          type: integer
-        objectIdField:
-          type: string
-        fields:
-          type: array
-          items:
-            $ref: '#/components/schemas/Field'
-        advancedQueryCapabilities:
-          type: object
     FeatureService:
       type: object
       description: Feature service descriptor.
@@ -196,6 +174,28 @@ components:
           - Table
         geometryType:
           type: string
+    FeatureLayer:
+      type: object
+      description: Feature layer or table descriptor, including the field list.
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+        geometryType:
+          type: string
+        maxRecordCount:
+          type: integer
+        objectIdField:
+          type: string
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/Field'
+        advancedQueryCapabilities:
+          type: object
     Field:
       type: object
       properties:
