@@ -46,3 +46,32 @@
     detected: '2026-10-13'
   status: not-a-workflow
   arazzo: null
+- slug: southern-california-edison-lf-energy-membership-landscape
+  label: LF Energy (membership / landscape)
+  partner: lf-energy
+  partner_name: LF Energy (membership / landscape)
+  category: LF Energy membership
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/lf-energy/lfenergy-landscape/blob/1364cff4a6379fe8e87568eb5134fd6e8b4ded8e/landscape.yml
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: LF Energy Landscape (github.com/lf-energy/lfenergy-landscape landscape.yml @1364cff4a6)
+    spec_file: null
+    standard: LF Energy
+    role: lfe-member
+    registered_name: Southern California Edison
+    registered_names:
+    - Southern California Edison
+    website: https://sce.com/
+    matched_domain: sce.com
+    matched_by: domain
+    landscape_categories: []
+    landscape_entries: 0
+    signal_note: 'participation only: LF Energy membership / a landscape listing is standard-participant evidence,
+      not depth. Tier, entries and categories are CONTEXT, never counted'
+    detected_by: sweep-lf-energy-projects.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
