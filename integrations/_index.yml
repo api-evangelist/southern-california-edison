@@ -75,3 +75,59 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: southern-california-edison-lf-energy-members
+  label: LF Energy (members)
+  partner: lf-energy
+  partner_name: LF Energy (members)
+  category: open-source energy foundation membership
+  type: register
+  channel: standard-directory
+  evidence: https://landscape.lfenergy.org/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: LF Energy members (landscape.lfenergy.org/data/full.json)
+    standard: LF Energy
+    spec_file: null
+    role: lf-energy-member
+    registered_name: Southern California Edison
+    register_id: lf-energy-member--general--southern-california-edison-member
+    matched_domain: sce.com
+    matched_by: domain
+    signal_note: 'participation only: membership tier is partner_tier, never counted'
+    detected_by: sweep-lf-energy-landscape.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: southern-california-edison-lf-energy-landscape-project-maintainers
+  label: LF Energy landscape (project maintainers)
+  partner: lf-energy
+  partner_name: LF Energy landscape (project maintainers)
+  category: open-source energy project maintenance
+  type: register
+  channel: standard-directory
+  evidence: https://github.com/arras-energy/tsc/blob/HEAD/GOVERNANCE.md
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: LF Energy landscape project attributions (landscape.lfenergy.org/data/full.json crunchbase_url + LF
+      Energy project repo MAINTAINERS / GOVERNANCE files)
+    standard: LF Energy
+    spec_file: null
+    role: lf-energy-project-maintainer
+    registered_name: Southern California Edison
+    matched_domain: sce.com
+    matched_by: domain
+    lf_energy_projects:
+    - project: Arras
+      maturity: sandbox
+      role: TSC voting
+    listed_projects: []
+    listed_projects_total: 0
+    signal_note: 'participation only (''maintains''): the organisation the landscape or a project''s governance
+      file names behind an open-source energy / sustainability project. Projects are CONTEXT, never counted (breadth
+      is not credit)'
+    detected_by: sweep-lf-energy-landscape.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
